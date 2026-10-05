@@ -41,9 +41,185 @@ Meteokorrekturen zusätzlich angebracht
 Die folgenden Abschnitte listen alle Stationen auf, bei denen Sätze deaktiviert oder
 Daten angepasst wurden.
 
-\subsubsection{Gebiet Brichen }
-\label{sec:stationsspezifische_bearbeitung}
+\subsubsection{Gebiet Sperre}
+\label{sec:gebiet_sperre}
+Das Teilgebiet Sperre umfasst die obere Schwergewichtsmauer. Alle Profilpunkte
+der Mauer konnten vom Standpunkt 1000 aus gemessen werden. Die Punkte 340, 520, 530, 540, 720, 730,
+740 wurden nur von einer Station eingemessen.
 
+\begin{table}[H]
+    \centering
+    \begin{tabular}{p{1.5cm} p{6cm} p{5.5cm}}
+        \toprule
+        Station & Feststellung & Massnahme/Bemerkung \\
+        \midrule
+        1000 & Punkt 210 wurde nur im 1. Satz gemessen. Im 2. Satz teils
+        grössere Abweichungen (noch akzeptabel). Einzelne Punkte sind in
+        Infinity nicht deaktivierbar, deshalb wurde Punkt 210 vom 210 ausgeschlossen.
+        Alle Sätze wurden verwendet.
+        & Nachmessung auf 210 in .mes-Datei eingefügt (Erklärung siehe unten) \\
+        \addlinespace
+        2000 & In der vorhandenen .mes-Datei fehlte die Beobachtung nach
+        701. Sie war bei der Datenerfassung vergessen gegangen.
+        & Der gesamte Standpunkt 2000 wurde aus den Daten des .mes-Files der SX12 ergänzt. \\
+        \bottomrule
+    \end{tabular}
+    \caption{Feststellungen und Massnahmen bei der Datenaufbereitung Gebiet Sperre}
+    \label{tab:feststellungen}
+\end{table}
 
+\textbf{Station 1000:} Die Nachmessung der Visur $1000 \rightarrow 210$ wurde im Feld
+nur mit der Anwendung «Messen» und nicht in der Satzmessung aufgenommen. In der
+Auswertung gehen jedoch Richtungen im System der Satzmessungen ein. Die Messung wurde
+daher zuerst umgerechnet und anschliessend als Richtung RI210 in die .mes-Datei eingefügt.
 
+Dazu wurde die Orientierung der Satzmessung zum Punkt 710 bestimmt, der sowohl in der
+Satzmessung als auch in «Messen» gemessen wurde. Sie ergibt sich als Differenz zwischen
+dem Azimut und der reduzierten Richtung der Satzmessung:
+\begin{align*}
+    Orientierung_{710} &= \SI{338.0570}{\gon} - \SI{348.5455}{\gon} = \SI{-10.4885}{\gon}
+\end{align*}
 
+Zur Kontrolle wurde die Orientierung zusätzlich zu Punkt 610 berechnet:
+\begin{align*}
+    Orientierung_{610} &= \SI{347.4518}{\gon} - \SI{357.9403}{\gon} = \SI{-10.4885}{\gon}
+\end{align*}
+
+Beide Punkte liefern denselben Wert. Die in «Messen» gemessene Richtung auf Punkt 210
+($r_{\text{Messen}} = \SI{396.45123}{\gon}$) wurde anschliessend um die Orientierung
+korrigiert und auf den Wertebereich von $0$ bis $\SI{400}{\gon}$ reduziert:
+\begin{align*}
+    r_{210} &= \SI{396.45123}{\gon} - (\SI{-10.4885}{\gon}) = \SI{406.93973}{\gon} \\
+    r_{210} &= \SI{406.93973}{\gon} - \SI{400}{\gon} = \SI{6.93973}{\gon}
+\end{align*}
+
+\subsubsection{Gebiet Brichen}
+\label{sec:gebiet-brichen}
+Das Teilgebiet Brichen konnte im Feld gemäss Messkonzept ohne
+Auffälligkeiten gemessen werden (Wälti et al., 2026).
+Der im Feld fehlende Punkt 7019 wurde neu materialisiert und unter der
+Nummer 7119 eingemessen. Bei der Datenaufbereitung ergaben sich die
+folgenden Feststellungen.
+
+\begin{table}[H]
+    \centering
+    \begin{tabularx}{\textwidth}{p{2.2cm} X X}
+        \toprule
+        Station & Feststellung & Massnahme/Bemerkung \\
+        \midrule
+        7015\_1, 7015\_2 & Von Station 7015\_1 wurden zwei Punkte
+        angemessen (7014, EX7016.4), von Station 7015\_2 nur ein Punkt
+        (7014). & Beide Stationen wurden verwendet. \\
+        \addlinespace
+        7016\_2 & Die Sätze 1--3 hatten grössere Abweichungen.
+        & Es wurden nur die Sätze 4--6 verwendet. \\
+        \addlinespace
+        7119 & Der erste Satz hatte grössere Abweichungen. &
+        Es wurden nur die Sätze 2--6 verwendet. \\
+        \addlinespace
+        7023 & Punkt EX7016.4 wurde mit der falschen Punktnummer
+        (EX7016.2) gemessen. & Im .mes-File wurde die Punktnummer
+        korrigiert. \\
+        \bottomrule
+    \end{tabularx}
+    \caption{Feststellungen und Massnahmen bei der Datenaufbereitung
+    Gebiet Brichen}
+    \label{tab:feststellungen-brichen}
+\end{table}
+
+\subsubsection{Gebiet Ägerdi}
+\label{sec:gebiet-aegerdi}
+Das Gebiet Ägerdi bildet den obersten Teil des Überwachungsperimeters.
+Die Punkte liegen auf einem Polygonzug entlang der Strasse und verteilt
+über die angrenzende Wiese. Zusätzlich wird ein Gebäude über eine
+Zielmarke (6050) überwacht. Die Messungen erfolgten am zweiten Tag der
+Messkampagne und konnten nach der Rodung einzelner Visuren wie geplant
+ausgeführt werden, ergänzt um eine zusätzliche Visur. Der durch eine
+Strassensanierung zerstörte Punkt 6019 wurde durch einen neuen Punkt
+ersetzt und unter der Nummer 6119 ins Netz aufgenommen (Wälti et al., 2026). Bei der Datenaufbereitung
+ergaben sich die folgenden Feststellungen.
+
+\begin{table}[htbp]
+    \centering
+    \begin{tabularx}{\textwidth}{p{2.2cm} X X}
+        \toprule
+        Station & Feststellung & Massnahme/Bemerkung \\
+        \midrule
+        6001 & Die Standardabweichungen der Satzmittel sind etwas höher
+        als bei den übrigen Stationen. & Die Werte liegen innerhalb der
+        Gerätegenauigkeit. Es wurden keine Anpassungen vorgenommen. \\
+        \addlinespace
+        6003 & Die Sätze 1--2 wiesen erhöhte Abweichungen auf. &
+        Es wurden nur die Sätze 3--6 verwendet.
+        Zusätzlich wurden die Meteokorrekturen angebracht. \\
+        \addlinespace
+        6016 & Der erste Satz wies grössere Abweichungen auf &
+        Es wurden nur die Sätze 2--6 verwendet. \\
+        \addlinespace
+        7001 & Der erste Satz wies grössere Abweichungen auf. &
+        Es wurden nur die Sätze 2--6 verwendet. \\
+        \addlinespace
+        TP506 & Der dritte Satz wies grössere Abweichungen auf. &
+        Es wurden die Sätze 1--2 und 4--6 verwendet. \\
+        \bottomrule
+    \end{tabularx}
+    \caption{Feststellungen und Massnahmen bei der Datenaufbereitung
+    im Gebiet Ägerdi}
+    \label{tab:feststellungen-aegerdi}
+\end{table}
+
+\subsubsection{Gebiet Brunni}
+\label{sec:gebiet-brunni}
+Brunni ist ein kleines Teilgebiet auf einer Waldlichtung. Die steile
+Wiese ist nur zu Fuss zugänglich, und alle Überwachungspunkte liegen auf
+der Wiese. Die Verbindung zu den übrigen Teilgebieten ist nur über GNSS
+oder über einzelne Visuren zu den Punkten 6000 und 7022 möglich (Wälti et al., 2026). Das Gebiet wurde am zweiten Tag der
+Messkampagne zusammen mit dem Gebiet Ägerdi gemessen und konnte wie
+geplant vermessen werden. Zusätzlich wurde vom Punkt 7003 eine Visur
+zum Punkt 7022 und vom Punkt 6011 eine Visur zum Punkt 6000 gemessen
+(Wälti et al., 2026). Bei der Datenaufbereitung waren im
+Gebiet Brunni keine Anpassungen an den Messdaten nötig.
+
+\subsection{Ergebnis der Datenaufbereitung}
+\label{sec:ergebnis_der_datenaufbereitung}
+
+Nach Abschluss der beschriebenen Kontrollen und Anpassungen liegt ein
+bereinigter tachymetrischer Datensatz für die weitere Netzausgleichung
+vor. Auffällige Messsätze wurden stationsweise beurteilt und, wo
+erforderlich, von der weiteren Auswertung ausgeschlossen. Fehlende oder
+fehlerhaft bezeichnete Beobachtungen wurden anhand der vorhandenen
+Rohdaten ergänzt beziehungsweise korrigiert. Zudem wurden die
+Meteokorrekturen insbesondere bei langen Visuren überprüft und
+angepasst. Das resultierende.mes-File bildet damit das
+Ergebnis der TPS-Datenaufbereitung und die Grundlage für die
+nachfolgenden Netzausgleichungen.
+
+Zur Plausibilitätskontrolle des aufbereiteten Datensatzes wurde eine
+erste weich gelagerte Netzausgleichung mit LTOP durchgeführt. Diese
+diente nicht der abschliessenden Auswertung des Netzes, sondern der
+Kontrolle, ob nach der Datenaufbereitung noch grobe Fehler,
+Punktverwechslungen oder auffällige Beobachtungen vorhanden sind.
+Die Resultate zeigen, dass der TPS-Datensatz grundsätzlich konsistent
+weiterverwendet werden kann.
+
+Eine noch zu untersuchende Auffälligkeit zeigt sich in der
+Höhenkomponente der langen Visur zwischen 510 und EX9500. Bei der rund
+1.26~km langen Verbindung ergibt sich eine Abweichung von rund 52~mm.
+Da die Visur einen grossen Höhenunterschied überwindet, sind bei der
+weiteren Auswertung insbesondere mögliche atmosphärische Einflüsse auf
+die Höhenübertragung zu untersuchen. Eine abschliessende Beurteilung
+dieser Auffälligkeit ist allein anhand der im vorliegenden Arbeitspaket
+aufbereiteten TPS-Daten nicht möglich.
+
+Im Feldkurs wurden für ausgewählte Punkte zusätzlich langstatische
+GNSS-Messungen, eine trigonometrische Höhenbestimmung sowie ein
+Präzisionsnivellement durchgeführt. Diese unabhängigen Messungen werden
+in separaten Arbeitspaketen ausgewertet und können später zur Kontrolle
+und Kombination der unterschiedlichen Höheninformationen herangezogen
+werden. Sie sind daher nicht Bestandteil der vorliegenden
+TPS-Datenaufbereitung.
+
+Mit dem bereinigten .mes-File ist die TPS-Datenaufbereitung
+abgeschlossen. Die detaillierte Beurteilung der Beobachtungen sowie
+deren Kombination mit den übrigen Messverfahren erfolgt in den
+nachfolgenden Arbeitspaketen zur Netzausgleichung.

@@ -29,7 +29,6 @@ hervorgehoben werden, siehe Tabelle~\ref{tab:beispiel-farbtabelle}.
         \textbf{Punktnr.} & \textbf{Abweichung [cm]} & \textbf{Bemerkung} \\
         \midrule
         1001 & 1.2 & Platzhalter \\
-        \rowcolor{lightgray}
         1002 & 3.4 & \textcolor{red}{\textbf{Auffälliger Wert}} \\
         1003 & 0.8 & Platzhalter \\
         \bottomrule
@@ -86,7 +85,7 @@ Dies ist Platzhaltertext zur Beschreibung des methodischen Vorgehens. Hier werde
 einzelnen Arbeitsschritte erläutert.
 
 \begin{tcolorbox}[myboxstyle, title=Hinweis]
-Dies ist eine Beispiel-Hinweisbox (\texttt{tcolorbox}). Sie eignet sich, um wichtige
+Dies ist eine Beispiel-Hinweisbox. Sie eignet sich, um wichtige
 Hinweise, Annahmen oder Einschränkungen hervorzuheben.
 \end{tcolorbox}
 
@@ -98,7 +97,7 @@ Bodenauflösung (GSD) in Abhängigkeit der Flughöhe:
     \text{GSD} = \frac{h \cdot p}{f}
     \label{eq:gsd}
 \end{equation}
-mit Flughöhe $h$, Pixelgrösse $p$ und Kamerakonstante $f$. Mit dem Paket \texttt{siunitx}
+mit Flughöhe $h$, Pixelgrösse $p$ und Kamerakonstante $f$. Mit dem Befehl \texttt{\textbackslash SI}
 können Einheiten konsistent gesetzt werden, zum Beispiel eine Flughöhe von \SI{60}{\meter}.
 Gleichung~\ref{eq:gsd} bzw.\ \cref{eq:gsd} kann so im Text referenziert werden.
 

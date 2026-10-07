@@ -13,6 +13,32 @@ Für hochgenaue lokale Ingenieurnetze ist ein 3D-System von Bedeutung, wenn die 
 
 \subsection{Messgrössen des 3D-Netzes}
 \label{sec:Messgrössen des 3D-Netzes}
+GNSS und TPS ergänzen sich folgendermassen: GNSS bestimmt Lagerung, Orientierung und Massstab des Netzes, Strecken- und Richtungsmessungen liefern die innere Geometrie mit hoher relativer Genauigkeit (Niemeier, 2008, S. 232, 247–248). 
+Im Tunnelbau wird zum Beispiel ein GNSS-gestütztes Portalnetz mit Tachymetermessungen in den Berg übertragen (Leica Geosystems, 2016; Weber, 2014). 
+Die folgende Tabelle zeigt die Messgrössen mit typischen Herstellerangaben aktueller Präzisionsinstrumente.
+
+\begin{table}[h!]
+    \centering
+    \label{tab:messgrössen}
+    \begin{tabularx}{\textwidth}{*{3}{>{\centering\arraybackslash}X}}
+        \toprule
+        \textbf{Messgrössen} & \textbf{Bezugssystem} & \textbf{Herstellergenauigkeit} \\
+        \midrule
+        GNSS-Basislinie $\Delta X$, $\Delta Y$, $\Delta Z$ (statisch) & geozentrisch (WGS84/ETRS89) & Lage 3 mm + 0,5 ppm, Höhe 5 mm + 0,5 ppm (Leica GS18) \\
+        Horizontalrichtung (TPS) & lokal astronomisch (Lotrichtung) & $0{,}5^{\prime\prime} \approx 0{,}15\,\mathrm{mgon}$ (Leica TS60) \\
+        Zenitwinkel (TPS) & lokal astronomisch (Lotrichtung) & $0{,}5^{\prime\prime} \approx 0{,}15\,\mathrm{mgon}$ (Leica TS60) \\
+        Schrägdistanz (TPS) & systemunabhängig & 0,6 mm + 1 ppm (Leica TS60) \\
+        Höhenunterschied (Nivellement) & Schwerefeld (Gebrauchshöhen) & Feldkurs Trimble Niv. NOCH Nachschauen \\
+        \bottomrule
+    \end{tabularx}
+    \caption{Beispielgrössen in 3D-Netzen.}
+\end{table}
+
+Niemeier (2008, S. 330) betont, dass GNSS-Auswerteprogramme 3D-Koordinaten oder Basislinien im WGS84 liefern, die meist schon als Näherungswerte für die Netzausgleichung taugen.
+Wichtig ist, die von der Software gelieferten voll besetzten Kofaktormatrizen in das stochastische Modell zu übernehmen, statt sie durch Diagonalmatrizen zu ersetzen (Niemeier, 2008, S. 249).
+Die geringere Genauigkeit der GNSS-Höhenkomponente lässt sich so streng berücksichtigen (Niemeier, 2008, S. 365).
+Die Herstellerangaben gelten für Idealbedingungen.
+Im Netz kommen Zentrierfehler, Refraktion und Lotabweichung hinzu, die im funktionalen und stochastischen Modell berücksichtigt werden müssen (vgl. Abschnitt 3).
 
 \subsection{Bezugssysteme und Modellbildung}
 \label{sec:Bezugssysteme und Modellbildung}

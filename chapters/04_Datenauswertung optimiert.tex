@@ -1,0 +1,81 @@
+\section{Auswertung Netz Schwanderbärgli optimiert V1.1}
+\label{sec:auswertung netz schwanderbärgli optimiert v1.1}
+Im Anschluss an die Datenaufbereitung wurden die Messdaten der
+Feldkampagne 2026 mit dem Programm GeoSuite (swisstopo LTOP)
+ausgewertet. Die bereinigten Beobachtungen wurden im `.mes`-Dateiformat
+und die Näherungskoordinaten der Netzpunkte im `.koo`-Dateiformat in
+LTOP eingelesen. Als Grundlage für die Näherungskoordinaten dienten
+die Koordinaten aus dem Jahr 2022. Für die im Rahmen der Feldkampagne
+2026 mittels GNSS bestimmten Punkte wurden die aktuellen
+GNSS-Koordinaten übernommen. Die Netzausgleichung erfolgte nach der
+Methode der kleinsten Quadrate (MdKQ). Dabei wird angenommen, dass die
+Beobachtungen stochastisch unabhängig und die Messabweichungen
+normalverteilt sind.
+
+Im Rahmen dieses Arbeitspakets wird das Netz Schwanderbärgli in der
+Variante V1.1 «optimiert» ausgewertet. Ziel ist es, durch eine geeignete
+Auswahl und Kombination der vorhandenen tachymetrischen Messungen (TPS),
+GNSS-Beobachtungen, Nivellementdaten und trigonometrischen
+Höhenbestimmungen eine möglichst einfache Netzkonfiguration zu
+entwickeln, ohne die erforderliche Genauigkeit und Zuverlässigkeit
+wesentlich zu beeinträchtigen. Dazu werden verschiedene
+Netzkonfigurationen und Lagerungsarten untersucht und hinsichtlich
+ihrer Koordinatengenauigkeiten, Beobachtungsverbesserungen und
+Zuverlässigkeitskennwerte miteinander verglichen. Anhand dieser
+Ergebnisse soll beurteilt werden, welche Beobachtungen für eine
+zukünftige, vereinfachte Überwachung des Schwanderbärgli weiterhin
+erforderlich sind.
+
+\subsection{Provisorischer Abriss TPS, GNSS und Nivellement}
+\label{sec:provisorischer abriss tps gnss und nivellement}
+Als erster Schritt wurde ein provisorischer Abriss erstellt, um eine erste
+Qualitätskontrolle des Netzes durchzuführen. Beim provisorischen Abriss werden
+alle Punkte als Festpunkte behandelt. Es handelt sich somit um eine reine
+Plausibilitätskontrolle der gemessenen Richtungen und Distanzen anhand der
+bekannten Näherungskoordinaten.
+
+Der provisorische Abriss zeigte insgesamt ein plausibles und stimmiges Messnetz.
+Die Hin- und Rückmessungen der Distanzen stimmen sehr gut überein (grösste
+Differenz 5 mm bei 41 Distanzpaaren), und auch die gegenseitig gemessenen
+Höhenwinkel zeigen im Median keine Abweichungen. Es wurden keine groben Fehler
+in den Beobachtungen festgestellt. Einzelne Beobachtungen zeigten grössere
+Abweichungen. Diese treten gruppiert auf, etwa als gemeinsame Verschiebung der
+Distanzen ab Station 2000, und sind durch Bewegungen im Messgebiet sowie durch
+die verschiedenen Näherungskoordinaten (GNSS Koordinaten 2026 und Koordinaten 2022) erklärbar.
+Sie blieben somit im erwarteten Bereich eines provisorischen Abrisses. Die
+Auswertung ergab 360 Lagebeobachtungen (davon 166 Richtungen, 166 Distanzen und
+28 GNSS-Koordinaten) sowie 183 Höhenbeobachtungen (davon 169 Höhendifferenzen
+und 14 GNSS-Höhen) bei 118 Stationen.
+
+Eine Auffälligkeit zeigte die gegenseitige Höhenkontrolle zwischen den Punkten
+510 und EX9500. Dort beträgt die Differenz der Hin- und Rückmessung 53.5 mm bei
+einer Distanz von rund 1264 m. Da zum aktuellen Zeitpunkt noch trigonometrische
+Höhenbestimmungen fehlen, wird diese Beobachtung vorerst nicht weiter beurteilt.
+Das Problem wird zu einem späteren Zeitpunkt angeschaut.
+
+\subsection{Weiche Lagerung TPS, GNSS und Nivellement}
+\label{sec:weiche lagerung tps gnss und nivellement}
+Nach dem provisorischen Abriss wurde das Netz in einer weichen Lagerung
+ausgeglichen. Auf eine vorgängige freie Netzausgleichung wurde verzichtet.
+Stattdessen wurden die vorhandenen Referenzkoordinaten bereits in der
+ersten Ausgleichung berücksichtigt. Durch die weiche Lagerung können
+diese innerhalb ihrer vorgegebenen Genauigkeiten angepasst werden,
+ohne dass das Netz durch eine starre Festhaltung der Referenzpunkte
+unnötig gezwängt wird. Dies ist insbesondere bei einem ausgedehnten
+Überwachungsnetz mit unterschiedlichen Beobachtungstypen und
+Referenzkoordinaten aus verschiedenen Messepochen von Bedeutung.
+
+Ziel der weichen Lagerung war es, die innere Konsistenz der
+Beobachtungen zu überprüfen, auffällige Messungen zu identifizieren
+und eine geeignete Ausgangslage für die weitere Netzoptimierung
+zu schaffen. Dazu wurden insbesondere die Verbesserungen der
+Beobachtungen sowie die Genauigkeits- und Zuverlässigkeitskennwerte
+der Ausgleichung untersucht.
+Die Optimierung erfolgte schrittweise in den Varianten
+weiche Lagerung v0 bis v5. Dabei wurden auffällige Beobachtungen nicht
+allein aufgrund der statistischen Kennwerte eliminiert, sondern
+zusätzlich anhand der Messgeometrie und der bekannten Bedingungen
+während der Feldmessung beurteilt.
+
+\subsubsection{V0}
+\label{sec:v0}

@@ -42,6 +42,27 @@ Im Netz kommen Zentrierfehler, Refraktion und Lotabweichung hinzu, die im funkti
 
 \subsection{Bezugssysteme und Modellbildung}
 \label{sec:Bezugssysteme und Modellbildung}
+GNSS und TPS messen in verschiedenen Systemen, aber ein 3D-Netz muss beide streng verbinden. 
+Als gemeinsames System eignet sich das geozentrisch-kartesische System (X, Y, Z), in dem die terrestrischen Beobachtungsgleichungen nach den Formeln der «Dreidimensionalen Geodäsie» aufgestellt werden (Wolf, 1963, zitiert nach Niemeier, 2008, S. 247). 
+Banyai (2011) zeigt diesen Ansatz für eine integrierte Ausgleichung von GNSS-Basislinien, Tachymeter- und Nivellementmessungen.
+Ein Koordinatenunterschied im globalen System wird mit der Rotationsmatrix \(R(\Phi, \Lambda)\) in das lokale Horizontsystem \((n, e, u)\) gedreht. Daraus folgen Schrägdistanz und Zenitwinkel.
+\[
+\begin{pmatrix} n \\ e \\ u \end{pmatrix} = R(\Phi, \Lambda)\begin{pmatrix} \Delta X \\ \Delta Y \\ \Delta Z \end{pmatrix}, \qquad s = \sqrt{\Delta X^2 + \Delta Y^2 + \Delta Z^2}, \qquad z = \arccos\left(\frac{u}{s}\right)
+\]
+
+Dei der Lotabweichung wird die Abweichung zwischen der Lotrichtung und der Ellipsoide berücksichtigt. 
+Das Tachymeter wird nach der Lotrichtung horizontiert, GNSS bezieht sich auf die Ellipsoide. Der Winkel zwischen beiden ist die Lotabweichung mit den Komponenten \(\xi\) (Nord-Süd) und \(\eta\) (Ost-West); astronomische und ellipsoidische Koordinaten hängen über \(\Phi = \varphi + \xi\) und \(\Lambda = \lambda + \eta / \cos\varphi\) zusammen.
+Wird sie vernachlässigt, entsteht ein systematischer Fehler: In Brasilien ergaben sich bei einer Lotabweichung von $28{,}4^{\prime\prime}$ Lagefehler bis 45 ppm, also etwa 45 mm auf 1 km (França et al., 2021).
+Banyai (2011) führt Lotabweichungen als Beobachtungen mit Standardabweichung $1^{\prime\prime}$ ein; bei Local-Tie-Netzen erreichen astrogeodätisch bestimmte Lotabweichungen etwa $0{,}2^{\prime\prime}$ (Suurmäki et al., 2022).
+Im Gebirge, etwa in der Schweiz, ist dieser Effekt besonders relevant.
+
+Die Krümmung des Zielstrahls verfälscht vor allem die Zenitwinkel und damit die trigonometrischen Höhen.
+Üblich ist ein Refraktionskoeffizient k (Standardwert 0,13), der bei langen Visuren auch als Unbekannte geschätzt werden kann. 
+Weber (2014) untersuchte im Portalnetz Sigirino des Ceneri-Basistunnels Refraktionseinflüsse auf lange Visuren, fand aber keine signifikante Verzerrung.
+
+Bei den Höhen liefert GNSS die ellipsoidische Höhen h, die Praxis braucht Gebrauchshöhen. 
+Die Verbindung läuft über die Geoidundulation N mit $H = h - N$; in der Schweiz über das Geoidmodell CHGeo (swisstopo, 2004).
+Viele Programme der Praxis, z. B. LTOP von swisstopo, rechnen Lage und Höhe getrennt (2D+1D) und sind damit keine strengen 3D-Ausgleichungen (swisstopo, o. J.).
 
 \subsection{Ausgleichung im Gauss-Markov-Modell}
 \label{sec:Ausgleichung im Gauss-Markov-Modell}

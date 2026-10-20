@@ -121,5 +121,49 @@ bei der Präanalyse ausgeschlossen wurden und eine Langstatische GNSS Messung un
 \bigskip
 Punkt EX7000 auf 7000 Schlechter Wi Wert (3.4) aufgrund von nur während THB und einseitig gemessen. Wäre besser wenn direkte 
 Messungen durch THB auf 7000 vorhanden wären. 
-
+\bigskip
+Optimierung durch Elmiminierung der Punkte 9000 und EX7000, da diese Lediglich für den LN02 anschluss 
+erschlossen wurde, Genauigkeit Lage und Höhe besser wenn nur auf Langstatischen (48h) gelagert.
+\bigskip
+\begin{table}[H]
+    \centering
+    \begin{tabular}{p{0.8cm} p{1.2cm} p{3.2cm} p{2.5cm} p{5.3cm}}
+        \toprule
+        Nr. & Runde & Station $\rightarrow$ Ziel & Satz / Instr. & Beob.-Nr. Richtung / Distanz / Höhe \\
+        \midrule
+        1  & 1 & 1000 $\rightarrow$ 210   & 1 / MS60 & 2 / 18 / 357 \\
+        2  & 1 & 1000 $\rightarrow$ 510   & 1 / MS60 & 6 / 22 / 362 \\
+        3  & 1 & 2000 $\rightarrow$ 210   & 1 / MS60 & 33 / 42 / 375 \\
+        4  & 1 & 2000 $\rightarrow$ 1000  & 1 / MS60 & 39 / 48 / 373 \\
+        5  & 1 & 210 $\rightarrow$ 510    & 1 / MS60 & 52 / 62 / 387 \\
+        6  & 1 & 210 $\rightarrow$ 1000   & 1 / MS60 & 54 / 64 / 358 \\
+        7  & 1 & 510 $\rightarrow$ 210    & 1 / MS60 & 71 / 83 / 388 \\
+        8  & 1 & 2000 $\rightarrow$ 210   & 2 / SX12 & 310 / 318 / 512 \\
+        9  & 1 & 2000 $\rightarrow$ 1000  & 2 / SX12 & 311 / 319 / 513 \\
+        \addlinespace
+        10 & 2 & 2000 $\rightarrow$ 310   & 1 / MS60 & 34 / 43 / 377 \\
+        11 & 2 & 2000 $\rightarrow$ 710   & 1 / MS60 & 38 / 47 / 381 \\
+        12 & 2 & 210 $\rightarrow$ 2000   & 1 / MS60 & 55 / 65 / 376 \\
+        13 & 2 & 510 $\rightarrow$ 7020   & 1 / MS60 & 80 / 92 / 404 \\
+        14 & 2 & 6015 $\rightarrow$ 6003  & 1 / TS60 & 175 / 183 / 428 \\
+        15 & 2 & 7014 $\rightarrow$ 7016  & 1 / TS60 & 234 / 237 / 482 \\
+        16 & 2 & 7014 $\rightarrow$ 7016  & 2 / TS60 & 240 / 243 / 488 \\
+        17 & 2 & 2000 $\rightarrow$ 7020  & 2 / SX12 & 307 / 315 / -- \\
+        18 & 2 & 2000 $\rightarrow$ 7018  & 2 / SX12 & 308 / 316 / 510 \\
+        \addlinespace
+        19 & 3 & 1000 $\rightarrow$ 2000  & 1 / MS60 & 15 / 31 / 372 \\
+        20 & 3 & 510 $\rightarrow$ 310    & 1 / MS60 & 72 / 84 / 396 \\
+        21 & 3 & 510 $\rightarrow$ 710    & 1 / MS60 & 74 / 86 / 398 \\
+        22 & 3 & 510 $\rightarrow$ 7018   & 1 / MS60 & 79 / 91 / 402 \\
+        23 & 3 & TP506 $\rightarrow$ 6001 & 1 / MS60 & 96 / 101 / 410 \\
+        24 & 3 & 6003 $\rightarrow$ 6015  & 1 / TS60 & 127 / 137 / 427 \\
+        25 & 3 & 7020 $\rightarrow$ 510   & 1 / TS60 & 272 / 279 / 405 \\
+        26 & 3 & 7020 $\rightarrow$ 2000  & 1 / TS60 & 273 / 280 / 385 \\
+        27 & 3 & 7020 $\rightarrow$ 5000  & 1 / TS60 & 274 / 281 / 502 \\
+        28 & 3 & 7020 $\rightarrow$ 7119  & 1 / TS60 & 277 / 284 / 505 \\
+        \bottomrule
+    \end{tabular}
+    \caption{Eliminierte Visuren von v2 bis opt\_v3 (Beob.-Nr. gemäss Bericht v2)}
+    \label{tab:eliminierte_visuren}
+\end{table}
 \label{sec:v0}

@@ -67,8 +67,67 @@ Viele Programme der Praxis, z. B. LTOP von swisstopo, rechnen Lage und Höhe get
 \subsection{Ausgleichung im Gauss-Markov-Modell}
 \label{sec:Ausgleichung im Gauss-Markov-Modell}
 
+Ausgeglichen wird nach der Methode der kleinsten Quadrate im Gauss-Markov-Modell: Unbekannte sind die 3D-Koordinaten aller Punkte plus Zusatzparameter (Orientierungen, Massstab, Refraktion, Transformationsparameter). 
+Das funktionale Modell verknüpft Beobachtungen und Unbekannte, das stochastische Modell beschreibt deren Genauigkeit (Niemeier, 2008, Kap. 4):
+\[
+\begin{aligned}
+\mathbf{l} + \mathbf{v} &= \mathbf{A}\,\hat{\mathbf{x}}, &
+\boldsymbol{\Sigma}_{ll} &= \sigma_0^2\,\mathbf{Q}_{ll}, \\
+\hat{\mathbf{x}} &= \left(\mathbf{A}^{T}\mathbf{P}\mathbf{A}\right)^{-1}
+\                    \mathbf{A}^{T}\mathbf{P}\,\mathbf{l}, &
+\mathbf{P} &= \mathbf{Q}_{ll}^{-1}
+\end{aligned}
+\]
+
+Die Näherungskoordinaten: Die Beobachtungsgleichungen sind nichtlinear und werden um Näherungswerte linearisiert. 
+Für terrestrische 3D-Netze ist eine direkte 3D-Näherungsberechnung numerisch instabil.Stabil ist die Zerlegung in Lage und Höhe, danach folgt die gemeinsame 3D-Ausgleichung mit Raumstrecken und Zenitwinkeln. 
+GNSS-Koordinaten sind dagegen meist direkt brauchbare Näherungswerte (Niemeier, 2008, S. 330 f.).
+Der Datumsdefekt: Messungen legen nur die innere Geometrie fest, nicht die Lagerung im Koordinatensystem. 
+Ein 3D-Netz hat maximal 7 Datumsdefekte: 3 Translationen, 3 Rotationen und den Massstab (Niemeier, 2008, S. 232, Tab. 7.1). 
+Strecken liefern den Massstab, GNSS zusätzlich Orientierung und Lage.
+Das datumsfreie Konzept: Für die strenge gemeinsame Ausgleichung von GNSS und TPS empfiehlt Niemeier (2008, S. 247–249), je Beobachtungsgruppe eigene Zusatzparameter einzuführen, nämlich je GNSS-Session 3 Translationen, je Gruppe von Zenitwinkeln, Azimuten und GNSS-Daten eigene Rotationen und je Instrument einen Massstab. 
+Damit läuft die Ausgleichung mit dem maximalen Defekt d = 7, und die innere Netzqualität ist klar von der Netzanbindung getrennt. 
+Soll GNSS oder ein EDM den verbindlichen Netzmassstab liefern, lässt man für diese Gruppe den Massstabsparameter weg.
+
+Die Datumsfestlegung: Damit wird das Datum festgelegt (Niemeier, 2008, Kap. 7.3):
+1. Zwangsfreie Lagerung: genau d Koordinaten werden festgehalten; die innere Geometrie bleibt unverändert.
+2. Gesamt- oder Teilspurminimierung (freies Netz): das Netz wird auf alle oder ausgewählte Punkte gelagert; liefert die kleinste Spur der Kovarianzmatrix.
+3. Hierarchische Ausgleichung und weiche Lagerung: Anschlusspunkte werden fest bzw. als Beobachtungen mit Genauigkeit eingeführt. Die innere Geometrie wird dabei verändert.
+
+Für die Integration von GNSS in ein bestehendes Netz beschreibt Niemeier (2008, S. 363–365) ein zweistufiges Vorgehen:
+Zuerst Näherungstransformation mit bekannten Parametern, dann gemeinsame Ausgleichung mit einer differenziellen 7-Parameter-Helmert-Transformation.
+Pro GNSS-Datensatz ein eigener Parametersatz.
+Ein Praxisbeispiel ist das Ceneri-Portalnetz. Dort zeigte sich, dass durch die GNSS-Transformation ins LV03 ein Massstabsfaktor von $-14\,\mathrm{ppm}$ entstand, der bestätigt wurde; ausgeglichen wurde mit weicher Lagerung in der Lage und gezwängter Lagerung in der Höhe (Weber, 2014).
+
+Das stochastisches Modell und Varianzkomponenten:
+Jede Beobachtungsgruppe (Richtungen, Strecken, Zenitwinkel, GNSS) erhält einen eigenen Varianzfaktor, der mit einer Varianzkomponentenschätzung bestimmt wird (Niemeier, 2008, S. 249, Kap. 9.3). 
+So wird die Gewichtung der heterogenen Messgrössen aus den Daten selbst kalibriert. 
+Wie heikel eine falsche Gewichtung ist, zeigt Niemeiers Beispiel Vianden: Eine einzelne Massstabsstrecke am Netzrand vergrösserte die Konfidenzellipsen deutlich, auch bei zehnfach höherer Genauigkeit (Niemeier, 2008, S. 245–247).
+
 \subsection{Genauigkeit und Zuverlässigkeit}
 \label{sec:Genauigkeit und Zuverlässigkeit}
+Die Qualität eines 3D-Netzes wird an zwei Kriterien gemessen. Erstens an der Genauigkeit, also daran, wie stark die Koordinaten streuen, und an der Zuverlässigkeit, also daran, wie gut grobe Fehler aufgedeckt werden (Niemeier, 2008, Kap. 8). 
+Am Anfang steht der Globaltest, der mit einem $\chi^2$- bzw. F-Test prüft, ob die a-posteriori-Varianz $\hat{\sigma}_0^2$ mit der a-priori-Varianz $\sigma_0^2$ verträglich ist. Wird er abgelehnt, deutet dies auf grobe Fehler oder auf ein unzutreffendes funktionales oder stochastisches Modell hin (Niemeier, 2008, S. 167 ff.). 
+Die Genauigkeit wird im 3D-Netz nicht mehr mit Fehlerellipsen, sondern mit Konfidenzellipsoiden je Punkt beschrieben, die sich aus der $3 \times 3$-Teilmatrix von $\Sigma_{xx}$ ergeben. 
+Als skalare Masse dienen der Helmertsche Punktfehler, der auf der Spur der Kovarianzmatrix beruht, und der Werkmeistersche Punktfehler, der im 3D-Fall dem Volumen des Fehlerellipsoids entspricht. Alle diese Massen hängen allerdings von der Datumsfestlegung ab (Niemeier, 2008, S. 274--286). 
+Für die innere Zuverlässigkeit ist der Redundanzanteil $r_i$ zentral, der angibt, welchen Anteil eine Beobachtung an der Gesamtredundanz trägt (Förstner, 1979, zitiert nach Niemeier, 2008, S. 293). 
+Im Mittel beträgt er $1-u/n$, bei 30 Beobachtungen für 20 Unbekannte also nur 0,33, und Werte nahe 0 zeigen, dass ein Fehler in dieser Beobachtung kaum sichtbar wird (Niemeier, 2008, S. 293). 
+Nach Baarda (1968, zitiert nach Niemeier, 2008, S. 295) wird jede Beobachtung anhand ihrer normierten Verbesserung getestet. Dies wird auch Data Snooping genannt.
+
+Dies ist ein Verfahren nach Baarda (1968, zitiert nach Niemeier, 2008, S. 294--295), mit dem nach der Ausgleichung jede einzelne Beobachtung auf grobe Fehler geprüft wird. 
+Dazu wird für jede Beobachtung $l_i$ die standardisierte Verbesserung $w_i = v_i / \sigma_{v_i}$ berechnet. Ist das Ausgleichungsmodell korrekt, folgt sie der Standardnormalverteilung $N(0,1)$ (Niemeier, 2008, S. 293--294). 
+Ein Ausreisser liegt vor, wenn $\lvert w_i \rvert$ einen aus der Normalverteilung abgeleiteten Grenzwert übersteigt. Bei einer Irrtumswahrscheinlichkeit von $\alpha_0 = 0{,}1\,\%$ liegt dieser bei rund 3,29 (Niemeier, 2008, S. 294). 
+Grundlage ist die Annahme, dass im gesamten Ausgleichungsproblem nur ein einzelner Ausreisser vorliegt (Baarda, 1968, zitiert nach Niemeier, 2008, S. 294). 
+Weil sich ein grober Fehler über sogenannte Verschmierungseffekte auch auf die Verbesserungen benachbarter Beobachtungen auswirkt, geht man iterativ vor: 
+Es wird jeweils nur die Beobachtung mit dem grössten $w_i$ als grob falsch eingestuft, danach wird neu ausgeglichen und erneut getestet (Niemeier, 2008, S. 222). 
+Besonders problematisch sind Beobachtungen mit kleinem Redundanzanteil $r_i$, denn ein Fehler in ihnen kann sich stärker auf andere Verbesserungen auswirken als auf die eigene. 
+Niemeier empfiehlt deshalb, bei der Netzplanung Redundanzanteile unter 0,2 zu vermeiden (Niemeier, 2008, S. 295). 
+Wie gross ein Fehler mindestens sein muss, damit er mit einer Testgüte von $\gamma_0 = 80\,\%$ aufgedeckt wird, gibt der minimal aufdeckbare Fehler $\nabla l_i$ an (Niemeier, 2008, S. 295--296).
+Mit einer Irrtumswahrscheinlichkeit von $\alpha_0 = 0{,}1\,\%$ und einer Testgüte von $\gamma_0 = 80\,\%$ ergibt sich der Nichtzentralitätsparameter $\delta_0 = 4{,}13$ und daraus der minimal aufdeckbare Fehler $\nabla l_i = \delta_0 \cdot \sigma_{l_i} / \sqrt{r_i}$. 
+Bei GNSS-Basislinien wird dabei nicht eine einzelne Komponente, sondern der ganze 3D-Vektor als fehlerhaft getestet, was einer dreidimensionalen Alternativhypothese entspricht (Niemeier, 2008, Kap. 8.3). 
+Die äussere Zuverlässigkeit schliesslich beschreibt, wie stark ein gerade nicht mehr aufdeckbarer Fehler die Koordinaten verfälscht, nämlich um $\nabla x = Q_{xx} A^T P \nabla l$. 
+Für die Nutzerinnen und Nutzer eines Netzes ist diese maximale Koordinatenverfälschung oft aussagekräftiger als der Redundanzanteil selbst, sie ist jedoch ebenfalls datumsabhängig (Niemeier, 2008, S. 304 f.). 
+Da alle genannten Masse nur von der Netzkonfiguration und den angenommenen Genauigkeiten abhängen, lassen sie sich bereits in der Planung durch Simulation berechnen und zur Optimierung des Netzes nutzen (Niemeier, 2008, Kap. 9.5).
 
 \subsection{Fazit?}
 \label{sec:Fazit?}

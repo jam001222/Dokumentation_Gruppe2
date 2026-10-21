@@ -6,7 +6,7 @@ Ein 3D-Netz bestimmt Lage und Höhe aller Netzpunkte in einer gemeinsamen Ausgle
 GNSS liefert dabei 3D-Koordinaten oder Basislinien im geozentrischen System WGS84 (Niemeier, 2008, S. 330). 
 Das Tachymeter (TPS) liefert Horizontalrichtungen, Zenitwinkel und Schrägdistanzen, die auf die lokale Lotrichtung bezogen sind (Banyai, 2011; França et al., 2021).
 Die klassische Trennung in Lagenetz (2D) und Höhennetz (1D), wie sie etwa das Programm LTOP noch verwendet (swisstopo, o. J.), entfällt damit.
-Der Bericht fasst zusammen, was die Literatur zu Aufbau, Modellierung, Ausgleichung und Qualitätsbeurteilung solcher Netze sagt. Hauptquellen sind das Lehrbuch von Niemeier (2008) zur Ausgleichungsrechnung und das Handbuch Ingenieurgeodäsie "Ingenieurbau" (Möser et al., [2016]).
+Der Bericht fasst zusammen, was die Literatur zu Aufbau, Modellierung, Ausgleichung und Qualitätsbeurteilung solcher Netze sagt. Hauptquellen sind das Lehrbuch von Niemeier (2008) zur Ausgleichungsrechnung und das Handbuch Ingenieurgeodäsie „Ingenieurbau“ (Möser et al., [2016]).
 Ergänzt wird mit Fachartikeln und Praxisbeispielen aus der Schweiz.
 Niemeier (2008, S. 128) nennt zwei Wege, die Messungen mit dem Koordinatensystem in Einklang zu bringen: Reduktion auf ein Abbildungssystem (z. B. LV95, UTM) oder Formulierung der Beobachtungsgleichungen direkt in einem räumlichen System. 
 Für hochgenaue lokale Ingenieurnetze ist ein 3D-System von Bedeutung, wenn die Höhe streng mitverarbeitet werden soll. Für die Kombination von GNSS mit terrestrischen Messungen ist das globale kartesische System gebräuchlich.
@@ -50,7 +50,7 @@ Ein Koordinatenunterschied im globalen System wird mit der Rotationsmatrix \(R(\
 \begin{pmatrix} n \\ e \\ u \end{pmatrix} = R(\Phi, \Lambda)\begin{pmatrix} \Delta X \\ \Delta Y \\ \Delta Z \end{pmatrix}, \qquad s = \sqrt{\Delta X^2 + \Delta Y^2 + \Delta Z^2}, \qquad z = \arccos\left(\frac{u}{s}\right)
 \]
 
-Dei der Lotabweichung wird die Abweichung zwischen der Lotrichtung und der Ellipsoide berücksichtigt. 
+Bei der Lotabweichung wird die Abweichung zwischen der Lotrichtung und der Ellipsoide berücksichtigt. 
 Das Tachymeter wird nach der Lotrichtung horizontiert, GNSS bezieht sich auf die Ellipsoide. Der Winkel zwischen beiden ist die Lotabweichung mit den Komponenten \(\xi\) (Nord-Süd) und \(\eta\) (Ost-West); astronomische und ellipsoidische Koordinaten hängen über \(\Phi = \varphi + \xi\) und \(\Lambda = \lambda + \eta / \cos\varphi\) zusammen.
 Wird sie vernachlässigt, entsteht ein systematischer Fehler: In Brasilien ergaben sich bei einer Lotabweichung von $28{,}4^{\prime\prime}$ Lagefehler bis 45 ppm, also etwa 45 mm auf 1 km (França et al., 2021).
 Banyai (2011) führt Lotabweichungen als Beobachtungen mit Standardabweichung $1^{\prime\prime}$ ein; bei Local-Tie-Netzen erreichen astrogeodätisch bestimmte Lotabweichungen etwa $0{,}2^{\prime\prime}$ (Suurmäki et al., 2022).
@@ -80,8 +80,9 @@ Das funktionale Modell verknüpft Beobachtungen und Unbekannte, das stochastisch
 \]
 
 Die Näherungskoordinaten: Die Beobachtungsgleichungen sind nichtlinear und werden um Näherungswerte linearisiert. 
-Für terrestrische 3D-Netze ist eine direkte 3D-Näherungsberechnung numerisch instabil.Stabil ist die Zerlegung in Lage und Höhe, danach folgt die gemeinsame 3D-Ausgleichung mit Raumstrecken und Zenitwinkeln. 
-GNSS-Koordinaten sind dagegen meist direkt brauchbare Näherungswerte (Niemeier, 2008, S. 330 f.).
+Für terrestrische 3D-Netze ist eine direkte 3D-Näherungsberechnung numerisch instabil. Stabil ist die Zerlegung in Lage und Höhe, danach folgt die gemeinsame 3D-Ausgleichung mit Raumstrecken und Zenitwinkeln. 
+GNSS-Koordinaten sind dagegen meist direkt brauchbare Näherungswerte (Niemeier, 2008, S. 330 f.).\bigskip
+
 Der Datumsdefekt: Messungen legen nur die innere Geometrie fest, nicht die Lagerung im Koordinatensystem. 
 Ein 3D-Netz hat maximal 7 Datumsdefekte: 3 Translationen, 3 Rotationen und den Massstab (Niemeier, 2008, S. 232, Tab. 7.1). 
 Strecken liefern den Massstab, GNSS zusätzlich Orientierung und Lage.

@@ -273,9 +273,147 @@ zur Optimierung der Netzkonfiguration.
 
 
 \subsection{gezwängter Ausgleich optimiert}
+Ziel dieser Auswertung ist die Netzoptimierung, dies erfolgt durch das systematische entfernen von Beobachtungen.
+Die Voraussetzung, dass eine Beobachtung entfernt werden kann, ist das die Genauigkeit sowie die Zuverlässigkeit 
+im gesamten Netz trotzdem weiterhin den Anforderungen wie in der Tabelle ~\ref{tab:anforderungen_optimierung} dargestellt entsprechen.
+\bigskip
+\begin{table}[H]
+    \centering
+    \begin{tabular}{p{2.6cm} p{6.2cm} p{2.0cm} p{2.0cm}}
+        \toprule
+        Kategorie & Kriterium & Lage & Höhe \\
+        \midrule
+        Zuverlässigkeit & Lokale Zuverlässigkeit $z_i$                              & 25 -- 60\,\%  & 25 -- 60\,\% \\
+                        & Normierte Verbesserung $w_{i,\max}$                       & $< 3.5$       & $< 3.5$ \\
+        \midrule
+        Genauigkeit     & Konfidenzellipse (empirisch und theoretisch)              & $< 2.5$\,mm   & $< 3.5$\,mm \\
+                        & Quotient empirisch/theoretisch (Beobachtungsgruppen)      & $\approx 1$   & $\approx 1$ \\
+                        & Quotient empirisch/theoretisch (gesamtes Netz)            & $\approx 1$   & $\approx 1$ \\
+        \bottomrule
+    \end{tabular}
+    \caption{Anforderungen an Genauigkeit und Zuverlässigkeit bei der Netzoptimierung}
+    \label{tab:anforderungen_optimierung}
+\end{table}
+\bigskip
+Die Genauigkeitsanforderungen wurden bereits im Feldkurs 2026 berechnet und werden für die Optimierung unverändert übernommen.
+Da mit der Optimierung auch eine Vereinfachung des gesamten Netzes für allfällige zukünftige Messkampagnien angestrebt wird, wurde festgelegt,
+dass Beobachtungen jeweils als ganze Visuren entfernt werden. So können diese bereits bei den Aufnahmen im Feld weggelassen werden.
+Eine Visur umfasst dabei die Richtung, die Schrägdistanz und die Zenitdistanz (RI, DS, ZD) einer Beobachtung auf einer Station.
+\bigskip
+In einer ersten Version wurden neun Visuren entfernt und die Genauigkeit sowie die Zuverlässigkeit des resultierenden Netzes anhand der
+Anforderungen geprüft. Die Beurteilung aller Resultate ist in Tabelle~\ref{tab:kenngroessen_optimierung} dargestellt.
+
+\bigskip
+\begin{table}[H]
+    \centering
+    \begin{tabular}{p{0.8cm} p{1.2cm} p{3.2cm} p{2.5cm} p{5.3cm}}
+        \toprule
+        Nr. & Version & Station $\rightarrow$ Ziel & Satz / Instr. & Beob.-Nr. Richtung / Distanz / Höhe \\
+        \midrule
+        1  & 1 & 1000 $\rightarrow$ 210   & 1 / MS60 & 2 / 18 / 357 \\
+        2  & 1 & 1000 $\rightarrow$ 510   & 1 / MS60 & 6 / 22 / 362 \\
+        3  & 1 & 2000 $\rightarrow$ 210   & 1 / MS60 & 33 / 42 / 375 \\
+        4  & 1 & 2000 $\rightarrow$ 1000  & 1 / MS60 & 39 / 48 / 373 \\
+        5  & 1 & 210 $\rightarrow$ 510    & 1 / MS60 & 52 / 62 / 387 \\
+        6  & 1 & 210 $\rightarrow$ 1000   & 1 / MS60 & 54 / 64 / 358 \\
+        7  & 1 & 510 $\rightarrow$ 210    & 1 / MS60 & 71 / 83 / 388 \\
+        8  & 1 & 2000 $\rightarrow$ 210   & 2 / SX12 & 310 / 318 / 512 \\
+        9  & 1 & 2000 $\rightarrow$ 1000  & 2 / SX12 & 311 / 319 / 513 \\
+        \bottomrule
+    \end{tabular}
+    \caption{Eliminierte Visuren von v1 (Beob.-Nr. gemäss Bericht v1)}
+    \label{tab:eliminierte_visuren}
+\end{table}
+\label{sec:v0}
+\bigskip
+In der zweiten Version wurden erneut neun Visuren entfernt und das resultierende Netz ebenfalls anhand der Anforderungen geprüft.
+Da die Anforderungen weiterhin erfüllt waren, wurde entschieden, eine dritte Version zu rechnen, bevor die Anforderungen nicht mehr
+ganzheitlich erfüllt werden.
+\bigskip
+\begin{table}[H]
+    \centering
+    \begin{tabular}{p{0.8cm} p{1.2cm} p{3.2cm} p{2.5cm} p{5.3cm}}
+        \toprule
+        Nr. & Version & Station $\rightarrow$ Ziel & Satz / Instr. & Beob.-Nr. Richtung / Distanz / Höhe \\
+        \midrule
+        10 & 2 & 2000 $\rightarrow$ 310   & 1 / MS60 & 34 / 43 / 377 \\
+        11 & 2 & 2000 $\rightarrow$ 710   & 1 / MS60 & 38 / 47 / 381 \\
+        12 & 2 & 210 $\rightarrow$ 2000   & 1 / MS60 & 55 / 65 / 376 \\
+        13 & 2 & 510 $\rightarrow$ 7020   & 1 / MS60 & 80 / 92 / 404 \\
+        14 & 2 & 6015 $\rightarrow$ 6003  & 1 / TS60 & 175 / 183 / 428 \\
+        15 & 2 & 7014 $\rightarrow$ 7016  & 1 / TS60 & 234 / 237 / 482 \\
+        16 & 2 & 7014 $\rightarrow$ 7016  & 2 / TS60 & 240 / 243 / 488 \\
+        17 & 2 & 2000 $\rightarrow$ 7020  & 2 / SX12 & 307 / 315 / -- \\
+        18 & 2 & 2000 $\rightarrow$ 7018  & 2 / SX12 & 308 / 316 / 510 \\
+        \bottomrule
+    \end{tabular}
+    \caption{Eliminierte Visuren von v2 (Beob.-Nr. gemäss Bericht v2)}
+    \label{tab:eliminierte_visuren}
+\end{table}
+\label{sec:v0}
+\bigskip
+
+\bigskip
+\begin{table}[H]
+    \centering
+    \begin{tabular}{p{0.8cm} p{1.2cm} p{3.2cm} p{2.5cm} p{5.3cm}}
+        \toprule
+        Nr. & Version & Station $\rightarrow$ Ziel & Satz / Instr. & Beob.-Nr. Richtung / Distanz / Höhe \\
+        \midrule
+        19 & 3 & 1000 $\rightarrow$ 2000  & 1 / MS60 & 15 / 31 / 372 \\
+        20 & 3 & 510 $\rightarrow$ 310    & 1 / MS60 & 72 / 84 / 396 \\
+        21 & 3 & 510 $\rightarrow$ 710    & 1 / MS60 & 74 / 86 / 398 \\
+        22 & 3 & 510 $\rightarrow$ 7018   & 1 / MS60 & 79 / 91 / 402 \\
+        23 & 3 & TP506 $\rightarrow$ 6001 & 1 / MS60 & 96 / 101 / 410 \\
+        24 & 3 & 6003 $\rightarrow$ 6015  & 1 / TS60 & 127 / 137 / 427 \\
+        25 & 3 & 7020 $\rightarrow$ 510   & 1 / TS60 & 272 / 279 / 405 \\
+        26 & 3 & 7020 $\rightarrow$ 2000  & 1 / TS60 & 273 / 280 / 385 \\
+        27 & 3 & 7020 $\rightarrow$ 5000  & 1 / TS60 & 274 / 281 / 502 \\
+        28 & 3 & 7020 $\rightarrow$ 7119  & 1 / TS60 & 277 / 284 / 505 \\
+        \bottomrule
+    \end{tabular}
+    \caption{Eliminierte Visuren von v3 (Beob.-Nr. gemäss Bericht v3)}
+    \label{tab:eliminierte_visuren}
+\end{table}
+\label{sec:v0}
+\bigskip
 \label{sec:gezwängter ausgleich optimiert}
 
-
+\begin{table}[H]
+    \centering
+    \small
+    \setlength{\tabcolsep}{5pt}
+    \begin{tabular}{@{}l cc cc cc cc@{}}
+        \toprule
+        & \multicolumn{2}{c}{v0} & \multicolumn{2}{c}{v1} & \multicolumn{2}{c}{v2} & \multicolumn{2}{c}{v3} \\
+        \cmidrule(lr){2-3} \cmidrule(lr){4-5} \cmidrule(lr){6-7} \cmidrule(l){8-9}
+        Kenngrösse & Lage & Höhe & Lage & Höhe & Lage & Höhe & Lage & Höhe \\
+        \midrule
+        Beobachtungen                  & 353 & 177 & 335 & 168 & 313 & 158 & 297 & 150 \\
+        Überbestimmungen               & 189 & 112 & 171 & 103 & 149 & 93  & 133 & 85  \\
+        Eliminierte Visuren (kumuliert) & \multicolumn{2}{c}{--} & \multicolumn{2}{c}{9} & \multicolumn{2}{c}{20} & \multicolumn{2}{c}{28} \\
+        \midrule
+        \multicolumn{9}{@{}l}{\textit{Quotient empirisch / theoretisch}} \\
+        \quad Gesamtnetz               & 0.86 & 1.02 & 0.89 & 1.01 & 0.93 & 1.01 & 0.96 & 1.01 \\
+        \quad Distanzen TS60 (Gr.\,1)  & 0.95 &      & 0.96 &      & 1.01 &      & 1.00 &      \\
+        \quad Distanzen MS60 (Gr.\,2)  & 0.50 &      & 0.52 &      & 0.55 &      & 0.55 &      \\
+        \quad Distanzen SX12 (Gr.\,4)  & 1.17 &      & 1.34 &      & 1.49 &      & 1.42 &      \\
+        \quad Richtungen TS60 (Gr.\,1) & 0.80 &      & 0.81 &      & 0.80 &      & 0.93 &      \\
+        \quad Richtungen MS60 (Gr.\,2) & 0.75 &      & 0.79 &      & 0.82 &      & 0.86 &      \\
+        \quad Richtungen SX12 (Gr.\,4) & 0.24 &      & 0.29 &      & 0.45 &      & 0.57 &      \\
+        \quad GNSS-Koordinaten         & 1.42 &      & 1.42 &      & 1.43 &      & 1.43 &      \\
+        \quad Höhendifferenzen         &      & 1.00 &      & 0.98 &      & 0.98 &      & 0.99 \\
+        \midrule
+        Schlechteste Koord.-Genauigkeit [mm] & 3.2 & 3.3 & 3.4 & 3.3 & 3.5 & 3.3 & 3.7 & 3.3 \\
+        \midrule
+        $|w_i|_{\max}$                 & 3.1 & 2.9 & 3.1 & 2.9 & 3.0 & 2.9 & 3.0 & 3.0 \\
+        Beob. mit $z_i > 60\,\%$       & 160 & 104 & 135 & 93  & 98  & 82  & 80  & 66  \\
+        Beob. mit $z_i < 25\,\%$       & 37  & 4   & 37  & 4   & 41  & 4   & 40  & 4   \\
+        \bottomrule
+    \end{tabular}
+    \caption{Kenngrössen der Ausgleichung über die Optimierungsschritte v0 bis v3}
+    \label{tab:kenngroessen_optimierung}
+\end{table}
 
 
 
@@ -305,46 +443,3 @@ Messungen durch THB auf 7000 vorhanden wären.
 \bigskip
 Optimierung durch Elmiminierung der Punkte 9000 und EX7000, da diese Lediglich für den LN02 anschluss 
 erschlossen wurde, Genauigkeit Lage und Höhe besser wenn nur auf Langstatischen (48h) gelagert.
-\bigskip
-\begin{table}[H]
-    \centering
-    \begin{tabular}{p{0.8cm} p{1.2cm} p{3.2cm} p{2.5cm} p{5.3cm}}
-        \toprule
-        Nr. & Runde & Station $\rightarrow$ Ziel & Satz / Instr. & Beob.-Nr. Richtung / Distanz / Höhe \\
-        \midrule
-        1  & 1 & 1000 $\rightarrow$ 210   & 1 / MS60 & 2 / 18 / 357 \\
-        2  & 1 & 1000 $\rightarrow$ 510   & 1 / MS60 & 6 / 22 / 362 \\
-        3  & 1 & 2000 $\rightarrow$ 210   & 1 / MS60 & 33 / 42 / 375 \\
-        4  & 1 & 2000 $\rightarrow$ 1000  & 1 / MS60 & 39 / 48 / 373 \\
-        5  & 1 & 210 $\rightarrow$ 510    & 1 / MS60 & 52 / 62 / 387 \\
-        6  & 1 & 210 $\rightarrow$ 1000   & 1 / MS60 & 54 / 64 / 358 \\
-        7  & 1 & 510 $\rightarrow$ 210    & 1 / MS60 & 71 / 83 / 388 \\
-        8  & 1 & 2000 $\rightarrow$ 210   & 2 / SX12 & 310 / 318 / 512 \\
-        9  & 1 & 2000 $\rightarrow$ 1000  & 2 / SX12 & 311 / 319 / 513 \\
-        \addlinespace
-        10 & 2 & 2000 $\rightarrow$ 310   & 1 / MS60 & 34 / 43 / 377 \\
-        11 & 2 & 2000 $\rightarrow$ 710   & 1 / MS60 & 38 / 47 / 381 \\
-        12 & 2 & 210 $\rightarrow$ 2000   & 1 / MS60 & 55 / 65 / 376 \\
-        13 & 2 & 510 $\rightarrow$ 7020   & 1 / MS60 & 80 / 92 / 404 \\
-        14 & 2 & 6015 $\rightarrow$ 6003  & 1 / TS60 & 175 / 183 / 428 \\
-        15 & 2 & 7014 $\rightarrow$ 7016  & 1 / TS60 & 234 / 237 / 482 \\
-        16 & 2 & 7014 $\rightarrow$ 7016  & 2 / TS60 & 240 / 243 / 488 \\
-        17 & 2 & 2000 $\rightarrow$ 7020  & 2 / SX12 & 307 / 315 / -- \\
-        18 & 2 & 2000 $\rightarrow$ 7018  & 2 / SX12 & 308 / 316 / 510 \\
-        \addlinespace
-        19 & 3 & 1000 $\rightarrow$ 2000  & 1 / MS60 & 15 / 31 / 372 \\
-        20 & 3 & 510 $\rightarrow$ 310    & 1 / MS60 & 72 / 84 / 396 \\
-        21 & 3 & 510 $\rightarrow$ 710    & 1 / MS60 & 74 / 86 / 398 \\
-        22 & 3 & 510 $\rightarrow$ 7018   & 1 / MS60 & 79 / 91 / 402 \\
-        23 & 3 & TP506 $\rightarrow$ 6001 & 1 / MS60 & 96 / 101 / 410 \\
-        24 & 3 & 6003 $\rightarrow$ 6015  & 1 / TS60 & 127 / 137 / 427 \\
-        25 & 3 & 7020 $\rightarrow$ 510   & 1 / TS60 & 272 / 279 / 405 \\
-        26 & 3 & 7020 $\rightarrow$ 2000  & 1 / TS60 & 273 / 280 / 385 \\
-        27 & 3 & 7020 $\rightarrow$ 5000  & 1 / TS60 & 274 / 281 / 502 \\
-        28 & 3 & 7020 $\rightarrow$ 7119  & 1 / TS60 & 277 / 284 / 505 \\
-        \bottomrule
-    \end{tabular}
-    \caption{Eliminierte Visuren von v2 bis opt\_v3 (Beob.-Nr. gemäss Bericht v2)}
-    \label{tab:eliminierte_visuren}
-\end{table}
-\label{sec:v0}

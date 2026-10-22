@@ -10,7 +10,7 @@ die Koordinaten aus dem Jahr 2022. Für die im Rahmen der Feldkampagne
 GNSS-Koordinaten übernommen. Die Netzausgleichung erfolgte nach der
 Methode der kleinsten Quadrate (MdKQ). Dabei wird angenommen, dass die
 Beobachtungen stochastisch unabhängig und die Messabweichungen
-normalverteilt sind.
+normalverteilt sind. \bigskip
 
 Im Rahmen dieses Arbeitspakets wird das Netz Schwanderbärgli in der
 Variante V1.1 «optimiert» ausgewertet. Ziel ist es, durch eine geeignete
@@ -32,68 +32,241 @@ Als erster Schritt wurde ein provisorischer Abriss erstellt, um eine erste
 Qualitätskontrolle des Netzes durchzuführen. Beim provisorischen Abriss werden
 alle Punkte als Festpunkte behandelt. Es handelt sich somit um eine reine
 Plausibilitätskontrolle der gemessenen Richtungen und Distanzen anhand der
-bekannten Näherungskoordinaten.
+bekannten Näherungskoordinaten. \bigskip
+
+Die Auswertung ergab 360 Lagebeobachtungen (davon 166 Richtungen, 166
+Distanzen und 28 GNSS-Koordinaten) sowie 193 Höhenbeobachtungen (davon 179
+Höhendifferenzen und 14 GNSS-Höhen) bei 124 Stationen. \bigskip
 
 Der provisorische Abriss zeigte insgesamt ein plausibles und stimmiges
 Messnetz. Die Hin- und Rückmessungen der Distanzen stimmen sehr gut überein.
 Auch die gegenseitig gemessenen Höhenwinkel stimmen bis auf zwei Ausnahmen
-weitgehend überein. Es wurden keine
+weitgehend überein. Diese beiden Auffälligkeiten (510–EX9500 sowie 7008–7020)
+werden im Folgenden näher erläutert. Es wurden keine
 groben Fehler in den Beobachtungen festgestellt. Einzelne Beobachtungen
 zeigten grössere Abweichungen. Diese treten gruppiert auf, etwa als
 gemeinsame Verschiebung der Distanzen im Gebiet Sperre, und sind durch
 Bewegungen im Messgebiet sowie durch die unterschiedlichen Epochen der
 eingeführten Koordinaten (GNSS-Koordinaten 2026 und Koordinaten 2022)
 erklärbar. Sie blieben somit im erwarteten Bereich eines provisorischen
-Abrisses.
-
-Die Auswertung ergab 360 Lagebeobachtungen (davon 166 Richtungen, 166
-Distanzen und 28 GNSS-Koordinaten) sowie 193 Höhenbeobachtungen (davon 179
-Höhendifferenzen und 14 GNSS-Höhen) bei 124 Stationen.
+Abrisses. \bigskip
 
 Eine Auffälligkeit zeigte die gegenseitige Höhenkontrolle zwischen den
 Punkten 510 und EX9500. Der Kontrollwert beträgt 53.5 mm bei einer Distanz
 von rund 1264 m und einer steilen Visur. Wegen der langen Visur haben die
-Beobachtungen eine a-priori-Standardabweichung von 12–15 mm. Sie wurden im
+Beobachtungen eine a-priori-Standardabweichung von 12 mm. Die Beobachtungen wurden im
 provisorischen Abriss nicht ausgeschlossen. Ob sie in der Netzausgleichung
 beibehalten werden, wird anhand der normierten Verbesserungen entschieden.
+Diese sind im provisorischen Ariss nicht bestimmbar, da alle Punkte als Festpunkte
+behandelt werden. \bigskip
 
 Eine weitere Auffälligkeit zeigte die gegenseitige Höhenkontrolle zwischen
 7008 und 7020 mit einem Kontrollwert von 7.5 mm. Sie dürfte auf die
 Bedingungen bei der Feldmessung zurückzuführen sein: Das Stativ konnte am
 Standort 7020 wegen des Strassenverkehrs nicht dauerhaft stehen bleiben.
 Damit Lastwagen passieren konnten, musste die Station mehrfach vollständig
-abgebaut und anschliessend neu aufgestellt werden. Auffälligkeiten bei
-Beobachtungen von oder nach 7020 werden deshalb nicht automatisch als
-zufällige Messfehler interpretiert, da die wiederholten Neuaufstellungen
-eine nachvollziehbare mögliche Ursache darstellen.
+abgebaut und anschliessend neu aufgestellt werden. Der Umgang mit diesen
+Beobachtungen von und nach 7020 wird bei den folgenden Ausgleichungen behandelt.
 
 \subsection{Robuste Netzlagerung}
 \label{sec:robuste netzlagerung}
+Im Anschluss an den provisorischen Abriss wurde eine freie, robuste
+Netzlagerung durchgeführt. Damit soll die
+innere Qualität des Netzes unabhängig von den Näherungskoordinaten der
+Festpunkte beurteilt, die Genauigkeit der Beobachtungen analysiert und
+fehlerhafte Beobachtungen besser erkannt werden. Beim robusten Verfahren
+(Koeffizient 2.5) werden Beobachtungen mit grossen Verbesserungen
+automatisch abgewichtet, sodass einzelne Ausreisser das Ergebnis weniger
+stark verfälschen. Das Datum wurde manuell definiert
+(Lage: Punkte 7000, EX7000, EX9500 und EX6015, Höhe: Punkt 9000). Die
+Standardabweichungen der GNSS-Koordinaten und GNSS-Höhen wurden gegenüber
+dem provisorischen Abriss auf 5.0~mm in der Lage und 7.0~mm in der Höhe erhöht.
+In der Tabelle xxx ist das stochastische Modell der Beobachtungen zusammengefasst.
 
+\begin{table}[H]
+    \centering
+    \begin{tabularx}{\textwidth}{p{5.5cm} X X}
+        \toprule
+        Parameter & Lage & Höhe \\
+        \midrule
+        Richtungen & 2.0 cc & -- \\
+        \addlinespace
+        Zentrierung / IH zu SH & 1.0 mm & 1.0 mm \\
+        \addlinespace
+        GNSS-Koordinaten & 5.0 mm & -- \\
+        \addlinespace
+        GNSS-Höhen & -- & 7.0 mm \\
+        \addlinespace
+        Distanzen (MED) -- a & 1.0 mm & -- \\
+        \addlinespace
+        Distanzen (MED) -- b & 1.5 mm/km & -- \\
+        \bottomrule
+    \end{tabularx}
+    \caption{Stochastisches Modell der robusten Netzlagerung}
+    \label{tab:stochastisches-modell-robust}
+\end{table}
+
+Die Ausgleichung umfasste 358 Lagebeobachtungen und 187
+Höhenbeobachtungen bei 126 Stationen. Die Anzahl der Unbekannten betrug 170
+in der Lage und 70 in der Höhe, woraus sich 188 beziehungsweise 117
+Überbestimmungen ergaben. \bigskip
+
+Der mittlere Quotient empirisch/theoretisch lag
+bei 0.86 in der Lage und 1.13 in der Höhe. Beim robusten Verfahren wird
+kein $\chi^2$-Test berechnet. Die Quotienten nahe 1 zeigen jedoch, dass das
+stochastische Modell gut zu den Beobachtungen passt. Die maximal
+schlechteste Koordinatengenauigkeit betrug 6.2~mm in der Lage und 8.5~mm in
+der Höhe. Die empirische Standardabweichung der Distanzen lag bei 1.9~mm
+(Quotient 0.70), diejenige der Richtungen bei 1.7~cc (Quotient 0.83)  und
+diejenige der Höhendifferenzen bei 0.3~mm (Quotient 1.09). Die
+GNSS-Koordinaten (7.6~mm, Quotient 1.51) und GNSS-Höhen (10.4~mm,
+Quotient 1.49) streuen stärker als a priori angenommen. \bigskip
+
+Aufgrund grosser Verbesserungen wurden sechs Beobachtungen eliminiert:
+die GNSS-Koordinaten (E und N) und die GNSS-Höhe des Punktes 6011, die
+GNSS-Höhe des Punktes 6000 sowie die Höhendifferenzen von 7008 und 2000
+nach 7020. Die Verbesserungen der GNSS-Beobachtungen lagen mit 16.3 bis
+62.0~mm deutlich über den a-priori-Standardabweichungen von 5.0 beziehungsweise
+7.0~mm. Beim Punkt 6011 sind die grossen Abweichungen vermutlich auf die
+eingeschränkte Satellitensicht infolge der örtlichen Abschattung und die
+damit verbundene ungünstige Satellitengeometrie zurückzuführen. Die Ursache
+der grossen Abweichung der GNSS-Höhe des Punktes 6000 konnte hingegen nicht
+eindeutig geklärt werden. Die auffälligen Höhendifferenzen nach 7020 lassen
+sich vermutlich durch die mehrfachen Neuaufstellungen der Station am Punkt
+7020 während der Feldmessung erklären (siehe Abschnitt xxx). \bigskip
+
+Nach dem Ausschluss dieser Beobachtungen lagen weiterhin drei normierte
+Verbesserungen über dem Grenzwert von 3.5 (Tabelle xxx).
+
+\begin{table}[H]
+    \centering
+    \begin{tabularx}{\textwidth}{p{2.2cm} X X}
+        \toprule
+        Station & Richtung nach & wi-Wert \\
+        \midrule
+        2000 & 7022 & 4.2  \\
+        \addlinespace
+        EX9500 & 510 & -3.8 \\
+        \addlinespace
+        6006 (GNSS) & - & -4.1 \\
+        \bottomrule
+    \end{tabularx}
+    \caption{Höchste wi-Werte der robusten Netzlagerung}
+    \label{tab:wi-werte-robuste-netzlagerung}
+\end{table}
+
+Diese Beobachtungen wurden robust abgewichtet. Die Distanz von Station 2000
+nach 7022 weist den grössten Wert auf ($w_i = 4.2$). Von Station 2000 stammen
+zudem weitere erhöhte Werte (Höhendifferenz nach 7022: $-3.4$, Richtungen
+nach 710 und 610: $-3.0$ bzw. $-2.8$), was auf eine Auffälligkeit
+der Station 2000 hindeutet. 
+Die Höhendifferenz von EX9500 nach 510 ($w_i = -3.8$) bestätigt die bereits
+im provisorischen Abriss festgestellte Auffälligkeit dieser langen, steilen
+Visur (rund 1264~m). Die GNSS-Höhe von Punkt 6006 ($w_i = -4.1$)
+zeigt wie die eliminierten GNSS-Höhen eine grosse negative Verbesserung.
+Alle übrigen $w_i$-Werte blieben kleiner als 3.5.
+Die genaue Berechnung ist im Anhang xxx ersichtlich.
 
 \subsection{Weiche Lagerung}
 \label{sec:weiche lagerung}
-Nach dem provisorischen Abriss wurde das Netz in einer weichen Lagerung
-ausgeglichen. Auf eine vorgängige freie Netzausgleichung wurde verzichtet.
-Stattdessen wurden die vorhandenen Referenzkoordinaten bereits in der
-ersten Ausgleichung berücksichtigt. Durch die weiche Lagerung können
-diese innerhalb ihrer vorgegebenen Genauigkeiten angepasst werden,
-ohne dass das Netz durch eine starre Festhaltung der Referenzpunkte
-unnötig gezwängt wird. Dies ist insbesondere bei einem ausgedehnten
-Überwachungsnetz mit unterschiedlichen Beobachtungstypen und
-Referenzkoordinaten aus verschiedenen Messepochen von Bedeutung.
+Im Anschluss an die robuste Netzlagerung wurde eine weiche Netzlagerung durchgeführt.
+Dabei werden die Koordinaten der Festpunkte nicht als fehlerfrei betrachtet, sondern
+als zusätzliche Beobachtungen mit einer vorgegebenen Standardabweichung in die Ausgleichung
+eingeführt. Dadurch können die Festpunktkoordinaten innerhalb ihrer angenommenen Genauigkeit
+angepasst werden. Ziel dieser Ausgleichung ist es, das Netz unter Berücksichtigung der
+vorhandenen Festpunktinformationen zu lagern und die resultierenden Koordinatengenauigkeiten
+sowie die Übereinstimmung zwischen den Beobachtungen und dem stochastischen Modell zu beurteilen.
 
-Ziel der weichen Lagerung war es, die innere Konsistenz der
-Beobachtungen zu überprüfen, auffällige Messungen zu identifizieren
-und eine geeignete Ausgangslage für die weitere Netzoptimierung
-zu schaffen. Dazu wurden insbesondere die Verbesserungen der
-Beobachtungen sowie die Genauigkeits- und Zuverlässigkeitskennwerte
-der Ausgleichung untersucht.
-Die Optimierung erfolgte schrittweise in den Varianten
-weiche Lagerung v0 bis v5. Dabei wurden auffällige Beobachtungen nicht
-allein aufgrund der statistischen Kennwerte eliminiert, sondern
-zusätzlich anhand der Messgeometrie und der bekannten Bedingungen
-während der Feldmessung beurteilt.
+Für die weiche Lagerung wurden die Punkte 7000, 7004, 7015, EX9500, EX6015 und EX7000 in der
+Lage sowie die Punkte 7000, 7004, 7015, EX9500 und 9000 in der Höhe als Festpunkte eingeführt.
+Die a-priori-Standardabweichung der Festpunktkoordinaten wurde sowohl in der Lage als auch in
+der Höhe auf 5.0~mm festgelegt. Die übrigen Standardabweichungen wurden gegenüber der robusten
+Netzlagerung weitgehend beibehalten. Zusätzlich wurde die Standardabweichung des
+Refraktionskoeffizienten von 0.060 auf 0.100 erhöht. Die Ausgleichung erfolgte ohne robuste
+Abgewichtung der Beobachtungen. Das verwendete stochastische Modell ist in Tabelle xxx zusammengefasst.
+\begin{table}[H]
+    \centering
+    \begin{tabularx}{\textwidth}{p{5.5cm} X X}
+        \toprule
+        Parameter & Lage & Höhe \\
+        \midrule
+        Richtungen & 2.0 cc & - \\
+        \addlinespace
+        Zentrierung / IH zu SH & 1.0 mm & 1.0 mm \\
+        \addlinespace
+        GNSS-Koordinaten & 5.0 mm & - \\
+        \addlinespace
+        GNSS-Höhen & - & 7.0 mm \\
+        \addlinespace
+        Festpunktkoordinaten & 5.0 mm & 5.0 mm \\
+        \addlinespace
+        Distanzen (MED) - a & 1.0 mm & - \\
+        \addlinespace
+        Distanzen (MED) - b & 1.5 mm/km & - \\
+        \addlinespace
+        Höhenwinkel & - & 2.0 cc \\
+        \addlinespace
+        Nivellement (1 km) & - & 0.3 mm \\
+        \bottomrule
+    \end{tabularx}
+    \caption{Stochastisches Modell der weichen Netzlagerung}
+    \label{tab:stochastisches-modell-weich}
+\end{table}
+
+
+Die Ausgleichung umfasste 366 Lagebeobachtungen und 191 Höhenbeobachtungen bei insgesamt
+128 Stationen. Die Anzahl der Unbekannten betrug 174 in der Lage und 71 in der Höhe, woraus
+sich 192 beziehungsweise 120 Überbestimmungen ergaben. Gegenüber der robusten Netzlagerung
+wurden damit zusätzliche Beobachtungen berücksichtigt, insbesondere die als Beobachtungen
+eingeführten Festpunktkoordinaten.
+
+Der mittlere Quotient empirisch/theoretisch betrug 0.81 in der Lage und 1.01 in der Höhe.
+In der Höhe stimmt die empirische Genauigkeit somit sehr gut mit dem stochastischen Modell
+überein. In der Lage fällt die empirische Streuung etwas geringer aus als a priori angenommen.
+Die schlechteste Koordinatengenauigkeit betrug 7.1~mm in der Lage und 7.6~mm in der Höhe.
+Im Vergleich zur robusten Netzlagerung (6.2~mm beziehungsweise 8.5~mm) verschlechterte sich
+die maximale Lagegenauigkeit geringfügig, während sich die maximale Höhengenauigkeit verbesserte.
+
+Die empirische Standardabweichung der Distanzen betrug 1.9~mm (Quotient 0.72), diejenige der
+Richtungen 1.5~cc (Quotient 0.69) und diejenige der Höhendifferenzen 0.3~mm (Quotient 0.99).
+Die GNSS-Koordinaten wiesen mit 7.5~mm (Quotient 1.49) weiterhin eine grössere Streuung auf
+als a priori angenommen. Die GNSS-Höhen erreichten hingegen eine empirische Standardabweichung
+von 7.7~mm (Quotient 1.10) und stimmen damit deutlich besser mit dem stochastischen Modell
+überein als bei der robusten Netzlagerung. Die als Beobachtungen eingeführten Festpunktkoordinaten
+erreichten empirische Standardabweichungen von 3.4~mm in der Lage (Quotient 0.67) und 7.7~mm in
+der Höhe (Quotient 1.53). Insbesondere bei den Festpunkthöhen zeigt sich somit eine grössere Streuung
+als a priori angenommen.
+
+Bei der weichen Netzlagerung blieben die sechs bereits in der robusten Netzlagerung eliminierten
+Beobachtungen ausgeschlossen. Zusätzlich wurde die GNSS-Höhe des Punktes 6006 aufgrund einer
+grossen Verbesserung von $-30.4$~mm eliminiert. Diese Beobachtung war bereits bei der robusten
+Netzlagerung mit einem normierten Verbesserungswert von $w_i=-4.1$ auffällig und wurde dort robust
+abgewichtet. Die Verbesserung liegt deutlich über der a-priori-Standardabweichung der GNSS-Höhen
+von 7.0~mm. Insgesamt wurden bei der weichen Netzlagerung somit sieben Beobachtungen eliminiert.
+
+Nach dem Ausschluss dieser Berechnung lag weiterhin eine normierte Verbesserungen über dem Grenzwert von 3.5
+(siehe Tabelle xxx).
+
+\begin{table}[H]
+    \centering
+    \begin{tabularx}{\textwidth}{p{2.2cm} X X}
+        \toprule
+        Station & Richtung nach & wi-Wert \\
+        \midrule
+        2000 & 7022 & 3.5  \\
+        \bottomrule
+    \end{tabularx}
+    \caption{Höchste wi-Werte der weichen Netzlagerung}
+    \label{tab:wi-werte-weiche-netzlagerung}
+\end{table}
+
+Insgesamt zeigt die weiche Netzlagerung eine gute Übereinstimmung zwischen den angenommenen und
+den empirischen Beobachtungsgenauigkeiten. Besonders in der Höhe liegt der mittlere Quotient nahe
+bei 1. Die GNSS-Koordinaten und die Festpunkthöhen weisen jedoch weiterhin erhöhte empirische
+Streuungen auf. Gegenüber der robusten Netzlagerung ermöglicht die weiche Lagerung eine Einbindung
+der vorhandenen Festpunktkoordinaten unter Berücksichtigung ihrer Unsicherheiten. Damit bildet
+sie eine Grundlage für die Beurteilung der Netzqualität und für die weiteren Untersuchungen
+zur Optimierung der Netzkonfiguration.
 
 \subsection{gezwängter Ausgleich}
 \label{sec:gezwängter ausgleich}

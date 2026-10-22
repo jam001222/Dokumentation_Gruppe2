@@ -175,7 +175,7 @@ als zusätzliche Beobachtungen mit einer vorgegebenen Standardabweichung in die 
 eingeführt. Dadurch können die Festpunktkoordinaten innerhalb ihrer angenommenen Genauigkeit
 angepasst werden. Ziel dieser Ausgleichung ist es, das Netz unter Berücksichtigung der
 vorhandenen Festpunktinformationen zu lagern und die resultierenden Koordinatengenauigkeiten
-sowie die Übereinstimmung zwischen den Beobachtungen und dem stochastischen Modell zu beurteilen.
+sowie die Übereinstimmung zwischen den Beobachtungen und dem stochastischen Modell zu beurteilen. \bigskip
 
 Für die weiche Lagerung wurden die Punkte 7000, 7004, 7015, EX9500, EX6015 und EX7000 in der
 Lage sowie die Punkte 7000, 7004, 7015, EX9500 und 9000 in der Höhe als Festpunkte eingeführt.
@@ -184,6 +184,7 @@ der Höhe auf 5.0~mm festgelegt. Die übrigen Standardabweichungen wurden gegen�
 Netzlagerung weitgehend beibehalten. Zusätzlich wurde die Standardabweichung des
 Refraktionskoeffizienten von 0.060 auf 0.100 erhöht. Die Ausgleichung erfolgte ohne robuste
 Abgewichtung der Beobachtungen. Das verwendete stochastische Modell ist in Tabelle xxx zusammengefasst.
+
 \begin{table}[H]
     \centering
     \begin{tabularx}{\textwidth}{p{5.5cm} X X}
@@ -213,19 +214,18 @@ Abgewichtung der Beobachtungen. Das verwendete stochastische Modell ist in Tabel
     \label{tab:stochastisches-modell-weich}
 \end{table}
 
-
 Die Ausgleichung umfasste 366 Lagebeobachtungen und 191 Höhenbeobachtungen bei insgesamt
 128 Stationen. Die Anzahl der Unbekannten betrug 174 in der Lage und 71 in der Höhe, woraus
 sich 192 beziehungsweise 120 Überbestimmungen ergaben. Gegenüber der robusten Netzlagerung
 wurden damit zusätzliche Beobachtungen berücksichtigt, insbesondere die als Beobachtungen
-eingeführten Festpunktkoordinaten.
+eingeführten Festpunktkoordinaten. \bigskip
 
 Der mittlere Quotient empirisch/theoretisch betrug 0.81 in der Lage und 1.01 in der Höhe.
 In der Höhe stimmt die empirische Genauigkeit somit sehr gut mit dem stochastischen Modell
 überein. In der Lage fällt die empirische Streuung etwas geringer aus als a priori angenommen.
 Die schlechteste Koordinatengenauigkeit betrug 7.1~mm in der Lage und 7.6~mm in der Höhe.
 Im Vergleich zur robusten Netzlagerung (6.2~mm beziehungsweise 8.5~mm) verschlechterte sich
-die maximale Lagegenauigkeit geringfügig, während sich die maximale Höhengenauigkeit verbesserte.
+die maximale Lagegenauigkeit geringfügig, während sich die maximale Höhengenauigkeit verbesserte. \bigskip
 
 Die empirische Standardabweichung der Distanzen betrug 1.9~mm (Quotient 0.72), diejenige der
 Richtungen 1.5~cc (Quotient 0.69) und diejenige der Höhendifferenzen 0.3~mm (Quotient 0.99).
@@ -235,16 +235,16 @@ von 7.7~mm (Quotient 1.10) und stimmen damit deutlich besser mit dem stochastisc
 überein als bei der robusten Netzlagerung. Die als Beobachtungen eingeführten Festpunktkoordinaten
 erreichten empirische Standardabweichungen von 3.4~mm in der Lage (Quotient 0.67) und 7.7~mm in
 der Höhe (Quotient 1.53). Insbesondere bei den Festpunkthöhen zeigt sich somit eine grössere Streuung
-als a priori angenommen.
+als a priori angenommen. \bigskip
 
 Bei der weichen Netzlagerung blieben die sechs bereits in der robusten Netzlagerung eliminierten
 Beobachtungen ausgeschlossen. Zusätzlich wurde die GNSS-Höhe des Punktes 6006 aufgrund einer
 grossen Verbesserung von $-30.4$~mm eliminiert. Diese Beobachtung war bereits bei der robusten
 Netzlagerung mit einem normierten Verbesserungswert von $w_i=-4.1$ auffällig und wurde dort robust
 abgewichtet. Die Verbesserung liegt deutlich über der a-priori-Standardabweichung der GNSS-Höhen
-von 7.0~mm. Insgesamt wurden bei der weichen Netzlagerung somit sieben Beobachtungen eliminiert.
+von 7.0~mm. Insgesamt wurden bei der weichen Netzlagerung somit sieben Beobachtungen eliminiert. \bigskip
 
-Nach dem Ausschluss dieser Berechnung lag weiterhin eine normierte Verbesserungen über dem Grenzwert von 3.5
+Nach dem Ausschluss dieser Berechnung lag weiterhin eine normierte Verbesserung über dem Grenzwert von 3.5
 (siehe Tabelle xxx).
 
 \begin{table}[H]
@@ -270,6 +270,143 @@ zur Optimierung der Netzkonfiguration.
 
 \subsection{gezwängter Ausgleich}
 \label{sec:gezwängter ausgleich}
+
+Im Anschluss an die weiche Netzlagerung wurde eine gezwängte Ausgleichung durchgeführt.
+Dabei werden die Koordinaten der ausgewählten Festpunkte als fehlerfrei betrachtet und festgehalten.
+Im Gegensatz zur weichen Lagerung können diese Koordinaten somit nicht mehr durch die Ausgleichung verändert
+werden. Ziel ist es, das Netz auf den vorgegebenen Festpunkten zu lagern und die resultierenden
+Koordinatengenauigkeiten sowie die Übereinstimmung zwischen den Beobachtungen und dem stochastischen
+Modell zu beurteilen. Dazu wurden zwei Varianten berechnet und miteinander verglichen. \bigskip
+
+\subsubsection{Entscheid Höhenlagerung}
+\label{sec:entscheid hoehenlagerung}
+Bei der Festelgung der Höhenlagerung stellte sich die Frage nach dem Umgang mit den unterschiedlichen
+Höhensystemen (LN02 und LHN95). Der Höhenfixpunkt 9000 liegt im LN02 vor, während die übrigen Netzhöhen
+auf dem LHN95 beruhen. Eine direkte gemeinsame Verwendung dieser Höhen ohne entsprechende Transformation
+ist deshalb nicht zweckmässig. \bigskip
+
+Für die weitere Auswertung wurden verschiedene Ansätze geprüft. Einerseits hätte das gesamte Netz 
+mithilfe von Reframe nach LN02 transformiert werden können. Anderseits wäre eine Transformation des
+Höhenfixpunktes 9000 nach LHN95 möglich gewesen. Ebenfalls wurde eine Höhenlagerung ausschliesslich auf
+dem Punkt 9000 oder ein Verzicht auf diesen Höhenanschluss in Betracht gezogen. \bigskip
+
+Schliesslich wurde entschieden, das gesamte Netz auf Grundlage der langstatischen GNSS-Messungen an den
+Referenzstationen (Messdauer rund 44~h) zu lagern und auf den Höhenanschluss über das Nivellement zu verzichten.
+Ausschlaggebend waren insbesondere die unterschiedlichen Höhensysteme sowie die unterschiedlichen Genauigkeiten
+der verwendeten Messverfahren. Zusätzlich bestanden Unsicherheiten bezüglich der Höhe des Höhenfixpunktes 9000 (siehe Tabelle xxx),
+da die Ausgangshöhe aus dem Jahr 2022 nicht mit der von swisstopo angegebenen Höhe übereinstimmte. Zur Überprüfung
+wurde auf dem Punkt 9000 eine langstatische GNSS-Messung mit einer Messdauer von rund 15~h durchgeführt. Die daraus
+bestimmte Höhe wich um rund 2.5~cm von der nach LHN95 transformierten swisstopo-Höhe und um rund 1.1~cm von der
+Ausgangshöhe aus dem Jahr 2022 ab. Diese Differenzen könnten teilweise auf die Messunsicherheit der GNSS-Höhenbestimmung
+zurückzuführen sein. Die genaue Ursache konnte jedoch nicht eindeutig geklärt werden. Aufgrund dieser Unstimmigkeiten
+wurde darauf verzichtet, den Punkt 9000 als verbindlichen Höhenanschluss zu verwenden. Damit wird vermieden,
+dass mögliche systematische Abweichungen des Höhenfixpunktes zusätzliche Zwänge in die Netzausgleichung
+einbringen. Die Höhenlagerung erfolgt stattdessen einheitlich über die langstatischen GNSS-Messungen der Referenzstationen. \bigskip
+
+\begin{table}[H]
+    \centering
+    \begin{tabularx}{\textwidth}{p{4cm} X X}
+        \toprule
+        Höhenbestimmung & Höhensystem & Höhe [m] \\
+        \midrule
+        GNSS-Höhe 2026 & LHN95 & 649.0003 \\
+        \addlinespace
+        swisstopo-Höhe & LN02 & 648.9470 \\
+        \addlinespace
+        swisstopo-Höhe & LHN95 & 648.9756 \\
+        \addlinespace
+        Ausgangshöhe 2022 & Höhensystem unbekannt & 648.9891 \\
+        \bottomrule
+    \end{tabularx}
+    \caption{Vergleich der unterschiedlichen Höhenangaben des Punktes 9000}
+    \label{tab:hoehenvergleich-9000}
+\end{table}
+
+\subsubsection{gezwängte Ausgleichungen}
+\label{sec:gezwängte ausgleichungen}
+
+Nach dem Entscheid zur Höhenlagerung wurde die erste Variante der gezwängten Ausgleichung berechnet.
+In der Lage wurden die Koordinaten der Punkte 7000, 7004, 7015, EX9500, EX6015 und EX7000 als Festpunkte
+eingeführt. Die Höhenlagerung erfolgte auf Grundlage der langstatischen GNSS-Messungen der Referenzstationen. \bigskip
+
+Für die tachymetrischen Beobachtungen wurde das stochastische Modell gegenüber der weichen Netzlagerung weiter
+differenziert. Dazu wurden die Messungen nach den eingesetzten Tachymetertypen TS60, MS60 und SX12 in
+unterschiedliche Beobachtungsgruppen eingeteilt. Für die Richtungen, Azimute und Distanzen konnten damit
+instrumentenspezifische a-priori-Genauigkeiten berücksichtigt werden. Die entsprechenden Parameter sind in
+Tabelle xxx aufgeführt. Die übrigen Parameter des stochastischen Modells sind in Tabelle xxx zusammengefasst. 
+
+\begin{table}[H]
+    \centering
+    \begin{tabularx}{\textwidth}{p{5.3cm} X X X}
+        \toprule
+        Parameter & TS60 & MS60 & SX12 \\
+        \midrule
+        Richtungen [cc] & 1.5 & 3.0 & 3.0 \\
+        \addlinespace
+        Azimutgruppen [cc] & 1.5 & 3.0 & 3.0 \\
+        \addlinespace
+        Distanzen (MED) - a [mm] & 0.6 & 1.0 & 1.0 \\
+        \addlinespace
+        Distanzen (MED) - b [mm/km] & 1.0 & 1.5 & 1.5 \\
+        \bottomrule
+    \end{tabularx}
+    \caption{Instrumentenspezifisches stochastisches Modell der gezwängten Ausgleichung}
+    \label{tab:stochastisches-modell-instrumente}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \begin{tabularx}{\textwidth}{p{5.5cm} X X}
+        \toprule
+        Parameter & Lage & Höhe \\
+        \midrule
+        Zentrierung / IH zu SH & 1.0 mm & 1.0 mm \\
+        \addlinespace
+        GNSS-Koordinaten & 5.0 mm & - \\
+        \addlinespace
+        GNSS-Höhen & - & 5.0 mm \\
+        \addlinespace
+        Nivellement (1 km) & - & 0.3 mm \\
+        \bottomrule
+    \end{tabularx}
+    \caption{Allgemeine Parameter des stochastischen Modells der gezwängten Ausgleichung}
+    \label{tab:stochastisches-modell-allgemein}
+\end{table}
+
+
+xxx
+
+
+\begin{table}[H]
+    \centering
+    \begin{tabularx}{\textwidth}{p{6cm} X X}
+        \toprule
+        Kennwert & Variante 1 & Variante 2 \\
+        \midrule
+        Lagebeobachtungen & 357 & 355 \\
+        \addlinespace
+        Höhenbeobachtungen & 183 & 182 \\
+        \addlinespace
+        Überbestimmungen Lage & 191 & 189 \\
+        \addlinespace
+        Überbestimmungen Höhe & 116 & 115 \\
+        \addlinespace
+        Quotient empirisch/theoretisch Lage & 0.90 & 0.86 \\
+        \addlinespace
+        Quotient empirisch/theoretisch Höhe & 1.10 & 1.07 \\
+        \addlinespace
+        Schlechteste Lagegenauigkeit & 6.2 mm & 5.9 mm \\
+        \addlinespace
+        Schlechteste Höhengenauigkeit & 3.8 mm & 3.7 mm \\
+        \addlinespace
+        Eliminierte Beobachtungen & 11 & 14 \\
+        \bottomrule
+    \end{tabularx}
+    \caption{Vergleich der beiden Varianten der gezwängten Ausgleichung}
+    \label{tab:vergleich-gezwängter-ausgleich}
+\end{table}
+
+
 
 
 \subsection{gezwängter Ausgleich optimiert}

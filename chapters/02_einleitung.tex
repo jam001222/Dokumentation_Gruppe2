@@ -44,12 +44,12 @@ Teil bearbeiten. Unsere Gruppe hat zwei Arbeitspakete übernommen:
 \end{enumerate}
 
 \clearpage
-\thispagestyle{empty}
-\refstepcounter{figure}\label{fig:30_Detailtafel}
-\addcontentsline{lof}{figure}{\protect\numberline{\thefigure}%
-  Detailübersicht Messgebiete Schwanderbärgli 2026 (Projektion: LV95)}
-\begin{tikzpicture}[remember picture, overlay]
-  \node at (current page.center)
-    {\includegraphics[width=\paperwidth, height=\paperheight]{30_Detailtafel_alle_Gebiete.png}};
-\end{tikzpicture}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth,
+                     height=\dimexpr\textheight-4\baselineskip\relax,
+                     keepaspectratio]{30_Detailtafel_alle_Gebiete.png}
+    \caption[Detailübersicht Messgebiete Schwanderbärgli 2026]{Detailübersicht der Messgebiete Ägerdi, Brunni, Sperre, Brichen und Tal.}
+    \label{fig:30_Detailtafel_alle_Gebiete.png}
+\end{figure}
 \clearpage

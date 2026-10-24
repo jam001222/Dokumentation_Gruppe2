@@ -410,9 +410,10 @@ xxx
 
 
 \subsection{gezwängter Ausgleich optimiert}
-Ziel dieser Auswertung ist die Netzoptimierung, dies erfolgt durch das systematische entfernen von Beobachtungen.
-Die Voraussetzung, dass eine Beobachtung entfernt werden kann, ist das die Genauigkeit sowie die Zuverlässigkeit 
-im gesamten Netz trotzdem weiterhin den Anforderungen wie in der Tabelle~\ref{tab:anforderungen_optimierung} dargestellt entsprechen.
+\label{sec:gezwängter ausgleich optimiert}
+Ziel dieser Auswertung ist die Netzoptimierung. Diese erfolgt durch das systematische Entfernen von Beobachtungen. 
+Eine Beobachtung kann nur dann entfernt werden, wenn die Genauigkeit sowie die Zuverlässigkeit im gesamten Netz 
+weiterhin den Anforderungen in der Tabelle~\ref{tab:anforderungen_optimierung} der Anforderungen entsprechen.
 \bigskip
 \begin{table}[H]
     \centering
@@ -423,7 +424,7 @@ im gesamten Netz trotzdem weiterhin den Anforderungen wie in der Tabelle~\ref{ta
         Zuverlässigkeit & Lokale Zuverlässigkeit $z_i$                              & 25 -- 60\,\%  & 25 -- 60\,\% \\
                         & Normierte Verbesserung $w_{i,\max}$                       & $< 3.5$       & $< 3.5$ \\
         \midrule
-        Genauigkeit     & Konfidenzellipse (empirisch und theoretisch)              & $< 2.5$\,mm   & $< 3.5$\,mm \\
+        Genauigkeit     & Konfidenzellipse (empirisch)              & $< 2.5$\,mm   & $< 3.5$\,mm \\
                         & Quotient empirisch/theoretisch (Beobachtungsgruppen)      & $\approx 1$   & $\approx 1$ \\
                         & Quotient empirisch/theoretisch (gesamtes Netz)            & $\approx 1$   & $\approx 1$ \\
         \bottomrule
@@ -432,14 +433,31 @@ im gesamten Netz trotzdem weiterhin den Anforderungen wie in der Tabelle~\ref{ta
     \label{tab:anforderungen_optimierung}
 \end{table}
 \bigskip
-Die Genauigkeitsanforderungen wurden bereits im Feldkurs 2026 berechnet und werden für die Optimierung unverändert übernommen.
-Da mit der Optimierung auch eine Vereinfachung des gesamten Netzes für allfällige zukünftige Messkampagnien angestrebt wird, wurde festgelegt,
-dass Beobachtungen jeweils als ganze Visuren entfernt werden. So können diese bereits bei den Aufnahmen im Feld weggelassen werden.
-Eine Visur umfasst dabei die Richtung, die Schrägdistanz und die Zenitdistanz (RI, DS, ZD) einer Beobachtung auf einer Station.
+Die Genauigkeitsanforderungen wurden bereits im Feldkurs 2026 berechnet und werden für die Optimierung unverändert übernommen. 
+Da mit der Optimierung auch eine Vereinfachung des gesamten Netzes für allfällige zukünftige Messkampagnen angestrebt wird, 
+wurde festgelegt, dass Beobachtungen jeweils als ganze Visuren entfernt werden. So können diese bereits bei den Aufnahmen im 
+Feld weggelassen werden. Eine Visur umfasst dabei die Richtung, die Schrägdistanz und die Zenitdistanz (RI, DS, ZD) einer 
+Beobachtung auf einer Station.
 \bigskip
-In einer ersten Version wurden neun Visuren entfernt und die Genauigkeit sowie die Zuverlässigkeit des resultierenden Netzes anhand der
-Anforderungen geprüft. Die Beurteilung aller Resultate ist in Tabelle~\ref{tab:kenngroessen_optimierung} dargestellt.
-
+Als Referenz dient die Ausgleichung des vollständigen Netzes mit allen Beobachtungen (Version v0). Jede weitere Version wird 
+mit diesem Ausgangszustand verglichen. Die Beurteilung aller Resultate ist in der Tabelle~\ref{tab:kenngroessen_optimierung} 
+dargestellt.
+\bigskip
+In einer ersten Version wurden neun Visuren entfernt und die Genauigkeit sowie die Zuverlässigkeit des resultierenden Netzes 
+anhand der Anforderungen~\ref{tab:anforderungen_optimierung} geprüft. Visuren wurden vor allem dort entfernt, wo das Netz dichter 
+vermessen wurde, als es nötig ist. Das betrifft hauptsächlich die Visuren zwischen den Stationen 1000, 2000, 210 und 510. Diese 
+Punkte liegen nahe beieinander und wurden ursprünglich alle untereinander gemessen, jeweils mit Hin- und Rückmessung. Von der 
+Station 2000 aus wurde zudem mit zwei Instrumenten gemessen. Die Verbindungen zwischen diesen Stationen
+waren daher mehrfach bestimmt. Die Visuren innerhalb dieser Stationsgruppe wiesen im Ausgangsnetz eine lokale
+Zuverlässigkeit von über 70\,\% auf und lagen damit deutlich über dem angestrebten Bereich. In der ersten Version
+wurden deshalb die Verbindungen zwischen diesen Stationen gestrichen. Die Visuren, welche diese Stationen an das
+restliche Netz anschliessen, wurden beibehalten. Dadurch bleiben die Messpunkte weiterhin ausreichend miteinander
+verknüpft.
+\bigskip
+Nach dem Entfernen der neun Visuren erfüllt das Netz die Anforderungen an die Zuverlässigkeit weiterhin. Die Anzahl
+der stark überbestimmten Beobachtungen hat abgenommen, jene der schwach kontrollierten ist unverändert geblieben, und
+keine normierte Verbesserung überschreitet den Grenzwert. Die mittleren Quotienten empirisch/theoretisch liegen in der
+Lage und in der Höhe nahe bei 1. Die Koordinatengenauigkeit verschlechtert sich nur geringfügig.
 \bigskip
 \begin{table}[H]
     \centering
@@ -459,14 +477,23 @@ Anforderungen geprüft. Die Beurteilung aller Resultate ist in Tabelle~\ref{tab:
         \bottomrule
     \end{tabular}
     \caption{Eliminierte Visuren von v1 (Beob.-Nr. gemäss Bericht v1)}
-    \label{tab:eliminierte_visuren}
+    \label{tab:eliminierte_visuren_v1}
 \end{table}
 \label{sec:v0}
 \bigskip
-In der zweiten Version wurden erneut neun Visuren entfernt und das resultierende Netz ebenfalls anhand der Anforderungen geprüft.
-Da die Anforderungen weiterhin erfüllt waren, wurde entschieden, eine dritte Version zu rechnen, bevor die Anforderungen nicht mehr
-ganzheitlich erfüllt werden.
-\bigskip
+Da das Netz nach der ersten Version die Anforderungen weiterhin erfüllte, wurden in einer zweiten Version weitere
+Visuren entfernt. Dabei wurden vor allem mehrfach bestimmte Visuren eliminiert. Von der Station 2000 aus wurden
+diejenigen Visuren gestrichen, welche mit beiden Instrumenten gemessen wurden, sodass jeweils nur noch eine Bestimmung
+verbleibt. Bei gegenseitig gemessenen Visuren wurde zuerst die Visur in eine Richtung entfernt und, wo es die
+Anforderungen gemäss Tabelle~\ref{tab:anforderungen_optimierung} zuliessen, später auch die Gegenrichtung. So entfiel
+die Verbindung 210 nach 2000 vollständig. Die in zwei Sätzen gemessene Visur 7014 nach 7016 wurde ganz gestrichen,
+die Verbindung bleibt über die Gegenrichtung erhalten. Zusätzlich wurde versucht, die Exzentrumsstation EX7016.4 zu
+reduzieren. Die entfernten Visuren sind in Tabelle~\ref{tab:eliminierte_visuren_v2} aufgeführt.
+\bigskip 
+Auch nach der zweiten Version erfüllt das Netz die Anforderungen~\ref{tab:kenngroessen_optimierung}. Die Anzahl der stark überbestimmten Beobachtungen hat
+weiter abgenommen, und keine normierte Verbesserung überschreitet den Grenzwert. Die Anzahl der schwach kontrollierten
+Beobachtungen in der Lage hat jedoch erstmals leicht zugenommen. Die mittleren Quotienten empirisch/theoretisch liegen
+weiterhin nahe bei 1, und die Koordinatengenauigkeit verschlechtert sich nur geringfügig.
 \begin{table}[H]
     \centering
     \begin{tabular}{p{0.8cm} p{1.2cm} p{3.2cm} p{2.5cm} p{5.3cm}}
@@ -482,14 +509,31 @@ ganzheitlich erfüllt werden.
         16 & 2 & 7014 $\rightarrow$ 7016  & 2 / TS60 & 240 / 243 / 488 \\
         17 & 2 & 2000 $\rightarrow$ 7020  & 2 / SX12 & 307 / 315 / -- \\
         18 & 2 & 2000 $\rightarrow$ 7018  & 2 / SX12 & 308 / 316 / 510 \\
+        19 & 2 & EX7016.4 $\rightarrow$ 7014 & 1 / TS60 & 299 / 303 / 483\,$^{*}$ \\
+        20 & 2 & EX7016.4 $\rightarrow$ 7016 & 1 / TS60 & 301 / 305 / 492\,$^{*}$ \\
         \bottomrule
     \end{tabular}
     \caption{Eliminierte Visuren von v2 (Beob.-Nr. gemäss Bericht v2)}
-    \label{tab:eliminierte_visuren}
+    \label{tab:eliminierte_visuren_v2}
 \end{table}
 \label{sec:v0}
 \bigskip
-
+In einer dritten Version wurden vor allem die Stationen 510 und 7020 ausgedünnt. Von diesen Stationen aus werden
+zahlreiche Punkte angezielt, welche bereits von anderen Stationen aus gut bestimmt sind. Diese Visuren wurden
+gestrichen. Auf der Station 7020 blieben nur die Visuren erhalten, welche für die Anbindung der benachbarten Punkte
+nötig sind. Zudem wurden bei den Verbindungen 1000 zu 2000, 510 zu 7020 und 6003 zu 6015, deren Gegenrichtung bereits in
+einer früheren Version entfernt wurde, auch die verbleibenden Visuren gestrichen. Die entfernten Visuren sind in
+Tabelle~\ref{tab:eliminierte_visuren_v3} aufgeführt.
+\bigskip
+Die in der zweiten Version gestrichenen Visuren der Exzentrumsstation EX7016.4 auf die Punkte 7014 und 7016 wurden
+wieder aufgenommen. Diese Punkte liegen nahe beieinander und sind nur über wenige Stationen an das übrige Netz
+angeschlossen. Ohne diese Visuren wäre ihre Verknüpfung an das restliche Netz nicht mehr ausreichend gewesen.
+\bigskip
+Auch nach der dritten Version erfüllt das Netz die Anforderungen an die Zuverlässigkeit~\ref{tab:kenngroessen_optimierung}. 
+Die Anzahl der stark überbestimmten Beobachtungen hat weiter abgenommen, und keine normierte Verbesserung überschreitet den Grenzwert.
+Die mittleren Quotienten empirisch/theoretisch liegen weiterhin nahe bei 1. Die gestrichenen Visuren wiesen jedoch
+bereits vor dem Entfernen eine lokale Zuverlässigkeit im Bereich der oberen Grenze auf. Im Netz ist somit kaum noch
+überschüssige Redundanz vorhanden, weshalb die Optimierung mit dieser Version abgeschlossen wurde.
 \bigskip
 \begin{table}[H]
     \centering
@@ -497,58 +541,66 @@ ganzheitlich erfüllt werden.
         \toprule
         Nr. & Version & Station $\rightarrow$ Ziel & Satz / Instr. & Beob.-Nr. Richtung / Distanz / Höhe \\
         \midrule
-        19 & 3 & 1000 $\rightarrow$ 2000  & 1 / MS60 & 15 / 31 / 372 \\
-        20 & 3 & 510 $\rightarrow$ 310    & 1 / MS60 & 72 / 84 / 396 \\
-        21 & 3 & 510 $\rightarrow$ 710    & 1 / MS60 & 74 / 86 / 398 \\
-        22 & 3 & 510 $\rightarrow$ 7018   & 1 / MS60 & 79 / 91 / 402 \\
-        23 & 3 & TP506 $\rightarrow$ 6001 & 1 / MS60 & 96 / 101 / 410 \\
-        24 & 3 & 6003 $\rightarrow$ 6015  & 1 / TS60 & 127 / 137 / 427 \\
-        25 & 3 & 7020 $\rightarrow$ 510   & 1 / TS60 & 272 / 279 / 405 \\
-        26 & 3 & 7020 $\rightarrow$ 2000  & 1 / TS60 & 273 / 280 / 385 \\
-        27 & 3 & 7020 $\rightarrow$ 5000  & 1 / TS60 & 274 / 281 / 502 \\
-        28 & 3 & 7020 $\rightarrow$ 7119  & 1 / TS60 & 277 / 284 / 505 \\
+        21 & 3 & 1000 $\rightarrow$ 2000  & 1 / MS60 & 15 / 31 / 372 \\
+        22 & 3 & 510 $\rightarrow$ 310    & 1 / MS60 & 72 / 84 / 396 \\
+        23 & 3 & 510 $\rightarrow$ 710    & 1 / MS60 & 74 / 86 / 398 \\
+        24 & 3 & 510 $\rightarrow$ 7018   & 1 / MS60 & 79 / 91 / 402 \\
+        25 & 3 & TP506 $\rightarrow$ 6001 & 1 / MS60 & 96 / 101 / 410 \\
+        26 & 3 & 6003 $\rightarrow$ 6015  & 1 / TS60 & 127 / 137 / 427 \\
+        27 & 3 & 7020 $\rightarrow$ 510   & 1 / TS60 & 272 / 279 / 405 \\
+        28 & 3 & 7020 $\rightarrow$ 2000  & 1 / TS60 & 273 / 280 / 385 \\
+        29 & 3 & 7020 $\rightarrow$ 5000  & 1 / TS60 & 274 / 281 / 502 \\
+        30 & 3 & 7020 $\rightarrow$ 7119  & 1 / TS60 & 277 / 284 / 505 \\
         \bottomrule
     \end{tabular}
     \caption{Eliminierte Visuren von v3 (Beob.-Nr. gemäss Bericht v3)}
-    \label{tab:eliminierte_visuren}
+    \label{tab:eliminierte_visuren_v3}
 \end{table}
 \label{sec:v0}
 \bigskip
-\label{sec:gezwängter ausgleich optimiert}
-
+Tabelle~\ref{tab:kenngroessen_optimierung} fasst die Entwicklung der Kenngrössen über alle Versionen zusammen.
+Während die Anzahl der Beobachtungen mit hoher lokaler Zuverlässigkeit kontinuierlich abnimmt, bleibt die Anzahl
+der unkontrollierten Beobachtungen in allen Versionen unverändert. Durch die Optimierung sind somit keine neuen
+Schwachstellen im Netz entstanden. Die leichte Abnahme der Genauigkeit ist zu einem grossen Teil auf den Anstieg
+des mittleren Quotienten empirisch/theoretisch in der Lage zurückzuführen und nur zu einem geringen Teil auf die
+veränderte Netzgeometrie. Die Punkte TP510 und 6014 überschreiten die Genauigkeitsanforderung in der Lage bereits im
+Ausgangsnetz und sind daher nicht eine Folge der Optimierung. Mit den Punkten 6013 und 6060, welche in der dritten
+Version den Grenzwert erreichen, zeigt sich zudem, dass eine weitere Reduktion der Visuren nicht mehr sinnvoll wäre.
+\bigskip
 \begin{table}[H]
     \centering
     \small
-    \setlength{\tabcolsep}{5pt}
+    \setlength{\tabcolsep}{4pt}
     \begin{tabular}{@{}l cc cc cc cc@{}}
         \toprule
         & \multicolumn{2}{c}{v0} & \multicolumn{2}{c}{v1} & \multicolumn{2}{c}{v2} & \multicolumn{2}{c}{v3} \\
         \cmidrule(lr){2-3} \cmidrule(lr){4-5} \cmidrule(lr){6-7} \cmidrule(l){8-9}
         Kenngrösse & Lage & Höhe & Lage & Höhe & Lage & Höhe & Lage & Höhe \\
         \midrule
-        Beobachtungen                  & 353 & 177 & 335 & 168 & 313 & 158 & 297 & 150 \\
-        Überbestimmungen               & 189 & 112 & 171 & 103 & 149 & 93  & 133 & 85  \\
-        Eliminierte Visuren (kumuliert) & \multicolumn{2}{c}{--} & \multicolumn{2}{c}{9} & \multicolumn{2}{c}{20} & \multicolumn{2}{c}{28} \\
+        \multicolumn{9}{@{}l}{\textit{Netz}} \\
+        \quad Beobachtungen                    & 353 & 177 & 335 & 168 & 313 & 158 & 297 & 150 \\
+        \quad Überbestimmungen                 & 189 & 112 & 171 & 103 & 149 & 93  & 133 & 85  \\
+        \quad Entfernte Visuren (kumuliert)    & \multicolumn{2}{c}{0} & \multicolumn{2}{c}{9} & \multicolumn{2}{c}{20} & \multicolumn{2}{c}{28} \\
         \midrule
-        \multicolumn{9}{@{}l}{\textit{Quotient empirisch / theoretisch}} \\
-        \quad Gesamtnetz               & 0.86 & 1.02 & 0.89 & 1.01 & 0.93 & 1.01 & 0.96 & 1.01 \\
-        \quad Distanzen TS60 (Gr.\,1)  & 0.95 &      & 0.96 &      & 1.01 &      & 1.00 &      \\
-        \quad Distanzen MS60 (Gr.\,2)  & 0.50 &      & 0.52 &      & 0.55 &      & 0.55 &      \\
-        \quad Distanzen SX12 (Gr.\,4)  & 1.17 &      & 1.34 &      & 1.49 &      & 1.42 &      \\
-        \quad Richtungen TS60 (Gr.\,1) & 0.80 &      & 0.81 &      & 0.80 &      & 0.93 &      \\
-        \quad Richtungen MS60 (Gr.\,2) & 0.75 &      & 0.79 &      & 0.82 &      & 0.86 &      \\
-        \quad Richtungen SX12 (Gr.\,4) & 0.24 &      & 0.29 &      & 0.45 &      & 0.57 &      \\
-        \quad GNSS-Koordinaten         & 1.42 &      & 1.42 &      & 1.43 &      & 1.43 &      \\
-        \quad Höhendifferenzen         &      & 1.00 &      & 0.98 &      & 0.98 &      & 0.99 \\
+        \multicolumn{9}{@{}l}{\textit{Zuverlässigkeit}} \\
+        \quad Beob. mit $z_i > 60\,\%$         & 160 & 104 & 135 & 93 & 98 & 82 & 80 & 66 \\
+        \quad Beob. mit $z_i < 25\,\%$         & 37 & 4 & 37 & 4 & 41 & 4 & 40 & 4 \\
+        \quad Unkontrolliert ($z_i = 0$)       & 22 & 9 & 22 & 9 & 22 & 9 & 22 & 9 \\
+        \quad $|w_i|_{\max}$                   & 3.1 & 2.9 & 3.1 & 2.9 & 3.0 & 2.9 & 3.0 & 3.0 \\
         \midrule
-        Schlechteste Koord.-Genauigkeit [mm] & 3.2 & 3.3 & 3.4 & 3.3 & 3.5 & 3.3 & 3.7 & 3.3 \\
-        \midrule
-        $|w_i|_{\max}$                 & 3.1 & 2.9 & 3.1 & 2.9 & 3.0 & 2.9 & 3.0 & 3.0 \\
-        Beob. mit $z_i > 60\,\%$       & 160 & 104 & 135 & 93  & 98  & 82  & 80  & 66  \\
-        Beob. mit $z_i < 25\,\%$       & 37  & 4   & 37  & 4   & 41  & 4   & 40  & 4   \\
+        \multicolumn{9}{@{}l}{\textit{Genauigkeit}} \\
+        \quad Quotient emp./theor. Gesamtnetz  & 0.86 & 1.02 & 0.89 & 1.01 & 0.93 & 1.01 & 0.96 & 1.01 \\
+        \quad Mittlere Genauigkeit [mm]        & 1.7 & 2.1 & 1.7 & 2.1 & 1.8 & 2.1 & 1.9 & 2.2 \\
+        \quad Schlechteste Genauigkeit [mm]    & 3.2 & 3.3 & 3.4 & 3.3 & 3.5 & 3.3 & 3.7 & 3.3 \\
+        \quad\quad Punkt                       & TP510 & 6014 & TP510 & 6014 & TP510 & 6014 & TP510 & 6014 \\
+        \quad Zweitschlechteste Genauigkeit [mm] & 2.6 & 3.0 & 2.7 & 3.0 & 2.8 & 3.0 & 2.9 & 3.0 \\
+        \quad\quad Punkt                       & 6014 & 6013 & 6014 & 6013 & 6014 & 6013 & 6014 & 6013 \\
+        \quad Drittschlechteste Genauigkeit [mm] & 2.2 & 2.9 & 2.3 & 2.9 & 2.4 & 2.9 & 2.5 & 2.9 \\
+        \quad\quad Punkt                       & 6013 & 6002 & 6013 & 6002 & 6013 & 6002 & 6013 & 6002 \\
+        \quad Punkte über Anforderung          & 2 & 0 & 2 & 0 & 2 & 0 & 2 & 0 \\
         \bottomrule
     \end{tabular}
-    \caption{Kenngrössen der Ausgleichung über die Optimierungsschritte v0 bis v3}
+    \caption{Kenngrössen der Ausgleichung über die Optimierungsschritte v0 bis v3. Genauigkeit = grosse Halbachse der Konfidenzellipse.}
     \label{tab:kenngroessen_optimierung}
 \end{table}
 

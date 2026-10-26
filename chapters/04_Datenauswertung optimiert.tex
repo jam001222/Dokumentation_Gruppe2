@@ -325,7 +325,7 @@ einbringen. Die Höhenlagerung erfolgt stattdessen einheitlich über die langsta
 \subsubsection{gezwängte Ausgleichungen}
 \label{sec:gezwängte ausgleichungen}
 
-Nach dem Entscheid zur Höhenlagerung wurde die erste Variante der gezwängten Ausgleichung berechnet.
+Nach dem Entscheid zur Höhenlagerung wurden zwei Varianten der gezwängten Ausgleichung berechnet.
 In der Lage wurden die Koordinaten der Punkte 7000, 7004, 7015, EX9500, EX6015 und EX7000 als Festpunkte
 eingeführt. Die Höhenlagerung erfolgte auf Grundlage der langstatischen GNSS-Messungen der Referenzstationen. \bigskip
 
@@ -373,9 +373,25 @@ Tabelle xxx aufgeführt. Die übrigen Parameter des stochastischen Modells sind 
     \label{tab:stochastisches-modell-allgemein}
 \end{table}
 
+In Variante 1 wurden insgesamt elf Beobachtungen eliminiert. Dazu gehören die sieben bereits in
+der weichen Netzlagerung ausgeschlossenen Beobachtungen (GNSS-Koordinaten und GNSS-Höhe des
+Punktes 6011, GNSS-Höhen der Punkte 6000 und 6006 sowie die beiden Höhendifferenzen nach 7020).
+Zusätzlich wurden die Distanz zwischen EX9500 und 510 (Verbesserung 13.1~mm bei rund 1264~m) und
+drei GNSS-Höhendifferenzen aus den langstatischen Messungen (Verbindungen nach 6015, 7000 und
+6003, Verbesserungen von $-30.9$ bis $31.6$~mm bzw. $-2.9$~mm) eliminiert. Die Auffälligkeit der
+langen, steilen Visur 510--EX9500 wurde bereits im provisorischen Abriss und in der robusten
+Netzlagerung festgestellt. \bigskip
 
-xxx
+Nach diesen Eliminierungen blieb in Variante 1 genau eine bestimmbare normierte Verbesserung
+über dem Grenzwert von 3.5. Es handelt sich um die Distanz von Station 2000 nach 7022
+($w_i = 3.9$, Verbesserung 6.1~mm). Sie bestätigt die bereits in den vorangegangenen
+Ausgleichungen festgestellte Auffälligkeit der Station 2000. \bigskip
 
+In Variante 2 wurden deshalb zusätzlich alle drei Beobachtungen von Station 2000 nach 7022
+(Richtung, Distanz und Höhendifferenz) eliminiert, womit sich 14 eliminierte Beobachtungen
+ergeben. Danach blieb in keiner der beiden Komponenten eine bestimmbare normierte Verbesserung
+über dem Grenzwert. Die Kennwerte beider Varianten sind in Tabelle xxx
+zusammengestellt.
 
 \begin{table}[H]
     \centering
@@ -406,8 +422,166 @@ xxx
     \label{tab:vergleich-gezwängter-ausgleich}
 \end{table}
 
+Die beiden Varianten unterscheiden sich nur geringfügig. In beiden Fällen liegt der mittlere
+Quotient empirisch/theoretisch nahe bei 1, das stochastische Modell passt somit gut zu den
+Beobachtungen. Im Vergleich zur weichen Netzlagerung
+(7.1~mm beziehungsweise 7.6~mm) sind die Koordinatengenauigkeiten deutlich besser, was auf die
+feste Lagerung und die instrumentenspezifische Differenzierung des stochastischen Modells
+zurückzuführen ist. \bigskip
 
+Die Ergebnisse der Auswertung nach Beobachtungsgruppen sind in Tabelle xxx zusammengestellt.
 
+\begin{table}[H]
+    \centering
+    \small
+    \begin{tabularx}{\textwidth}{p{4.2cm} r r | r r r | r r r}
+        \toprule
+         & & & \multicolumn{3}{c|}{Variante 1} & \multicolumn{3}{c}{Variante 2} \\
+        Beobachtungsgruppe & $\sigma_{apriori}$ & & $n$ & $\sigma_{emp}$ & Q & $n$ & $\sigma_{emp}$ & Q \\
+        \midrule
+        Distanzen TS60 [mm]  & 1.9 & & 74  & 1.9 & 1.01 & 74  & 1.8 & 0.95 \\
+        Distanzen MS60 [mm]  & 2.7 & & 83  & 1.8 & 0.67 & 82  & 1.3 & 0.50 \\
+        Distanzen SX12 [mm]  & 2.7 & & 8   & 3.1 & 1.17 & 8   & 3.2 & 1.17 \\
+        \addlinespace
+        Richtungen TS60 [cc] & 1.6 & & 74  & 1.3 & 0.78 & 74  & 1.3 & 0.80 \\
+        Richtungen MS60 [cc] & 3.1 & & 84  & 2.3 & 0.75 & 83  & 2.3 & 0.75 \\
+        Richtungen SX12 [cc] & 3.1 & & 8   & 0.8 & 0.27 & 8   & 0.7 & 0.24 \\
+        \addlinespace
+        Höhendifferenzen [mm] & 0.3 & & 172 & 0.3 & 1.08 & 171 & 0.3 & 1.05 \\
+        GNSS-Koordinaten [mm] & 5.0 & & 26  & 7.1 & 1.43 & 26  & 7.1 & 1.42 \\
+        GNSS-Höhen [mm]       & 5.0 & & 11  & 6.8 & 1.35 & 11  & 6.8 & 1.36 \\
+        \bottomrule
+    \end{tabularx}
+    \caption{Theoretische und empirische Standardabweichungen der Beobachtungsgruppen
+    (Q = Quotient empirisch/theoretisch, $n$ = Anzahl Beobachtungen)}
+    \label{tab:beobachtungsgruppen}
+\end{table}
+
+Beide Varianten zeigen ein ähnliches Bild. Die Quotienten der Tachymetermessungen liegen
+überwiegend zwischen 0.5 und 1.2. Das stochastische Modell ist somit eher konservativ gewählt,
+besonders bei den MS60-Distanzen (Quotient 0.67 bzw. 0.50). Die Gruppe SX12 hat nur acht
+Beobachtungen, ihr Richtungsquotient (0.27 bzw. 0.24) ist daher wenig aussagekräftig. Die
+GNSS-Koordinaten und GNSS-Höhen streuen mit Quotienten von rund 1.4 weiterhin stärker als a priori
+angenommen. Die Höhendifferenzen stimmen mit dem Modell gut überein (1.08 bzw. 1.05).
+
+Variante 2 liefert somit das konsistentere Ergebnis, da keine bestimmbare normierte Verbesserung
+mehr über dem Grenzwert liegt und die Quotienten sowie die Koordinatengenauigkeiten etwas besser
+ausfallen. Der Preis dafür ist der Verlust der drei Beobachtungen nach 7022, der sich lokal auf
+die Zuverlässigkeit des Punktes auswirkt (siehe Tabelle xxx). Da der
+Unterschied zwischen den Varianten insgesamt klein ist, wird für die weiteren Untersuchungen
+Variante 2 verwendet.
+
+\subsubsection{Zuverlässigkeit des Netzes}
+\label{sec:zuverlaessigkeit}
+
+Zusätzlich zur Genauigkeit wurde die Zuverlässigkeit des Netzes überprüft. Die äussere Zuverlässigkeit
+beschreibt, wie stark sich ein gerade noch nicht aufdeckbarer Fehler auf die Koordinaten der
+Netzpunkte auswirkt. Sie wird in LTOP für alle variablen Punkte als Zuverlässigkeitsrechteck
+ausgegeben, wobei der Wert NA die Auswirkung in der Lage angibt. Als Beurteilungskriterium wird NA
+mit dem Dreifachen der Standardabweichung $a$ des jeweiligen Punktes verglichen
+(Kriterium $NA \le 3\cdot a$). Der Vergleich wurde für Variante 2 durchgeführt, die für die
+weiteren Untersuchungen verwendet wird. Die Ergebnisse sind in Tabelle xxx aufgeführt. \bigskip
+
+\begin{table}[H]
+    \centering
+    \small
+    \begin{tabularx}{\textwidth}{p{1.2cm} r r r r | l X}
+        \toprule
+        Punkt & NA & $a$ & $3\cdot a$ & NA$-3a$ & Beurteilung & Bemerkung \\
+         & [mm] & [mm] & [mm] & [mm] & & \\
+        \midrule
+        210 & 7.8 & 1.4 & 4.2 & 3.6 & knapp nicht erfüllt &  \\
+        310 & 7.8 & 1.5 & 4.5 & 3.3 & knapp nicht erfüllt &  \\
+        320 & 7.8 & 1.6 & 4.8 & 3.0 & knapp nicht erfüllt &  \\
+        330 & 7.8 & 1.6 & 4.8 & 3.0 & knapp nicht erfüllt &  \\
+        340 & - & 1.9 & 5.7 & - & nicht bestimmbar &  \\
+        510 & 7.8 & 1.4 & 4.2 & 3.6 & knapp nicht erfüllt &  \\
+        520 & - & 1.8 & 5.4 & - & nicht bestimmbar &  \\
+        530 & - & 1.8 & 5.4 & - & nicht bestimmbar &  \\
+        540 & - & 1.8 & 5.4 & - & nicht bestimmbar &  \\
+        610 & 7.9 & 1.6 & 4.8 & 3.1 & knapp nicht erfüllt &  \\
+        710 & 7.9 & 1.5 & 4.5 & 3.4 & knapp nicht erfüllt &  \\
+        720 & - & 1.8 & 5.4 & - & nicht bestimmbar &  \\
+        730 & - & 1.8 & 5.4 & - & nicht bestimmbar &  \\
+        740 & - & 1.8 & 5.4 & - & nicht bestimmbar &  \\
+        1000 & 7.8 & 1.5 & 4.5 & 3.3 & knapp nicht erfüllt &  \\
+        2000 & 7.9 & 1.4 & 4.2 & 3.7 & knapp nicht erfüllt &  \\
+        3500 & 7.8 & 1.6 & 4.8 & 3.0 & knapp nicht erfüllt &  \\
+        4500 & 7.8 & 1.7 & 5.1 & 2.7 & knapp nicht erfüllt &  \\
+        5000 & 7.6 & 1.6 & 4.8 & 2.8 & knapp nicht erfüllt &  \\
+        6000 & 6.9 & 1.6 & 4.8 & 2.1 & knapp nicht erfüllt &  \\
+        6001 & 6.4 & 2.3 & 6.9 & $-$0.5 & erfüllt &  \\
+        6002 & 6.7 & 2.3 & 6.9 & $-$0.2 & erfüllt &  \\
+        6003 & 6.8 & 1.9 & 5.7 & 1.1 & knapp nicht erfüllt &  \\
+        6004 & 7.5 & 2.2 & 6.6 & 0.9 & knapp nicht erfüllt &  \\
+        6006 & 6.2 & 2.0 & 6.0 & 0.2 & knapp nicht erfüllt &  \\
+        6007 & 6.8 & 2.0 & 6.0 & 0.8 & knapp nicht erfüllt &  \\
+        6008 & 10.4 & 2.3 & 6.9 & 3.5 & knapp nicht erfüllt &  \\
+        6009 & 14.8 & 2.2 & 6.6 & 8.2 & nicht erfüllt & Punkt vor dem 7001 \\
+        6010 & 16.8 & 2.2 & 6.6 & 10.2 & nicht erfüllt & Ende von einem Polygonzug \\
+        6011 & 22.3 & 2.4 & 7.2 & 15.1 & nicht erfüllt & Brunni \\
+        6012 & 19.7 & 2.3 & 6.9 & 12.8 & nicht erfüllt & Brunni \\
+        6013 & 20.6 & 2.6 & 7.8 & 12.8 & nicht erfüllt & Brunni \\
+        6014 & 22.3 & 3.0 & 9.0 & 13.3 & nicht erfüllt & Brunni \\
+        6015 & 7.3 & 2.0 & 6.0 & 1.3 & knapp nicht erfüllt &  \\
+        6016 & 7.8 & 2.0 & 6.0 & 1.8 & knapp nicht erfüllt &  \\
+        6017 & 6.6 & 2.1 & 6.3 & 0.3 & knapp nicht erfüllt &  \\
+        6018 & 7.1 & 2.2 & 6.6 & 0.5 & knapp nicht erfüllt &  \\
+        6119 & 6.8 & 2.2 & 6.6 & 0.2 & knapp nicht erfüllt &  \\
+        6020 & 6.3 & 1.9 & 5.7 & 0.6 & knapp nicht erfüllt &  \\
+        6050 & 6.4 & 2.1 & 6.3 & 0.1 & knapp nicht erfüllt &  \\
+        6060 & 6.5 & 2.5 & 7.5 & $-$1.0 & erfüllt &  \\
+        7001 & 16.9 & 2.3 & 6.9 & 10.0 & nicht erfüllt & Ende von einem Polygonzug \\
+        7003 & 15.6 & 1.8 & 5.4 & 10.2 & nicht erfüllt & Brunni \\
+        7008 & 8.2 & 1.0 & 3.0 & 5.2 & knapp nicht erfüllt &  \\
+        7009 & - & 1.9 & 5.7 & - & nicht bestimmbar &  \\
+        7010 & 8.1 & 2.1 & 6.3 & 1.8 & knapp nicht erfüllt &  \\
+        7012 & 7.9 & 2.0 & 6.0 & 1.9 & knapp nicht erfüllt &  \\
+        7014 & 5.8 & 1.7 & 5.1 & 0.7 & knapp nicht erfüllt &  \\
+        7016 & 6.5 & 1.9 & 5.7 & 0.8 & knapp nicht erfüllt &  \\
+        7017 & 7.9 & 1.4 & 4.2 & 3.7 & knapp nicht erfüllt &  \\
+        7018 & 7.8 & 1.4 & 4.2 & 3.6 & knapp nicht erfüllt &  \\
+        7119 & 7.7 & 1.6 & 4.8 & 2.9 & knapp nicht erfüllt &  \\
+        7020 & 7.7 & 1.6 & 4.8 & 2.9 & knapp nicht erfüllt &  \\
+        7021 & 8.2 & 1.3 & 3.9 & 4.3 & knapp nicht erfüllt &  \\
+        7022 & 9.8 & 2.2 & 6.6 & 3.2 & knapp nicht erfüllt &  \\
+        7023 & 8.3 & 2.1 & 6.3 & 2.0 & knapp nicht erfüllt &  \\
+        9000 & - & 6.9 & 20.7 & - & nicht bestimmbar &  \\
+        9500 & 5.2 & 1.0 & 3.0 & 2.2 & knapp nicht erfüllt &  \\
+        TP506 & 6.3 & 2.4 & 7.2 & $-$0.9 & erfüllt &  \\
+        TP510 & 15.4 & 3.8 & 11.4 & 4.0 & knapp nicht erfüllt &  \\
+        HP6010.1 & 23.4 & 2.3 & 6.9 & 16.5 & nicht erfüllt & Punkt vor dem 6010 \\
+        EX7016.4 & 7.3 & 2.1 & 6.3 & 1.0 & knapp nicht erfüllt &  \\
+        \bottomrule
+    \end{tabularx}
+    \caption{Äussere Zuverlässigkeit (NA) im Vergleich zum Dreifachen der Standardabweichung $a$ (Variante 2). «Knapp nicht erfüllt»: Überschreitung bis rund 5~mm; «--»: NA nicht bestimmbar}
+    \label{tab:vergleich-na-3a}
+\end{table}
+
+Von den 62 in Tabelle xxx aufgeführten Punkten ist bei 53 Punkten die äussere
+Zuverlässigkeit in der Lage bestimmbar. Bei den übrigen neun Punkten besteht in der Lage keine
+Überbestimmung, sodass NA nicht berechnet werden kann. Diese Punkte sind nicht kontrolliert, ein
+grober Fehler in ihrer Bestimmung würde nicht aufgedeckt werden. \bigskip
+
+Das Kriterium $NA \le 3\cdot a$ wird nur selten erreicht. Es wird von vier der 53 Punkte erfüllt.
+Weitere 40 Punkte verfehlen es knapp (Überschreitung bis rund 5~mm), davon 17 um höchstens 2~mm.
+Die Mehrheit der Punkte liegt somit im Grenzbereich. Der grösste NA-Wert in dieser Gruppe (9.8~mm)
+betrifft den Punkt 7022, der nach der Eliminierung der Beobachtungen von Station 2000 weniger stark
+kontrolliert wird. \bigskip
+
+Deutlich schlechter ist die Zuverlässigkeit im Gebiet Brunni. Neun Punkte erfüllen das Kriterium
+nicht (NA von 14.8 bis 23.4~mm).
+Bei der Präanalyse wurden im Gebiet Brunni viele gegenseitige Messungen ausgeschlossen. Zudem ist
+die langstatische GNSS-Messung auf Punkt 6011 unbrauchbar und konnte nicht verwendet werden. Die
+Punkte sind dadurch nur schwach überbestimmt, und die Beobachtungsauswahl wirkt sich unmittelbar
+auf die ausgewiesene Zuverlässigkeit aus. Bei der nächsten Messkampagne sollte geprüft werden, ob
+einzelne gegenseitige Messungen wieder berücksichtigt werden. \bigskip
+
+Gemessen wurde in Sätzen, diese wurden jedoch bereits vor der LTOP-Auswertung gemittelt. Dadurch
+geht jede Richtung und jede Distanz nur einmal in die Ausgleichung ein, was die Redundanz und
+damit die berechnete Zuverlässigkeit verringert. Würden die Einzelmessungen verwendet, fiele die
+Zuverlässigkeit höher aus und würde die Situation in der Praxis besser abbilden. Die
+ausgewiesenen NA-Werte sind daher eher als pessimistisch zu betrachten.
 
 \subsection{gezwängter Ausgleich optimiert}
 \label{sec:gezwängter ausgleich optimiert}

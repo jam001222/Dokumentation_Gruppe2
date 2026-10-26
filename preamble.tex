@@ -50,7 +50,8 @@
 \usepackage{tabularx}
 \usepackage{makecell}
 \usepackage{etoolbox}                
-\AtBeginEnvironment{table}{\small}
+\AtBeginEnvironment{tabular}{\footnotesize}
+\AtBeginEnvironment{tabularx}{\footnotesize}
 \ifmodernlatex
     \usepackage{siunitx}
     \sisetup{

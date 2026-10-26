@@ -49,7 +49,8 @@
 \usepackage{threeparttable}
 \usepackage{tabularx}
 \usepackage{makecell}
-\usepackage{booktabs}
+\usepackage{etoolbox}                
+\AtBeginEnvironment{table}{\small}
 \ifmodernlatex
     \usepackage{siunitx}
     \sisetup{

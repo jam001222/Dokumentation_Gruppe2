@@ -131,5 +131,22 @@ Die äussere Zuverlässigkeit schliesslich beschreibt, wie stark ein gerade nich
 Für die Nutzerinnen und Nutzer eines Netzes ist diese maximale Koordinatenverfälschung oft aussagekräftiger als der Redundanzanteil selbst, sie ist jedoch ebenfalls datumsabhängig (Niemeier, 2008, S. 304 f.). 
 Da alle genannten Masse nur von der Netzkonfiguration und den angenommenen Genauigkeiten abhängen, lassen sie sich bereits in der Planung durch Simulation berechnen und zur Optimierung des Netzes nutzen (Niemeier, 2008, Kap. 9.5).
 
-\subsection{Fazit?}
-\label{sec:Fazit?}
+\subsection{Fazit zur Literaturrecherche}
+\label{sec:Fazit zur Literaturrecherche}
+
+Die Literaturrecherche zeigt, dass die theoretischen Grundlagen von 3D-Netzen gut dokumentiert sind. 
+Das Lehrbuch von Niemeier (2008) deckt Modellbildung, Datumsfestlegung, Qualitätsbeurteilung und die gemeinsame Ausgleichung von GNSS- und terrestrischen Messungen zusammenhängend ab und ist deshalb die Hauptquelle dieses Berichts.
+Das Handbuch von Möser liefert den Rahmen für die Anwendung im Ingenieurbau.
+Neuere Entwicklungen wie aktuelle Instrumente oder frei verfügbare 3D-Software sind in diesen Lehrbüchern noch nicht enthalten.
+Diese Lücke schliessen jüngere Fachartikel und Konferenzbeiträge, etwa zur integrierten 3D-Ausgleichung (Banyai, 2011), zum Einfluss der Lotabweichung (França et al., 2021) und zur Datumsfestlegung in Local-Tie-Netzen (Suurmäki et al., 2022). 
+Die Praxisbeispiele aus der Schweiz stammen vor allem aus Bachelorarbeiten (Ambrosini & Merz, 2022; Weber, 2014) und einer Firmenpublikation (Leica Geosystems, 2016).
+Sie sind anschaulich, aber nicht wissenschaftlich begutachtet und dienen deshalb nur als Beispiele.
+Die Genauigkeitsangaben beruhen auf Herstellerdatenblättern (Leica Geosystems, o. J., 2025) und sind als Idealwerte zu verstehen. 
+Auffällig ist ein Unterschied zwischen Theorie und Praxis, weil in der Literatur klar die strenge 3D-Ausgleichung empfohlen wird, die Schweizer Praxis rechnet mit LTOP aber häufig noch getrennt nach Lage und Höhe (swisstopo, o. J.). 
+Begutachtete Arbeiten zu kombinierten GNSS-TPS-3D-Netzen in der Schweiz wurden in dieser Recherche kaum gefunden.
+Für diesen Unterschied gibt es mehrere Gründe. 
+Der wichtigste dürfte das Höhensystem sein weil offiziell gilt in der Schweiz weiterhin LN02, ein Gebrauchshöhensystem ohne Schwerekorrekturen, das sich nicht streng mit ellipsoidischen GNSS-Höhen verbinden lässt (swisstopo, 2004; Willi et al., 2024). 
+Ein neues Höhensystem ist erst ab 2028 geplant (Willi et al., 2024). 
+Zudem werden Höhen mit dem Präzisionsnivellement genauer bestimmt als mit GNSS (GeoConnexion, 2016; Leica Geosystems, 2025), und LTOP liefert den für die amtliche Vermessung geforderten Genauigkeits- und Zuverlässigkeitsnachweis (swisstopo, o. J.). 
+Eine 3D-Ausgleichung bedeutet ausserdem mehr Aufwand (Niemeier, 2008, S. 330), während der Einfluss der Lotabweichung erst bei grossen Lotabweichungen und steilen Visuren bedeutend wird (França et al., 2021). 
+Dass wenig dazu publiziert ist, heisst jedoch nicht, dass 3D nicht angewendet wird: Streng dreidimensionale Programme wie Trinet+ sind in der Praxis im Einsatz (Vasi & Meyenberg, 2014), die Ergebnisse stehen aber meist in internen Projektberichten.

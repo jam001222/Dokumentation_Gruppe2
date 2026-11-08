@@ -6,8 +6,8 @@ für die Netzausgleichung aufbereitet wurden.
 
 \subsection{Messkonfiguration und Instrumente}
 \label{sec:messkionfiguration und instrumente}
-Die tachymetrischen Messungen wurdem mit drei Leica Nova MS60 (interne Nr. 5, 6 und 8)
-und einem Leica Nova TS60 (interne Nr. 2) durchgeführt.
+Die tachymetrischen Messungen wurden mit drei Leica Nova MS60 (interne Nr. 5, 6 und 8),
+einem Leica Nova TS60 (interne Nr. 2) und einem SX12 durchgeführt.
 
 \subsection{Datenübertragung und -sicherung}
 \label{sec:datenuebertragung und -sicherung}
@@ -22,24 +22,30 @@ Die Aufbereitung erfolgte in Leica Infinity. Pro Station wurden folgende Schritt
     \item Import der Messdaten
     \item Kontrolle der gemessenen Visuren auf Vollständigkeit und Plausibilität
     \item Prüfung der Satzmittel und Standardabweichungen
-    \item Deaktivierung einzelner Sätze bei Auffälligkeiten (Kapitelxxx)
+    \item Deaktivierung einzelner Sätze bei Auffälligkeiten
     \item Kontrolle und Anpassung der Meteokorrekturen
     \item Nachbearbeitung einzelner Stationen
 \end{enumerate}
 
-\subsection{Metekorrekturen}
-\label{sec:metekorrekturen}
-Bei der Stationierung wurden die Meteowerte am Standpunkt eingegeben. Das Netz
+Die Messungen erfolgten in Sätzen. Diese wurden bereits vor der Ausgleichung gemittelt,
+sodass jede Richtung und jede Distanz nur einmal in die Ausgleichung eingeht.
+
+\subsection{Meteokorrekturen}
+\label{sec:meteokorrekturen}
+Bei der Stationierung wurden die Meteowerte (Temperatur, Luftdruck, Luftfeuchtigkeit) am Standpunkt eingegeben. Das Netz
 überspannt jedoch einen Höhenunterschied von rund 570 m, sodass diese Werte die
 Verhältnisse entlang langer Visuren nur bedingt abbilden. Die Meteokorrekturen wurden
 daher bei langen Visuren überprüft und angepasst. In Leica Infinity können dafür auch
 die Meteowerte der Zielpunkte berücksichtigt werden. Beim Standpunkt 6003 wurden die
 Meteokorrekturen zusätzlich angebracht.
 
+Der Einfluss der Refraktion auf die Zenitwinkel wird nicht in Leica Infinity, sondern in der
+Ausgleichung über den Refraktionskoeffizienten berücksichtigt.
+
 \subsection{Stationsspezifische Bearbeitung}
 \label{sec:stationsspezifische_bearbeitung}
 Die folgenden Abschnitte listen alle Stationen auf, bei denen Sätze deaktiviert oder
-Daten angepasst wurden.
+Daten angepasst wurden. Pro Teilgebiet fasst eine Tabelle die Feststellungen und Massnahmen zusammen. \bigskip
 
 \subsubsection{Gebiet Sperre}
 \label{sec:gebiet_sperre}
@@ -205,17 +211,17 @@ weiterverwendet werden kann.
 
 Eine noch zu untersuchende Auffälligkeit zeigt sich in der
 Höhenkomponente der langen Visur zwischen den Punkten 510 und EX9500. Bei der rund
-1.26~km langen Verbindung ergibt sich eine Abweichung von rund 52~mm.
+1.26~km langen Verbindung ergibt sich eine Abweichung von rund 54~mm.
 Da die Visur einen grossen Höhenunterschied überwindet, sind bei der
 weiteren Auswertung insbesondere mögliche atmosphärische Einflüsse auf
 die Höhenübertragung zu untersuchen. Eine abschliessende Beurteilung
-dieser Auffälligkeit ist allein anhand der im vorliegenden Arbeitspaket
-aufbereiteten TPS-Daten nicht möglich.
+dieser Auffälligkeit ist allein anhand der aufbereiteten TPS-Daten 
+nicht möglich.
 
 Im Feldkurs wurden für ausgewählte Punkte zusätzlich langstatische
 GNSS-Messungen, eine trigonometrische Höhenbestimmung sowie ein
 Präzisionsnivellement durchgeführt. Diese unabhängigen Messungen werden
-in separaten Arbeitspaketen ausgewertet und können später zur Kontrolle
+in den anderen Gruppen ausgewertet und können später zur Kontrolle
 und Kombination der unterschiedlichen Höheninformationen herangezogen
 werden. Sie sind daher nicht Bestandteil der vorliegenden
 TPS-Datenaufbereitung.
@@ -223,4 +229,4 @@ TPS-Datenaufbereitung.
 Mit dem bereinigten .mes-File ist die TPS-Datenaufbereitung
 abgeschlossen. Die detaillierte Beurteilung der Beobachtungen sowie
 deren Kombination mit den übrigen Messverfahren erfolgt in den
-nachfolgenden Arbeitspaketen \todo {Arbeitspakete? nicht lieber Kapiteln oder Arbeitskapitel} zur Netzausgleichung.
+nachfolgenden Kapiteln zur Netzausgleichung.

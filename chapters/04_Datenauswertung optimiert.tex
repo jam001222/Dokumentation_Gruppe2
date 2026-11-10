@@ -273,7 +273,7 @@ zur Optimierung der Netzkonfiguration.
 Im Anschluss an die weiche Netzlagerung wurde eine gezwängte Ausgleichung durchgeführt.
 Dabei werden die Koordinaten der ausgewählten Festpunkte als fehlerfrei betrachtet und festgehalten.
 Im Gegensatz zur weichen Lagerung können diese Koordinaten somit nicht mehr durch die Ausgleichung verändert
-werden. Ziel ist es, das Netz auf den vorgegebenen Festpunkten zu lagern und die resultierenden
+werden. Ziel davon ist das Netz auf den vorgegebenen Festpunkten zu lagern und die resultierenden
 Koordinatengenauigkeiten sowie die Übereinstimmung zwischen den Beobachtungen und dem stochastischen
 Modell zu beurteilen. Dazu wurden zwei Varianten berechnet und miteinander verglichen. \bigskip
 
@@ -295,9 +295,9 @@ Ausschlaggebend waren insbesondere die unterschiedlichen Höhensysteme sowie die
 der verwendeten Messverfahren. Zusätzlich bestanden Unsicherheiten bezüglich der Höhe des Höhenfixpunktes 9000 (siehe Tabelle \ref{tab:hoehenvergleich-9000}),
 da die Ausgangshöhe aus dem Jahr 2022 nicht mit der von swisstopo angegebenen Höhe übereinstimmte. Zur Überprüfung
 wurde auf dem Punkt 9000 eine langstatische GNSS-Messung mit einer Messdauer von rund 15~h durchgeführt. Die daraus
-bestimmte Höhe wich um rund 2.5~cm von der nach LHN95 transformierten swisstopo-Höhe und um rund 1.1~cm von der
+bestimmte Höhe wich um 2.5~cm von der nach LHN95 transformierten swisstopo-Höhe und um 1.1~cm von der
 Ausgangshöhe aus dem Jahr 2022 ab. Diese Differenzen könnten teilweise auf die Messunsicherheit der GNSS-Höhenbestimmung
-zurückzuführen sein. Die genaue Ursache konnte jedoch nicht eindeutig geklärt werden. Aufgrund dieser Unstimmigkeiten
+zurückzuführen sein. Die exakte Ursache konnte jedoch nicht eindeutig geklärt werden. Aufgrund dieser Unstimmigkeiten
 wurde darauf verzichtet, den Punkt 9000 als verbindlichen Höhenanschluss zu verwenden. Damit wird vermieden,
 dass mögliche systematische Abweichungen des Höhenfixpunktes zusätzliche Zwänge in die Netzausgleichung
 einbringen. Die Höhenlagerung erfolgt stattdessen einheitlich über die langstatischen GNSS-Messungen der Referenzstationen. \bigskip
@@ -379,13 +379,13 @@ Punktes 6011, GNSS-Höhen der Punkte 6000 und 6006 sowie die beiden Höhendiffer
 Zusätzlich wurden die Distanz zwischen EX9500 und 510 (Verbesserung 13.1~mm bei rund 1264~m) und
 drei GNSS-Höhendifferenzen aus den langstatischen Messungen (Verbindungen nach 6015, 7000 und
 6003, Verbesserungen von $-30.9$ bis $31.6$~mm bzw. $-2.9$~mm) eliminiert. Die Auffälligkeit der
-langen, steilen Visur 510--EX9500 wurde bereits im provisorischen Abriss und in der robusten
-Netzlagerung festgestellt. \bigskip
+langen, steilen Visur 510--EX9500 wurde bereits im provisorischen Abriss und in der robusten \bigskip
+Netzlagerung festgestellt.
 
 Nach diesen Eliminierungen blieb in Variante 1 genau eine bestimmbare normierte Verbesserung
 über dem Grenzwert von 3.5. Es handelt sich um die Distanz von Station 2000 nach 7022
 ($w_i = 3.9$, Verbesserung 6.1~mm). Sie bestätigt die bereits in den vorangegangenen
-Ausgleichungen festgestellte Auffälligkeit der Station 2000. \bigskip
+Ausgleichungen festgestellte Auffälligkeit der Station 2000.\bigskip
 
 In Variante 2 wurden deshalb zusätzlich alle drei Beobachtungen von Station 2000 nach 7022
 (Richtung, Distanz und Höhendifferenz) eliminiert, womit sich 14 eliminierte Beobachtungen
@@ -428,6 +428,7 @@ Beobachtungen. Im Vergleich zur weichen Netzlagerung
 (7.1~mm beziehungsweise 7.6~mm) sind die Koordinatengenauigkeiten deutlich besser, was auf die
 feste Lagerung und die instrumentenspezifische Differenzierung des stochastischen Modells
 zurückzuführen ist.\bigskip
+
 Die Ergebnisse der Auswertung nach Beobachtungsgruppen sind in Tabelle \ref{tab:beobachtungsgruppen} zusammengestellt.
 
 \begin{table}[H]
@@ -465,7 +466,7 @@ angenommen. Die Höhendifferenzen stimmen mit dem Modell gut überein (1.08 bzw.
 
 Variante 2 liefert somit das konsistentere Ergebnis, da keine bestimmbare normierte Verbesserung
 mehr über dem Grenzwert liegt und die Quotienten sowie die Koordinatengenauigkeiten etwas besser
-ausfallen. Der Preis dafür ist der Verlust der drei Beobachtungen nach 7022, der sich lokal auf
+ausfallen. Der Preis dafür ist der Verlust der drei Beobachtungen nach 7022, der sich lokal auf \todo{Satz so Gut mit der Preis dazu?}
 die Zuverlässigkeit des Punktes auswirkt (siehe Tabelle \ref{tab:vergleich-na-3a}). Da der
 Unterschied zwischen den Varianten insgesamt klein ist, wird für die weiteren Untersuchungen
 Variante 2 verwendet.

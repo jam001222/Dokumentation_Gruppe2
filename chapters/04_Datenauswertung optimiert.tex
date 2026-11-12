@@ -743,43 +743,7 @@ des mittleren Quotienten empirisch/theoretisch in der Lage zurückzuführen und 
 veränderte Netzgeometrie. Die Punkte TP510 und 6014 überschreiten die Genauigkeitsanforderung in der Lage bereits im
 Ausgangsnetz und sind daher nicht eine Folge der Optimierung. Mit den Punkten 6013 und 6060, welche in der dritten
 Version den Grenzwert erreichen, zeigt sich zudem, dass eine weitere Reduktion der Visuren nicht mehr sinnvoll wäre.
-\bigskip
-\begin{table}[H]
-    \centering
-    \small
-    \setlength{\tabcolsep}{4pt}
-    \begin{tabular}{@{}l cc cc cc cc@{}}
-        \toprule
-        & \multicolumn{2}{c}{v0} & \multicolumn{2}{c}{v1} & \multicolumn{2}{c}{v2} & \multicolumn{2}{c}{v3} \\
-        \cmidrule(lr){2-3} \cmidrule(lr){4-5} \cmidrule(lr){6-7} \cmidrule(l){8-9}
-        Kenngrösse & Lage & Höhe & Lage & Höhe & Lage & Höhe & Lage & Höhe \\
-        \midrule
-        \multicolumn{9}{@{}l}{\textit{Netz}} \\
-        \quad Beobachtungen                    & 353 & 177 & 335 & 168 & 313 & 158 & 297 & 150 \\
-        \quad Überbestimmungen                 & 189 & 112 & 171 & 103 & 149 & 93  & 133 & 85  \\
-        \quad Entfernte Visuren (kumuliert)    & \multicolumn{2}{c}{0} & \multicolumn{2}{c}{9} & \multicolumn{2}{c}{20} & \multicolumn{2}{c}{28} \\
-        \midrule
-        \multicolumn{9}{@{}l}{\textit{Zuverlässigkeit}} \\
-        \quad Beob. mit $z_i > 60\,\%$         & 160 & 104 & 135 & 93 & 98 & 82 & 80 & 66 \\
-        \quad Beob. mit $z_i < 25\,\%$         & 37 & 4 & 37 & 4 & 41 & 4 & 40 & 4 \\
-        \quad Unkontrolliert ($z_i = 0$)       & 22 & 9 & 22 & 9 & 22 & 9 & 22 & 9 \\
-        \quad $|w_i|_{\max}$                   & 3.1 & 2.9 & 3.1 & 2.9 & 3.0 & 2.9 & 3.0 & 3.0 \\
-        \midrule
-        \multicolumn{9}{@{}l}{\textit{Genauigkeit}} \\
-        \quad Quotient emp./theor. Gesamtnetz  & 0.86 & 1.02 & 0.89 & 1.01 & 0.93 & 1.01 & 0.96 & 1.01 \\
-        \quad Mittlere Genauigkeit [mm]        & 1.7 & 2.1 & 1.7 & 2.1 & 1.8 & 2.1 & 1.9 & 2.2 \\
-        \quad Schlechteste Genauigkeit [mm]    & 3.2 & 3.3 & 3.4 & 3.3 & 3.5 & 3.3 & 3.7 & 3.3 \\
-        \quad\quad Punkt                       & TP510 & 6014 & TP510 & 6014 & TP510 & 6014 & TP510 & 6014 \\
-        \quad Zweitschlechteste Genauigkeit [mm] & 2.6 & 3.0 & 2.7 & 3.0 & 2.8 & 3.0 & 2.9 & 3.0 \\
-        \quad\quad Punkt                       & 6014 & 6013 & 6014 & 6013 & 6014 & 6013 & 6014 & 6013 \\
-        \quad Drittschlechteste Genauigkeit [mm] & 2.2 & 2.9 & 2.3 & 2.9 & 2.4 & 2.9 & 2.5 & 2.9 \\
-        \quad\quad Punkt                       & 6013 & 6002 & 6013 & 6002 & 6013 & 6002 & 6013 & 6002 \\
-        \quad Punkte über Anforderung          & 2 & 0 & 2 & 0 & 2 & 0 & 2 & 0 \\
-        \bottomrule
-    \end{tabular}
-    \caption{Kenngrössen der Ausgleichung über die Optimierungsschritte v0 bis v3. Genauigkeit = grosse Halbachse der Konfidenzellipse.}
-    \label{tab:kenngroessen_optimierung}
-\end{table}
+
 
 
 

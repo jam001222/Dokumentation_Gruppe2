@@ -6,8 +6,8 @@ für die Netzausgleichung aufbereitet wurden.
 
 \subsection{Messkonfiguration und Instrumente}
 \label{sec:messkionfiguration und instrumente}
-Die tachymetrischen Messungen wurdem mit drei Leica Nova MS60 (interne Nr. 5, 6 und 8)
-und einem Leica Nova TS60 (interne Nr. 2) durchgeführt 
+Die tachymetrischen Messungen wurden mit drei Leica Nova MS60 (interne Nr. 5, 6 und 8),
+einem Leica Nova TS60 (interne Nr. 2) und einem SX12 durchgeführt.
 
 \subsection{Datenübertragung und -sicherung}
 \label{sec:datenuebertragung und -sicherung}
@@ -22,30 +22,37 @@ Die Aufbereitung erfolgte in Leica Infinity. Pro Station wurden folgende Schritt
     \item Import der Messdaten
     \item Kontrolle der gemessenen Visuren auf Vollständigkeit und Plausibilität
     \item Prüfung der Satzmittel und Standardabweichungen
-    \item Deaktivierung einzelner Sätze bei Auffälligkeiten (Kapitelxxx)
+    \item Deaktivierung einzelner Sätze bei Auffälligkeiten
     \item Kontrolle und Anpassung der Meteokorrekturen
     \item Nachbearbeitung einzelner Stationen
 \end{enumerate}
 
-\subsection{Metekorrekturen}
-\label{sec:metekorrekturen}
-Bei der Stationierung wurden die Meteowerte am Standpunkt eingegeben. Das Netz
+Die Messungen erfolgten in Sätzen. Diese wurden bereits vor der Ausgleichung gemittelt,
+sodass jede Richtung und jede Distanz nur einmal in die Ausgleichung eingeht.
+
+\subsection{Meteokorrekturen}
+\label{sec:meteokorrekturen}
+Bei der Stationierung wurden die Meteowerte (Temperatur, Luftdruck, Luftfeuchtigkeit) am Standpunkt eingegeben. Das Netz
 überspannt jedoch einen Höhenunterschied von rund 570 m, sodass diese Werte die
 Verhältnisse entlang langer Visuren nur bedingt abbilden. Die Meteokorrekturen wurden
 daher bei langen Visuren überprüft und angepasst. In Leica Infinity können dafür auch
 die Meteowerte der Zielpunkte berücksichtigt werden. Beim Standpunkt 6003 wurden die
-Meteokorrekturen zusätzlich angebracht
+Meteokorrekturen zusätzlich angebracht.
+
+Der Einfluss der Refraktion auf die Zenitwinkel wird nicht in Leica Infinity, sondern in der
+Ausgleichung über den Refraktionskoeffizienten berücksichtigt.
 
 \subsection{Stationsspezifische Bearbeitung}
 \label{sec:stationsspezifische_bearbeitung}
 Die folgenden Abschnitte listen alle Stationen auf, bei denen Sätze deaktiviert oder
-Daten angepasst wurden.
+Daten angepasst wurden. Pro Teilgebiet fasst eine Tabelle die Feststellungen und Massnahmen zusammen. \bigskip
 
 \subsubsection{Gebiet Sperre}
 \label{sec:gebiet_sperre}
 Das Teilgebiet Sperre umfasst die obere Schwergewichtsmauer. Alle Profilpunkte
 der Mauer konnten vom Standpunkt 1000 aus gemessen werden. Die Punkte 340, 520, 530, 540, 720, 730,
-740 wurden nur von einer Station eingemessen.
+740 wurden nur von einer Station eingemessen. In der Tabelle \ref{tab:feststellungen} sind die
+Feststellungen und Massnahmen bei der Datenaufbereitung aufgelistet.
 
 \begin{table}[H]
     \centering
@@ -98,8 +105,8 @@ korrigiert und auf den Wertebereich von $0$ bis $\SI{400}{\gon}$ reduziert:
 Das Teilgebiet Brichen konnte im Feld gemäss Messkonzept ohne
 Auffälligkeiten gemessen werden (Wälti et al., 2026).
 Der im Feld fehlende Punkt 7019 wurde neu materialisiert und unter der
-Nummer 7119 eingemessen. Bei der Datenaufbereitung ergaben sich die
-folgenden Feststellungen.
+Nummer 7119 eingemessen. In der Tabelle \ref{tab:feststellungen-brichen} sind die
+Feststellungen und Massnahmen aufgelistet.
 
 \begin{table}[H]
     \centering
@@ -137,7 +144,7 @@ Messkampagne und konnten nach der Rodung einzelner Visuren wie geplant
 ausgeführt werden, ergänzt um eine zusätzliche Visur. Der durch eine
 Strassensanierung zerstörte Punkt 6019 wurde durch einen neuen Punkt
 ersetzt und unter der Nummer 6119 ins Netz aufgenommen (Wälti et al., 2026). Bei der Datenaufbereitung
-ergaben sich die folgenden Feststellungen.
+ergaben sich folgende Feststellungen, die in Tabelle \ref{tab:feststellungen-aegerdi} zusammengefasst sind.
 
 \begin{table}[htbp]
     \centering
@@ -153,7 +160,7 @@ ergaben sich die folgenden Feststellungen.
         Es wurden nur die Sätze 3--6 verwendet.
         Zusätzlich wurden die Meteokorrekturen angebracht. \\
         \addlinespace
-        6016 & Der erste Satz wies grössere Abweichungen auf &
+        6016 & Der erste Satz wies grössere Abweichungen auf. &
         Es wurden nur die Sätze 2--6 verwendet. \\
         \addlinespace
         7001 & Der erste Satz wies grössere Abweichungen auf. &
@@ -170,8 +177,8 @@ ergaben sich die folgenden Feststellungen.
 
 \subsubsection{Gebiet Brunni}
 \label{sec:gebiet-brunni}
-Brunni ist ein kleines Teilgebiet auf einer Waldlichtung. Die steile
-Wiese ist nur zu Fuss zugänglich, und alle Überwachungspunkte liegen auf
+Brunni ist ein kleines Teilgebiet auf einer Waldlichtung. Es liegt zwischen der Sperre und dem Gebiet Ägerdi. 
+Die steile Wiese ist nur zu Fuss zugänglich, und alle Überwachungspunkte liegen auf
 der Wiese. Die Verbindung zu den übrigen Teilgebieten ist nur über GNSS
 oder über einzelne Visuren zu den Punkten 6000 und 7022 möglich (Wälti et al., 2026). Das Gebiet wurde am zweiten Tag der
 Messkampagne zusammen mit dem Gebiet Ägerdi gemessen und konnte wie
@@ -187,10 +194,10 @@ Nach Abschluss der beschriebenen Kontrollen und Anpassungen liegt ein
 bereinigter tachymetrischer Datensatz für die weitere Netzausgleichung
 vor. Auffällige Messsätze wurden stationsweise beurteilt und, wo
 erforderlich, von der weiteren Auswertung ausgeschlossen. Fehlende oder
-fehlerhaft bezeichnete Beobachtungen wurden anhand der vorhandenen
+fehlerhafte bezeichnete Beobachtungen wurden anhand der vorhandenen
 Rohdaten ergänzt beziehungsweise korrigiert. Zudem wurden die
 Meteokorrekturen insbesondere bei langen Visuren überprüft und
-angepasst. Das resultierende.mes-File bildet damit das
+angepasst. Das resultierende .mes-File bildet damit das
 Ergebnis der TPS-Datenaufbereitung und die Grundlage für die
 nachfolgenden Netzausgleichungen.
 
@@ -203,18 +210,18 @@ Die Resultate zeigen, dass der TPS-Datensatz grundsätzlich konsistent
 weiterverwendet werden kann.
 
 Eine noch zu untersuchende Auffälligkeit zeigt sich in der
-Höhenkomponente der langen Visur zwischen 510 und EX9500. Bei der rund
-1.26~km langen Verbindung ergibt sich eine Abweichung von rund 52~mm.
+Höhenkomponente der langen Visur zwischen den Punkten 510 und EX9500. Bei der rund
+1.26~km langen Verbindung ergibt sich eine Abweichung von rund 54~mm.
 Da die Visur einen grossen Höhenunterschied überwindet, sind bei der
 weiteren Auswertung insbesondere mögliche atmosphärische Einflüsse auf
 die Höhenübertragung zu untersuchen. Eine abschliessende Beurteilung
-dieser Auffälligkeit ist allein anhand der im vorliegenden Arbeitspaket
-aufbereiteten TPS-Daten nicht möglich.
+dieser Auffälligkeit ist allein anhand der aufbereiteten TPS-Daten 
+nicht möglich.
 
 Im Feldkurs wurden für ausgewählte Punkte zusätzlich langstatische
 GNSS-Messungen, eine trigonometrische Höhenbestimmung sowie ein
 Präzisionsnivellement durchgeführt. Diese unabhängigen Messungen werden
-in separaten Arbeitspaketen ausgewertet und können später zur Kontrolle
+in den anderen Gruppen ausgewertet und können später zur Kontrolle
 und Kombination der unterschiedlichen Höheninformationen herangezogen
 werden. Sie sind daher nicht Bestandteil der vorliegenden
 TPS-Datenaufbereitung.
@@ -222,4 +229,4 @@ TPS-Datenaufbereitung.
 Mit dem bereinigten .mes-File ist die TPS-Datenaufbereitung
 abgeschlossen. Die detaillierte Beurteilung der Beobachtungen sowie
 deren Kombination mit den übrigen Messverfahren erfolgt in den
-nachfolgenden Arbeitspaketen zur Netzausgleichung.
+nachfolgenden Kapiteln zur Netzausgleichung.

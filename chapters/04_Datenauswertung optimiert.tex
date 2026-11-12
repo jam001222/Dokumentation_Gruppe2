@@ -12,7 +12,7 @@ Methode der kleinsten Quadrate (MdKQ). Dabei wird angenommen, dass die
 Beobachtungen stochastisch unabhängig und die Messabweichungen
 normalverteilt sind. \bigskip
 
-Im Rahmen dieses Arbeitspakets wird das Netz Schwanderbärgli in der
+Im Rahmen unserer Aufgabe wird das Netz Schwanderbärgli in der
 Variante V1.1 «optimiert» ausgewertet. Ziel ist es, durch eine geeignete
 Auswahl und Kombination der vorhandenen tachymetrischen Messungen (TPS),
 GNSS-Beobachtungen, Nivellementdaten und trigonometrischen
@@ -57,10 +57,10 @@ von rund 1264 m und einer steilen Visur. Wegen der langen Visur haben die
 Beobachtungen eine a-priori-Standardabweichung von 12 mm. Die Beobachtungen wurden im
 provisorischen Abriss nicht ausgeschlossen. Ob sie in der Netzausgleichung
 beibehalten werden, wird anhand der normierten Verbesserungen entschieden.
-Diese sind im provisorischen Ariss nicht bestimmbar, da alle Punkte als Festpunkte
+Diese sind im provisorischen Abriss nicht bestimmbar, da alle Punkte als Festpunkte
 behandelt werden. \bigskip
 
-Eine weitere Auffälligkeit zeigte die gegenseitige Höhenkontrolle zwischen
+Eine weitere Auffälligkeit zeigte die gegenseitige Höhenkontrolle zwischen den Punkten
 7008 und 7020 mit einem Kontrollwert von 7.5 mm. Sie dürfte auf die
 Bedingungen bei der Feldmessung zurückzuführen sein: Das Stativ konnte am
 Standort 7020 wegen des Strassenverkehrs nicht dauerhaft stehen bleiben.
@@ -74,14 +74,14 @@ Im Anschluss an den provisorischen Abriss wurde eine freie, robuste
 Netzlagerung durchgeführt. Damit soll die
 innere Qualität des Netzes unabhängig von den Näherungskoordinaten der
 Festpunkte beurteilt, die Genauigkeit der Beobachtungen analysiert und
-fehlerhafte Beobachtungen besser erkannt werden. Beim robusten Verfahren
-(Koeffizient 2.5) werden Beobachtungen mit grossen Verbesserungen
+fehlerhafte Beobachtungen besser erkannt werden. Beim robusten Verfahren 
+(mit Koeffizient 2.5) werden Beobachtungen mit grossen Verbesserungen
 automatisch abgewichtet, sodass einzelne Ausreisser das Ergebnis weniger
 stark verfälschen. Das Datum wurde manuell definiert
 (Lage: Punkte 7000, EX7000, EX9500 und EX6015, Höhe: Punkt 9000). Die
 Standardabweichungen der GNSS-Koordinaten und GNSS-Höhen wurden gegenüber
 dem provisorischen Abriss auf 5.0~mm in der Lage und 7.0~mm in der Höhe erhöht.
-In der Tabelle xxx ist das stochastische Modell der Beobachtungen zusammengefasst.
+In der Tabelle \ref{tab:stochastisches-modell-robust} ist das stochastische Modell der Beobachtungen zusammengefasst.
 
 \begin{table}[H]
     \centering
@@ -133,10 +133,10 @@ damit verbundene ungünstige Satellitengeometrie zurückzuführen. Die Ursache
 der grossen Abweichung der GNSS-Höhe des Punktes 6000 konnte hingegen nicht
 eindeutig geklärt werden. Die auffälligen Höhendifferenzen nach 7020 lassen
 sich vermutlich durch die mehrfachen Neuaufstellungen der Station am Punkt
-7020 während der Feldmessung erklären (siehe Abschnitt xxx). \bigskip
+7020 während der Feldmessung erklären (siehe Abschnitt~\ref{sec:provisorischer abriss}). \bigskip
 
 Nach dem Ausschluss dieser Beobachtungen lagen weiterhin drei normierte
-Verbesserungen über dem Grenzwert von 3.5 (Tabelle xxx).
+Verbesserungen über dem Grenzwert von 3.5 (Tabelle \ref{tab:wi-werte-robuste-netzlagerung}).
 
 \begin{table}[H]
     \centering
@@ -156,7 +156,7 @@ Verbesserungen über dem Grenzwert von 3.5 (Tabelle xxx).
 \end{table}
 
 Diese Beobachtungen wurden robust abgewichtet. Die Distanz von Station 2000
-nach 7022 weist den grössten Wert auf ($w_i = 4.2$). Von Station 2000 stammen
+nach Punkt 7022 weist den grössten Wert auf ($w_i = 4.2$). Von Station 2000 stammen
 zudem weitere erhöhte Werte (Höhendifferenz nach 7022: $-3.4$, Richtungen
 nach 710 und 610: $-3.0$ bzw. $-2.8$), was auf eine Auffälligkeit
 der Station 2000 hindeutet. 
@@ -182,8 +182,8 @@ Lage sowie die Punkte 7000, 7004, 7015, EX9500 und 9000 in der Höhe als Festpun
 Die a-priori-Standardabweichung der Festpunktkoordinaten wurde sowohl in der Lage als auch in
 der Höhe auf 5.0~mm festgelegt. Die übrigen Standardabweichungen wurden gegenüber der robusten
 Netzlagerung weitgehend beibehalten. Zusätzlich wurde die Standardabweichung des
-Refraktionskoeffizienten von 0.060 auf 0.100 erhöht. Die Ausgleichung erfolgte ohne robuste
-Abgewichtung der Beobachtungen. Das verwendete stochastische Modell ist in Tabelle xxx zusammengefasst.
+Refraktionskoeffizienten von 0.060 auf 0.100 erhöht, weil steile Visuren mit grossen Höhenunterschiede gemessen worden sind. Die Ausgleichung erfolgte ohne robuste
+Abgewichtung der Beobachtungen. Das verwendete stochastische Modell ist in Tabelle \ref{tab:stochastisches-modell-weich} zusammengefasst.
 
 \begin{table}[H]
     \centering
@@ -242,10 +242,9 @@ Beobachtungen ausgeschlossen. Zusätzlich wurde die GNSS-Höhe des Punktes 6006 
 grossen Verbesserung von $-30.4$~mm eliminiert. Diese Beobachtung war bereits bei der robusten
 Netzlagerung mit einem normierten Verbesserungswert von $w_i=-4.1$ auffällig und wurde dort robust
 abgewichtet. Die Verbesserung liegt deutlich über der a-priori-Standardabweichung der GNSS-Höhen
-von 7.0~mm. Insgesamt wurden bei der weichen Netzlagerung somit sieben Beobachtungen eliminiert. \bigskip
-
-Nach dem Ausschluss dieser Berechnung lag weiterhin eine normierte Verbesserung über dem Grenzwert von 3.5
-(siehe Tabelle xxx).
+von 7.0~mm. Insgesamt wurden bei der weichen Netzlagerung somit sieben Beobachtungen eliminiert.
+Nach dem Ausschluss dieser Berechnung lag weiterhin eine normierte Verbesserung genau beim Grenzwert von 3.5
+(siehe Tabelle \ref{tab:wi-werte-weiche-netzlagerung}).
 
 \begin{table}[H]
     \centering
@@ -274,13 +273,13 @@ zur Optimierung der Netzkonfiguration.
 Im Anschluss an die weiche Netzlagerung wurde eine gezwängte Ausgleichung durchgeführt.
 Dabei werden die Koordinaten der ausgewählten Festpunkte als fehlerfrei betrachtet und festgehalten.
 Im Gegensatz zur weichen Lagerung können diese Koordinaten somit nicht mehr durch die Ausgleichung verändert
-werden. Ziel ist es, das Netz auf den vorgegebenen Festpunkten zu lagern und die resultierenden
+werden. Ziel davon ist das Netz auf den vorgegebenen Festpunkten zu lagern und die resultierenden
 Koordinatengenauigkeiten sowie die Übereinstimmung zwischen den Beobachtungen und dem stochastischen
 Modell zu beurteilen. Dazu wurden zwei Varianten berechnet und miteinander verglichen. \bigskip
 
 \subsubsection{Entscheid Höhenlagerung}
 \label{sec:entscheid hoehenlagerung}
-Bei der Festelgung der Höhenlagerung stellte sich die Frage nach dem Umgang mit den unterschiedlichen
+Bei der Festlegung der Höhenlagerung stellte sich die Frage nach dem Umgang mit den unterschiedlichen
 Höhensystemen (LN02 und LHN95). Der Höhenfixpunkt 9000 liegt im LN02 vor, während die übrigen Netzhöhen
 auf dem LHN95 beruhen. Eine direkte gemeinsame Verwendung dieser Höhen ohne entsprechende Transformation
 ist deshalb nicht zweckmässig. \bigskip
@@ -293,12 +292,12 @@ dem Punkt 9000 oder ein Verzicht auf diesen Höhenanschluss in Betracht gezogen.
 Schliesslich wurde entschieden, das gesamte Netz auf Grundlage der langstatischen GNSS-Messungen an den
 Referenzstationen (Messdauer rund 44~h) zu lagern und auf den Höhenanschluss über das Nivellement zu verzichten.
 Ausschlaggebend waren insbesondere die unterschiedlichen Höhensysteme sowie die unterschiedlichen Genauigkeiten
-der verwendeten Messverfahren. Zusätzlich bestanden Unsicherheiten bezüglich der Höhe des Höhenfixpunktes 9000 (siehe Tabelle xxx),
+der verwendeten Messverfahren. Zusätzlich bestanden Unsicherheiten bezüglich der Höhe des Höhenfixpunktes 9000 (siehe Tabelle \ref{tab:hoehenvergleich-9000}),
 da die Ausgangshöhe aus dem Jahr 2022 nicht mit der von swisstopo angegebenen Höhe übereinstimmte. Zur Überprüfung
 wurde auf dem Punkt 9000 eine langstatische GNSS-Messung mit einer Messdauer von rund 15~h durchgeführt. Die daraus
-bestimmte Höhe wich um rund 2.5~cm von der nach LHN95 transformierten swisstopo-Höhe und um rund 1.1~cm von der
+bestimmte Höhe wich um 2.5~cm von der nach LHN95 transformierten swisstopo-Höhe und um 1.1~cm von der
 Ausgangshöhe aus dem Jahr 2022 ab. Diese Differenzen könnten teilweise auf die Messunsicherheit der GNSS-Höhenbestimmung
-zurückzuführen sein. Die genaue Ursache konnte jedoch nicht eindeutig geklärt werden. Aufgrund dieser Unstimmigkeiten
+zurückzuführen sein. Die exakte Ursache konnte jedoch nicht eindeutig geklärt werden. Aufgrund dieser Unstimmigkeiten
 wurde darauf verzichtet, den Punkt 9000 als verbindlichen Höhenanschluss zu verwenden. Damit wird vermieden,
 dass mögliche systematische Abweichungen des Höhenfixpunktes zusätzliche Zwänge in die Netzausgleichung
 einbringen. Die Höhenlagerung erfolgt stattdessen einheitlich über die langstatischen GNSS-Messungen der Referenzstationen. \bigskip
@@ -333,7 +332,7 @@ Für die tachymetrischen Beobachtungen wurde das stochastische Modell gegenüber
 differenziert. Dazu wurden die Messungen nach den eingesetzten Tachymetertypen TS60, MS60 und SX12 in
 unterschiedliche Beobachtungsgruppen eingeteilt. Für die Richtungen, Azimute und Distanzen konnten damit
 instrumentenspezifische a-priori-Genauigkeiten berücksichtigt werden. Die entsprechenden Parameter sind in
-Tabelle xxx aufgeführt. Die übrigen Parameter des stochastischen Modells sind in Tabelle xxx zusammengefasst. 
+Tabelle \ref{tab:stochastisches-modell-instrumente} aufgeführt. Die übrigen Parameter des stochastischen Modells sind in Tabelle \ref{tab:stochastisches-modell-allgemein} zusammengefasst. 
 
 \begin{table}[H]
     \centering
@@ -380,18 +379,18 @@ Punktes 6011, GNSS-Höhen der Punkte 6000 und 6006 sowie die beiden Höhendiffer
 Zusätzlich wurden die Distanz zwischen EX9500 und 510 (Verbesserung 13.1~mm bei rund 1264~m) und
 drei GNSS-Höhendifferenzen aus den langstatischen Messungen (Verbindungen nach 6015, 7000 und
 6003, Verbesserungen von $-30.9$ bis $31.6$~mm bzw. $-2.9$~mm) eliminiert. Die Auffälligkeit der
-langen, steilen Visur 510--EX9500 wurde bereits im provisorischen Abriss und in der robusten
-Netzlagerung festgestellt. \bigskip
+langen, steilen Visur 510--EX9500 wurde bereits im provisorischen Abriss und in der robusten \bigskip
+Netzlagerung festgestellt.
 
 Nach diesen Eliminierungen blieb in Variante 1 genau eine bestimmbare normierte Verbesserung
 über dem Grenzwert von 3.5. Es handelt sich um die Distanz von Station 2000 nach 7022
 ($w_i = 3.9$, Verbesserung 6.1~mm). Sie bestätigt die bereits in den vorangegangenen
-Ausgleichungen festgestellte Auffälligkeit der Station 2000. \bigskip
+Ausgleichungen festgestellte Auffälligkeit der Station 2000.\bigskip
 
 In Variante 2 wurden deshalb zusätzlich alle drei Beobachtungen von Station 2000 nach 7022
 (Richtung, Distanz und Höhendifferenz) eliminiert, womit sich 14 eliminierte Beobachtungen
 ergeben. Danach blieb in keiner der beiden Komponenten eine bestimmbare normierte Verbesserung
-über dem Grenzwert. Die Kennwerte beider Varianten sind in Tabelle xxx
+über dem Grenzwert. Die Kennwerte beider Varianten sind in Tabelle \ref{tab:vergleich-gezwängter-ausgleich}
 zusammengestellt.
 
 \begin{table}[H]
@@ -428,9 +427,9 @@ Quotient empirisch/theoretisch nahe bei 1, das stochastische Modell passt somit 
 Beobachtungen. Im Vergleich zur weichen Netzlagerung
 (7.1~mm beziehungsweise 7.6~mm) sind die Koordinatengenauigkeiten deutlich besser, was auf die
 feste Lagerung und die instrumentenspezifische Differenzierung des stochastischen Modells
-zurückzuführen ist. \bigskip
+zurückzuführen ist.\bigskip
 
-Die Ergebnisse der Auswertung nach Beobachtungsgruppen sind in Tabelle xxx zusammengestellt.
+Die Ergebnisse der Auswertung nach Beobachtungsgruppen sind in Tabelle \ref{tab:beobachtungsgruppen} zusammengestellt.
 
 \begin{table}[H]
     \centering
@@ -467,8 +466,8 @@ angenommen. Die Höhendifferenzen stimmen mit dem Modell gut überein (1.08 bzw.
 
 Variante 2 liefert somit das konsistentere Ergebnis, da keine bestimmbare normierte Verbesserung
 mehr über dem Grenzwert liegt und die Quotienten sowie die Koordinatengenauigkeiten etwas besser
-ausfallen. Der Preis dafür ist der Verlust der drei Beobachtungen nach 7022, der sich lokal auf
-die Zuverlässigkeit des Punktes auswirkt (siehe Tabelle xxx). Da der
+ausfallen. Der Preis dafür ist der Verlust der drei Beobachtungen nach 7022, der sich lokal auf \todo{Satz so Gut mit der Preis dazu?}
+die Zuverlässigkeit des Punktes auswirkt (siehe Tabelle \ref{tab:vergleich-na-3a}). Da der
 Unterschied zwischen den Varianten insgesamt klein ist, wird für die weiteren Untersuchungen
 Variante 2 verwendet.
 
@@ -481,7 +480,7 @@ Netzpunkte auswirkt. Sie wird in LTOP für alle variablen Punkte als Zuverlässi
 ausgegeben, wobei der Wert NA die Auswirkung in der Lage angibt. Als Beurteilungskriterium wird NA
 mit dem Dreifachen der Standardabweichung $a$ des jeweiligen Punktes verglichen
 (Kriterium $NA \le 3\cdot a$). Der Vergleich wurde für Variante 2 durchgeführt, die für die
-weiteren Untersuchungen verwendet wird. Die Ergebnisse sind in Tabelle xxx aufgeführt. \bigskip
+weiteren Untersuchungen verwendet wird. Die Ergebnisse sind in Tabelle \ref{tab:vergleich-na-3a} aufgeführt. \bigskip
 
 \begin{table}[H]
     \centering
@@ -559,7 +558,7 @@ weiteren Untersuchungen verwendet wird. Die Ergebnisse sind in Tabelle xxx aufge
     \label{tab:vergleich-na-3a}
 \end{table}
 
-Von den 62 in Tabelle xxx aufgeführten Punkten ist bei 53 Punkten die äussere
+Von den 62 in Tabelle \ref{tab:vergleich-na-3a} aufgeführten Punkten ist bei 53 Punkten die äussere
 Zuverlässigkeit in der Lage bestimmbar. Bei den übrigen neun Punkten besteht in der Lage keine
 Überbestimmung, sodass NA nicht berechnet werden kann. Diese Punkte sind nicht kontrolliert, ein
 grober Fehler in ihrer Bestimmung würde nicht aufgedeckt werden. \bigskip
@@ -631,7 +630,7 @@ wurden deshalb die Verbindungen zwischen diesen Stationen gestrichen. Die Visure
 restliche Netz anschliessen, wurden beibehalten. Dadurch bleiben die Messpunkte weiterhin ausreichend miteinander
 verknüpft.
 \bigskip
-Nach dem Entfernen der neun Visuren erfüllt das Netz die Anforderungen an die Zuverlässigkeit weiterhin. Die Anzahl
+Nach dem Entfernen der neun Visuren, die in Tabelle \ref{tab:eliminierte_visuren_v1} aufgeführt sind, erfüllt das Netz die Anforderungen an die Zuverlässigkeit weiterhin. Die Anzahl
 der stark überbestimmten Beobachtungen hat abgenommen, jene der schwach kontrollierten ist unverändert geblieben, und
 keine normierte Verbesserung überschreitet den Grenzwert. Die mittleren Quotienten empirisch/theoretisch liegen in der
 Lage und in der Höhe nahe bei 1. Die Koordinatengenauigkeit verschlechtert sich nur geringfügig.
@@ -667,7 +666,7 @@ die Verbindung 210 nach 2000 vollständig. Die in zwei Sätzen gemessene Visur 7
 die Verbindung bleibt über die Gegenrichtung erhalten. Zusätzlich wurde versucht, die Exzentrumsstation EX7016.4 zu
 reduzieren. Die entfernten Visuren sind in Tabelle~\ref{tab:eliminierte_visuren_v2} aufgeführt.
 \bigskip 
-Auch nach der zweiten Version erfüllt das Netz die Anforderungen~\ref{tab:kenngroessen_optimierung}. Die Anzahl der stark überbestimmten Beobachtungen hat
+Auch nach der zweiten Version erfüllt das Netz die Anforderungen. Die Anzahl der stark überbestimmten Beobachtungen hat
 weiter abgenommen, und keine normierte Verbesserung überschreitet den Grenzwert. Die Anzahl der schwach kontrollierten
 Beobachtungen in der Lage hat jedoch erstmals leicht zugenommen. Die mittleren Quotienten empirisch/theoretisch liegen
 weiterhin nahe bei 1, und die Koordinatengenauigkeit verschlechtert sich nur geringfügig.
@@ -773,3 +772,7 @@ Messungen durch THB auf 7000 vorhanden wären.
 \bigskip
 Optimierung durch Elmiminierung der Punkte 9000 und EX7000, da diese Lediglich für den LN02 anschluss 
 erschlossen wurde, Genauigkeit Lage und Höhe besser wenn nur auf Langstatischen (48h) gelagert.
+\bigskip
+\bigskip
+
+Refraktionskoeffizient noch erklären

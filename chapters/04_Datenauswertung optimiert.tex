@@ -613,14 +613,14 @@ Die Genauigkeitsanforderungen wurden bereits im Feldkurs 2026 berechnet und werd
 Da mit der Optimierung auch eine Vereinfachung des gesamten Netzes für allfällige zukünftige Messkampagnen angestrebt wird, 
 wurde festgelegt, dass Beobachtungen jeweils als ganze Visuren entfernt werden. So können diese bereits bei den Aufnahmen im 
 Feld weggelassen werden. Eine Visur umfasst dabei die Richtung, die Schrägdistanz und die Zenitdistanz (RI, DS, ZD) einer 
-Beobachtung auf einer Station.
-\bigskip
+Beobachtung auf einer Station.\bigskip
+
 Als Referenz dient die Ausgleichung des vollständigen Netzes mit allen Beobachtungen (Version v0). Jede weitere Version wird 
 mit diesem Ausgangszustand verglichen. Die Beurteilung aller Resultate ist in der Tabelle~\ref{tab:kenngroessen_optimierung} 
-dargestellt.
-\bigskip
+dargestellt.\bigskip
+
 In einer ersten Version wurden neun Visuren entfernt und die Genauigkeit sowie die Zuverlässigkeit des resultierenden Netzes 
-anhand der Anforderungen~\ref{tab:anforderungen_optimierung} geprüft. Visuren wurden vor allem dort entfernt, wo das Netz dichter 
+anhand der Anforderungen in Tabelle~\ref{tab:anforderungen_optimierung} geprüft. Visuren wurden vor allem dort entfernt, wo das Netz dichter 
 vermessen wurde, als es nötig ist. Das betrifft hauptsächlich die Visuren zwischen den Stationen 1000, 2000, 210 und 510. Diese 
 Punkte liegen nahe beieinander und wurden ursprünglich alle untereinander gemessen, jeweils mit Hin- und Rückmessung. Von der 
 Station 2000 aus wurde zudem mit zwei Instrumenten gemessen. Die Verbindungen zwischen diesen Stationen
@@ -628,13 +628,13 @@ waren daher mehrfach bestimmt. Die Visuren innerhalb dieser Stationsgruppe wiese
 Zuverlässigkeit von über 70\,\% auf und lagen damit deutlich über dem angestrebten Bereich. In der ersten Version
 wurden deshalb die Verbindungen zwischen diesen Stationen gestrichen. Die Visuren, welche diese Stationen an das
 restliche Netz anschliessen, wurden beibehalten. Dadurch bleiben die Messpunkte weiterhin ausreichend miteinander
-verknüpft.
-\bigskip
+verknüpft.\bigskip
+
 Nach dem Entfernen der neun Visuren, die in Tabelle \ref{tab:eliminierte_visuren_v1} aufgeführt sind, erfüllt das Netz die Anforderungen an die Zuverlässigkeit weiterhin. Die Anzahl
 der stark überbestimmten Beobachtungen hat abgenommen, jene der schwach kontrollierten ist unverändert geblieben, und
 keine normierte Verbesserung überschreitet den Grenzwert. Die mittleren Quotienten empirisch/theoretisch liegen in der
-Lage und in der Höhe nahe bei 1. Die Koordinatengenauigkeit verschlechtert sich nur geringfügig.
-\bigskip
+Lage und in der Höhe nahe bei 1. Die Koordinatengenauigkeit verschlechtert sich nur geringfügig.\bigskip
+
 \begin{table}[H]
     \centering
     \begin{tabular}{p{0.8cm} p{1.2cm} p{3.2cm} p{2.5cm} p{5.3cm}}
@@ -664,8 +664,8 @@ verbleibt. Bei gegenseitig gemessenen Visuren wurde zuerst die Visur in eine Ric
 Anforderungen gemäss Tabelle~\ref{tab:anforderungen_optimierung} zuliessen, später auch die Gegenrichtung. So entfiel
 die Verbindung 210 nach 2000 vollständig. Die in zwei Sätzen gemessene Visur 7014 nach 7016 wurde ganz gestrichen,
 die Verbindung bleibt über die Gegenrichtung erhalten. Zusätzlich wurde versucht, die Exzentrumsstation EX7016.4 zu
-reduzieren. Die entfernten Visuren sind in Tabelle~\ref{tab:eliminierte_visuren_v2} aufgeführt.
-\bigskip 
+reduzieren. Die entfernten Visuren sind in Tabelle~\ref{tab:eliminierte_visuren_v2} aufgeführt.\bigskip 
+
 Auch nach der zweiten Version erfüllt das Netz die Anforderungen. Die Anzahl der stark überbestimmten Beobachtungen hat
 weiter abgenommen, und keine normierte Verbesserung überschreitet den Grenzwert. Die Anzahl der schwach kontrollierten
 Beobachtungen in der Lage hat jedoch erstmals leicht zugenommen. Die mittleren Quotienten empirisch/theoretisch liegen
@@ -699,12 +699,12 @@ zahlreiche Punkte angezielt, welche bereits von anderen Stationen aus gut bestim
 gestrichen. Auf der Station 7020 blieben nur die Visuren erhalten, welche für die Anbindung der benachbarten Punkte
 nötig sind. Zudem wurden bei den Verbindungen 1000 zu 2000, 510 zu 7020 und 6003 zu 6015, deren Gegenrichtung bereits in
 einer früheren Version entfernt wurde, auch die verbleibenden Visuren gestrichen. Die entfernten Visuren sind in
-Tabelle~\ref{tab:eliminierte_visuren_v3} aufgeführt.
-\bigskip
+Tabelle~\ref{tab:eliminierte_visuren_v3} aufgeführt.\bigskip
+
 Die in der zweiten Version gestrichenen Visuren der Exzentrumsstation EX7016.4 auf die Punkte 7014 und 7016 wurden
 wieder aufgenommen. Diese Punkte liegen nahe beieinander und sind nur über wenige Stationen an das übrige Netz
-angeschlossen. Ohne diese Visuren wäre ihre Verknüpfung an das restliche Netz nicht mehr ausreichend gewesen.
-\bigskip
+angeschlossen. Ohne diese Visuren wäre ihre Verknüpfung an das restliche Netz nicht mehr ausreichend gewesen.\bigskip
+
 Auch nach der dritten Version erfüllt das Netz die Anforderungen an die Zuverlässigkeit~\ref{tab:kenngroessen_optimierung}. 
 Die Anzahl der stark überbestimmten Beobachtungen hat weiter abgenommen, und keine normierte Verbesserung überschreitet den Grenzwert.
 Die mittleren Quotienten empirisch/theoretisch liegen weiterhin nahe bei 1. Die gestrichenen Visuren wiesen jedoch
@@ -734,6 +734,7 @@ bereits vor dem Entfernen eine lokale Zuverlässigkeit im Bereich der oberen Gre
 \end{table}
 \label{sec:v0}
 \bigskip
+
 Tabelle~\ref{tab:kenngroessen_optimierung} fasst die Entwicklung der Kenngrössen über alle Versionen zusammen.
 Während die Anzahl der Beobachtungen mit hoher lokaler Zuverlässigkeit kontinuierlich abnimmt, bleibt die Anzahl
 der unkontrollierten Beobachtungen in allen Versionen unverändert. Durch die Optimierung sind somit keine neuen

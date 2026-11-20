@@ -1,13 +1,12 @@
-\section{Literaturrecherche 3D-Netze}
+\section{Alternative zur 2D-Ausgleichung: 3D-Netze}
 \label{sec:literaturrecherche 3D-Netze}
 
-\subsection{Einleitung}
+\subsection{Was ist ein 3D-Netz?}
 Ein 3D-Netz bestimmt Lage und Höhe aller Netzpunkte in einer gemeinsamen Ausgleichung (Niemeier, 2008, S. 128, 247–248). 
-GNSS liefert dabei 3D-Koordinaten oder Basislinien im geozentrischen System WGS84 (Niemeier, 2008, S. 330). 
+Global navigation satellites system (GNSS) liefert dabei 3D-Koordinaten oder Basislinien im geozentrischen System WGS84 (Niemeier, 2008, S. 330). 
 Das Tachymeter (TPS) liefert Horizontalrichtungen, Zenitwinkel und Schrägdistanzen, die auf die lokale Lotrichtung bezogen sind (Banyai, 2011; França et al., 2021).
 Die klassische Trennung in Lagenetz (2D) und Höhennetz (1D), wie sie etwa das Programm LTOP noch verwendet (swisstopo, o. J.), entfällt damit.
-Der Bericht fasst zusammen, was die Literatur zu Aufbau, Modellierung, Ausgleichung und Qualitätsbeurteilung solcher Netze sagt. Hauptquellen sind das Lehrbuch von Niemeier (2008) zur Ausgleichungsrechnung und das Handbuch Ingenieurgeodäsie „Ingenieurbau“ (Möser et al., [2016]).
-Ergänzt wird mit Fachartikeln und Praxisbeispielen aus der Schweiz.
+Der Bericht fasst zusammen, was die Literatur zu Aufbau, Modellierung, Ausgleichung und Qualitätsbeurteilung solcher Netze sagt.
 Niemeier (2008, S. 128) nennt zwei Wege, die Messungen mit dem Koordinatensystem in Einklang zu bringen: Reduktion auf ein Abbildungssystem (z. B. LV95, UTM) oder Formulierung der Beobachtungsgleichungen direkt in einem räumlichen System. 
 Für hochgenaue lokale Ingenieurnetze ist ein 3D-System von Bedeutung, wenn die Höhe streng mitverarbeitet werden soll. Für die Kombination von GNSS mit terrestrischen Messungen ist das globale kartesische System gebräuchlich.
 
@@ -16,7 +15,7 @@ Für hochgenaue lokale Ingenieurnetze ist ein 3D-System von Bedeutung, wenn die 
 GNSS und TPS ergänzen sich folgendermassen: GNSS bestimmt Lagerung, Orientierung und Massstab des Netzes, Strecken- und Richtungsmessungen liefern die innere Geometrie mit hoher relativer Genauigkeit (Niemeier, 2008, S. 232, 247–248). 
 Im Tunnelbau wird zum Beispiel ein GNSS-gestütztes Portalnetz mit Tachymetermessungen in den Berg übertragen (Leica Geosystems, 2016; Weber, 2014). 
 Die Tabelle \ref{tab:messgrössen} zeigt die Messgrössen mit typischen Herstellerangaben aktueller Präzisionsinstrumente.
-
+\bigskip
 \begin{table}[h!]
     \centering
     \begin{tabularx}{\textwidth}{*{3}{>{\centering\arraybackslash}X}}
@@ -30,7 +29,7 @@ Die Tabelle \ref{tab:messgrössen} zeigt die Messgrössen mit typischen Herstell
         Höhenunterschied (Nivellement) & Schwerefeld (Gebrauchshöhen) & Feldkurs Trimble Niv. NOCH Nachschauen \\
         \bottomrule
     \end{tabularx}
-    \caption{Beispielgrössen in 3D-Netzen.}
+    \caption{Messgrössen in 3D-Netzen mit Bezugssystem und Herstellergenauigkeit.}
     \label{tab:messgrössen}
 \end{table}
 
@@ -38,12 +37,12 @@ Niemeier (2008, S. 330) betont, dass GNSS-Auswerteprogramme 3D-Koordinaten oder 
 Wichtig ist, die von der Software gelieferten voll besetzten Kofaktormatrizen in das stochastische Modell zu übernehmen, statt sie durch Diagonalmatrizen zu ersetzen (Niemeier, 2008, S. 249).
 Die geringere Genauigkeit der GNSS-Höhenkomponente lässt sich so streng berücksichtigen (Niemeier, 2008, S. 365).
 Die Herstellerangaben gelten für Idealbedingungen.
-Im Netz kommen Zentrierfehler, Refraktion und Lotabweichung hinzu, die im funktionalen und stochastischen Modell berücksichtigt werden müssen (vgl. Abschnitt 3).
+Im Netz kommen Zentrierfehler, Refraktion und Lotabweichung hinzu, die im funktionalen und stochastischen Modell berücksichtigt werden müssen (vgl. Abschnitt 1.3).
 
 \subsection{Bezugssysteme und Modellbildung}
 \label{sec:Bezugssysteme und Modellbildung}
 GNSS und TPS messen in verschiedenen Systemen, aber ein 3D-Netz muss beide streng verbinden. 
-Als gemeinsames System eignet sich das geozentrisch-kartesische System (X, Y, Z), in dem die terrestrischen Beobachtungsgleichungen nach den Formeln der «Dreidimensionalen Geodäsie» aufgestellt werden (Wolf, 1963, zitiert nach Niemeier, 2008, S. 247). 
+Als gemeinsames System eignet sich das geozentrisch-kartesische System (X, Y, Z), in dem die terrestrischen Beobachtungsgleichungen nach den Formeln der «Dreidimensionalen Geodäsie» aufgestellt werden (Wolf, 1963, zitiert aus Niemeier, 2008, S. 247). 
 Banyai (2011) zeigt diesen Ansatz für eine integrierte Ausgleichung von GNSS-Basislinien, Tachymeter- und Nivellementmessungen.
 Ein Koordinatenunterschied im globalen System wird mit der Rotationsmatrix \(R(\Phi, \Lambda)\) in das lokale Horizontsystem \((n, e, u)\) gedreht. Daraus folgen Schrägdistanz und Zenitwinkel.
 \[
@@ -54,7 +53,7 @@ Bei der Lotabweichung wird die Abweichung zwischen der Lotrichtung und der Ellip
 Das Tachymeter wird nach der Lotrichtung horizontiert, GNSS bezieht sich auf die Ellipsoide. Der Winkel zwischen beiden ist die Lotabweichung mit den Komponenten \(\xi\) (Nord-Süd) und \(\eta\) (Ost-West); astronomische und ellipsoidische Koordinaten hängen über \(\Phi = \varphi + \xi\) und \(\Lambda = \lambda + \eta / \cos\varphi\) zusammen.
 Wird sie vernachlässigt, entsteht ein systematischer Fehler: In Brasilien ergaben sich bei einer Lotabweichung von $28{,}4^{\prime\prime}$ Lagefehler bis 45 ppm, also etwa 45 mm auf 1 km (França et al., 2021).
 Banyai (2011) führt Lotabweichungen als Beobachtungen mit Standardabweichung $1^{\prime\prime}$ ein; bei Local-Tie-Netzen erreichen astrogeodätisch bestimmte Lotabweichungen etwa $0{,}2^{\prime\prime}$ (Suurmäki et al., 2022).
-Im Gebirge, etwa in der Schweiz, ist dieser Effekt besonders relevant.\bigskip 
+Im Gebirge, etwa in der Schweiz, ist dieser Effekt besonders relevant (Suurmäki et al., 2022). \bigskip 
 
 Die Krümmung des Zielstrahls verfälscht vor allem die Zenitwinkel und damit die trigonometrischen Höhen.
 Üblich ist ein Refraktionskoeffizient k (Standardwert 0,13), der bei langen Visuren auch als Unbekannte geschätzt werden kann. 
@@ -79,48 +78,37 @@ Das funktionale Modell verknüpft Beobachtungen und Unbekannte, das stochastisch
 \end{aligned}
 \]
 
-Die Näherungskoordinaten: Die Beobachtungsgleichungen sind nichtlinear und werden um Näherungswerte linearisiert. 
-Für terrestrische 3D-Netze ist eine direkte 3D-Näherungsberechnung numerisch instabil. Stabil ist die Zerlegung in Lage und Höhe, danach folgt die gemeinsame 3D-Ausgleichung mit Raumstrecken und Zenitwinkeln. 
-GNSS-Koordinaten sind dagegen meist direkt brauchbare Näherungswerte (Niemeier, 2008, S. 330 f.).\bigskip
-
-Der Datumsdefekt: Messungen legen nur die innere Geometrie fest, nicht die Lagerung im Koordinatensystem. 
-Ein 3D-Netz hat maximal 7 Datumsdefekte: 3 Translationen, 3 Rotationen und den Massstab (Niemeier, 2008, S. 232, Tab. 7.1). 
-Strecken liefern den Massstab, GNSS zusätzlich Orientierung und Lage.
-Das datumsfreie Konzept: Für die strenge gemeinsame Ausgleichung von GNSS und TPS empfiehlt Niemeier (2008, S. 247–249), je Beobachtungsgruppe eigene Zusatzparameter einzuführen, nämlich je GNSS-Session 3 Translationen, je Gruppe von Zenitwinkeln, Azimuten und GNSS-Daten eigene Rotationen und je Instrument einen Massstab. 
-Damit läuft die Ausgleichung mit dem maximalen Defekt d = 7, und die innere Netzqualität ist klar von der Netzanbindung getrennt. 
-Soll GNSS oder ein EDM den verbindlichen Netzmassstab liefern, lässt man für diese Gruppe den Massstabsparameter weg. \bigskip 
-
-Die Datumsfestlegung: Damit wird das Datum festgelegt (Niemeier, 2008, Kap. 7.3):
-1. Zwangsfreie Lagerung: genau d Koordinaten werden festgehalten; die innere Geometrie bleibt unverändert.
-2. Gesamt- oder Teilspurminimierung (freies Netz): das Netz wird auf alle oder ausgewählte Punkte gelagert; liefert die kleinste Spur der Kovarianzmatrix.
-3. Hierarchische Ausgleichung und weiche Lagerung: Anschlusspunkte werden fest bzw. als Beobachtungen mit Genauigkeit eingeführt. Die innere Geometrie wird dabei verändert. \bigskip 
-
-Für die Integration von GNSS in ein bestehendes Netz beschreibt Niemeier (2008, S. 363–365) ein zweistufiges Vorgehen:
-Zuerst Näherungstransformation mit bekannten Parametern, dann gemeinsame Ausgleichung mit einer differenziellen 7-Parameter-Helmert-Transformation.
-Pro GNSS-Datensatz ein eigener Parametersatz.
-Ein Praxisbeispiel ist das Ceneri-Portalnetz. Dort zeigte sich, dass durch die GNSS-Transformation ins LV03 ein Massstabsfaktor von $-14\,\mathrm{ppm}$ entstand, der bestätigt wurde; ausgeglichen wurde mit weicher Lagerung in der Lage und gezwängter Lagerung in der Höhe (Weber, 2014). \bigskip 
-
-Das stochastisches Modell und Varianzkomponenten:
-Jede Beobachtungsgruppe (Richtungen, Strecken, Zenitwinkel, GNSS) erhält einen eigenen Varianzfaktor, der mit einer Varianzkomponentenschätzung bestimmt wird (Niemeier, 2008, S. 249, Kap. 9.3). 
-So wird die Gewichtung der heterogenen Messgrössen aus den Daten selbst kalibriert. 
-Wie heikel eine falsche Gewichtung ist, zeigt Niemeiers Beispiel Vianden: Eine einzelne Massstabsstrecke am Netzrand vergrösserte die Konfidenzellipsen deutlich, auch bei zehnfach höherer Genauigkeit (Niemeier, 2008, S. 245–247).
+Die Beobachtungsgleichungen eines 3D-Netzes sind nichtlinear und müssen daher um Näherungswerte der Unbekannten linearisiert werden. 
+Für terrestrische 3D-Netze ist eine direkte dreidimensionale Näherungsberechnung numerisch instabil.
+Stabil ist hingegen die getrennte Bestimmung von Lage und Höhe, an die sich die gemeinsame 3D-Ausgleichung mit Raumstrecken und Zenitwinkeln anschliesst.
+GNSS-Koordinaten liefern dagegen in der Regel bereits direkt brauchbare Näherungswerte (Niemeier, 2008, S. 330 f.).
+Neben den Näherungswerten ist der Datumsdefekt zu berücksichtigen. Die Messungen legen lediglich die innere Geometrie des Netzes fest, nicht aber dessen Lagerung im Koordinatensystem.
+Ein 3D-Netz weist einen Datumsdefekt von maximal $d = 7$ auf, der sich aus drei Translationen, drei Rotationen und dem Massstab zusammensetzt (Niemeier, 2008, S. 232, Tab. 7.1).
+Strecken bestimmen dabei den Massstab, GNSS-Beobachtungen zusätzlich Orientierung und Lage. Für die strenge gemeinsame Ausgleichung von GNSS- und TPS-Beobachtungen empfiehlt Niemeier (2008, S. 247–249) ein datumsfreies Konzept, bei dem für jede Beobachtungsgruppe eigene Zusatzparameter eingeführt werden, je GNSS-Session drei Translationen, je Gruppe von Zenitwinkeln, Azimuten und GNSS-Daten eigene Rotationen sowie je Instrument ein Massstab. Die Ausgleichung erfolgt damit mit dem maximalen Defekt $d = 7$, wodurch die innere Netzqualität klar von der Netzanbindung getrennt bleibt.
+Soll GNSS oder ein EDM den verbindlichen Netzmassstab liefern, wird für diese Gruppe auf den Massstabsparameter verzichtet.
+Für die eigentliche Datumsfestlegung stehen mehrere Möglichkeiten zur Verfügung (Niemeier, 2008, Kap. 7.3). Bei der zwangsfreien Lagerung werden genau $d$ Koordinaten festgehalten, sodass die innere Geometrie unverändert bleibt.
+Bei der Gesamt- oder Teilspurminimierung im Sinne eines freien Netzes wird das Netz auf alle beziehungsweise auf ausgewählte Punkte gelagert, was die kleinste Spur der Kovarianzmatrix ergibt.
+Bei der hierarchischen Ausgleichung und der weichen Lagerung werden die Anschlusspunkte hingegen als fest beziehungsweise als Beobachtungen mit zugehöriger Genauigkeit eingeführt, wodurch die innere Geometrie verändert wird.
+Für die Integration von GNSS in ein bestehendes Netz beschreibt Niemeier (2008, S. 363–365) ein zweistufiges Vorgehen. Zunächst erfolgt eine Näherungstransformation mit bekannten Parametern, anschliessend die gemeinsame Ausgleichung mit einer differenziellen 7-Parameter-Helmert-Transformation, wobei für jeden GNSS-Datensatz ein eigener Parametersatz angesetzt wird. Ein Praxisbeispiel dafür ist das Ceneri-Portalnetz. Dort zeigte sich, dass durch die GNSS-Transformation ins LV03 ein Massstabsfaktor von $-14\,\mathrm{ppm}$ entstand, der bestätigt werden konnte. Ausgeglichen wurde das Netz mit weicher Lagerung in der Lage und gezwängter Lagerung in der Höhe (Weber, 2014).
+Ergänzend zum funktionalen Modell ist das stochastische Modell festzulegen. Jede Beobachtungsgruppe, also Richtungen, Strecken, Zenitwinkel und GNSS-Beobachtungen, erhält einen eigenen Varianzfaktor, der mittels Varianzkomponentenschätzung bestimmt wird (Niemeier, 2008, S. 249, Kap. 9.3). Auf diese Weise wird die Gewichtung der heterogenen Messgrössen aus den Daten selbst kalibriert. Wie heikel eine falsche Gewichtung ist, zeigt Niemeiers Beispiel Vianden: Eine einzelne Massstabsstrecke am Netzrand vergrösserte die Konfidenzellipsen deutlich, und zwar selbst bei zehnfach höherer Genauigkeit (Niemeier, 2008, S. 245–247).
 
 \subsection{Genauigkeit und Zuverlässigkeit}
 \label{sec:Genauigkeit und Zuverlässigkeit}
-Die Qualität eines 3D-Netzes wird an zwei Kriterien gemessen. Erstens an der Genauigkeit, also daran, wie stark die Koordinaten streuen, und an der Zuverlässigkeit, also daran, wie gut grobe Fehler aufgedeckt werden (Niemeier, 2008, Kap. 8). 
-Am Anfang steht der Globaltest, der mit einem $\chi^2$- bzw. F-Test prüft, ob die a-posteriori-Varianz $\hat{\sigma}_0^2$ mit der a-priori-Varianz $\sigma_0^2$ verträglich ist. Wird er abgelehnt, deutet dies auf grobe Fehler oder auf ein unzutreffendes funktionales oder stochastisches Modell hin (Niemeier, 2008, S. 167 ff.). 
+Die Qualität eines 3D-Netzes wird an zwei Kriterien gemessen. Erstens an der Genauigkeit, also daran, wie stark die Koordinaten streuen, Zweitens an der Zuverlässigkeit: also daran, wie gut grobe Fehler aufgedeckt werden (Niemeier, 2008, Kap. 8). 
+Zu Beginn wird ein Globaltest durchgeführt, der mit einem $\chi^2$- bzw. F-Test prüft, ob die a-posteriori-Varianz $\hat{\sigma}_0^2$ mit der a-priori-Varianz $\sigma_0^2$ verträglich ist. Wird er abgelehnt, deutet dies auf grobe Fehler oder auf ein unzutreffendes funktionales oder stochastisches Modell hin (Niemeier, 2008, S. 167 ff.). 
 Die Genauigkeit wird im 3D-Netz nicht mehr mit Fehlerellipsen, sondern mit Konfidenzellipsoiden je Punkt beschrieben, die sich aus der $3 \times 3$-Teilmatrix von $\Sigma_{xx}$ ergeben. 
 Als skalare Masse dienen der Helmertsche Punktfehler, der auf der Spur der Kovarianzmatrix beruht, und der Werkmeistersche Punktfehler, der im 3D-Fall dem Volumen des Fehlerellipsoids entspricht. Alle diese Massen hängen allerdings von der Datumsfestlegung ab (Niemeier, 2008, S. 274--286). 
 Für die innere Zuverlässigkeit ist der Redundanzanteil $r_i$ zentral, der angibt, welchen Anteil eine Beobachtung an der Gesamtredundanz trägt (Förstner, 1979, zitiert nach Niemeier, 2008, S. 293). 
 Im Mittel beträgt er $1-u/n$, bei 30 Beobachtungen für 20 Unbekannte also nur 0,33, und Werte nahe 0 zeigen, dass ein Fehler in dieser Beobachtung kaum sichtbar wird (Niemeier, 2008, S. 293). 
-Nach Baarda (1968, zitiert nach Niemeier, 2008, S. 295) wird jede Beobachtung anhand ihrer normierten Verbesserung getestet. Dies wird auch Data Snooping genannt. \bigskip 
+Nach Baarda (1968, zitiert nach Niemeier, 2008, S. 295) wird jede Beobachtung anhand ihrer normierten Verbesserung getestet. Man nennt dies auch Data Snooping (Baarda, 1968, zitiert nach Rofatto et al., 2020).\bigskip 
 
-Dies ist ein Verfahren nach Baarda (1968, zitiert nach Niemeier, 2008, S. 294--295), mit dem nach der Ausgleichung jede einzelne Beobachtung auf grobe Fehler geprüft wird. 
+Es ist ein Verfahren nach Baarda (1968, zitiert nach Niemeier, 2008, S. 294--295), mit dem nach der Ausgleichung jede einzelne Beobachtung auf grobe Fehler geprüft wird. 
 Dazu wird für jede Beobachtung $l_i$ die standardisierte Verbesserung $w_i = v_i / \sigma_{v_i}$ berechnet. Ist das Ausgleichungsmodell korrekt, folgt sie der Standardnormalverteilung $N(0,1)$ (Niemeier, 2008, S. 293--294). 
 Ein Ausreisser liegt vor, wenn $\lvert w_i \rvert$ einen aus der Normalverteilung abgeleiteten Grenzwert übersteigt. Bei einer Irrtumswahrscheinlichkeit von $\alpha_0 = 0{,}1\,\%$ liegt dieser bei rund 3,29 (Niemeier, 2008, S. 294). 
 Grundlage ist die Annahme, dass im gesamten Ausgleichungsproblem nur ein einzelner Ausreisser vorliegt (Baarda, 1968, zitiert nach Niemeier, 2008, S. 294). 
-Weil sich ein grober Fehler über sogenannte Verschmierungseffekte auch auf die Verbesserungen benachbarter Beobachtungen auswirkt, geht man iterativ vor: 
-Es wird jeweils nur die Beobachtung mit dem grössten $w_i$ als grob falsch eingestuft, danach wird neu ausgeglichen und erneut getestet (Niemeier, 2008, S. 222). 
+Ein grober Fehler wirkt sich nicht nur auf die Verbesserung der fehlerhaften Beobachtung aus, sondern über sogenannte Verschmierungseffekte auch auf die Verbesserungen benachbarter Beobachtungen.(Niemeier, 2008, S. 222).
+Deshalb geht man iterativ vor.Es wird jeweils nur die Beobachtung mit dem grössten $w_i$ als grob falsch eingestuft.
+Danach wird neu ausgeglichen und erneut getestet, bis keine Beobachtung mehr als grob falsch auffällt (Niemeier, 2008, S. 222). 
 Besonders problematisch sind Beobachtungen mit kleinem Redundanzanteil $r_i$, denn ein Fehler in ihnen kann sich stärker auf andere Verbesserungen auswirken als auf die eigene. 
 Niemeier empfiehlt deshalb, bei der Netzplanung Redundanzanteile unter 0,2 zu vermeiden (Niemeier, 2008, S. 295).\bigskip 
 
@@ -131,7 +119,7 @@ Die äussere Zuverlässigkeit schliesslich beschreibt, wie stark ein gerade nich
 Für die Nutzerinnen und Nutzer eines Netzes ist diese maximale Koordinatenverfälschung oft aussagekräftiger als der Redundanzanteil selbst, sie ist jedoch ebenfalls datumsabhängig (Niemeier, 2008, S. 304 f.). 
 Da alle genannten Masse nur von der Netzkonfiguration und den angenommenen Genauigkeiten abhängen, lassen sie sich bereits in der Planung durch Simulation berechnen und zur Optimierung des Netzes nutzen (Niemeier, 2008, Kap. 9.5).
 
-\subsection{Fazit zur Literaturrecherche}
+\subsection{Fazit zur Machbarkeit von 3D-Netzen}
 \label{sec:Fazit zur Literaturrecherche}
 
 Die Literaturrecherche zeigt, dass die theoretischen Grundlagen von 3D-Netzen gut dokumentiert sind. 

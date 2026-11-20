@@ -1,0 +1,24 @@
+\section{Automatisches Monitoring}
+\label{sec:Automatisches Monitoring}
+
+\subsection{Durchführung}
+\label{sec:Durchführung}
+
+\subsection{Zeitreihenanalyse}
+\label{sec:Zeitreihenanalyse}
+
+Abbildung \ref{fig:Räumliche_Versch_Visualisierung.png} zeigt den räumlichen Verschiebungsbetrag der Messpunkte CMR2, E67604 und CMR3 vom 03.11.2026, 14:25 Uhr, bis 04.11.2026, 11:32 Uhr. Grundlage sind pro Punkt 170 Satzmittel aus Lage 1 und 2, gemessen in einem Zyklus von rund 7,5 Minuten. Als Nullmessung dient das Mittel der ersten Stunde (8 Sätze). Die dünne Linie zeigt die Messwerte. Die kräftige Linie ist eine LOWESS-Glättung mit einer Breite von 15 \% der Werte, was einem Zeitfenster von etwa drei Stunden entspricht.
+In der Nacht bleibt der Verlauf aller Punkte weitgehend konstant. Die Messwerte streuen bei CMR2 und CMR3 um etwa 8–10 mm, bei E67604 um rund 2 mm. Diese Grundlinie ist kein Hinweis auf eine Bewegung: Weil der Verschiebungsbetrag immer positiv ist, erzeugt auch das Messrauschen Werte über null. Die grössere Streuung der beiden entfernten Punkte (ca. 2 km bzw. 1,7 km) gegenüber dem nahen Punkt E67604 (ca. 0,3 km) zeigt, dass die Messgenauigkeit mit der Distanz abnimmt.
+Ab etwa 09 Uhr steigen die Werte aller drei Punkte gleichzeitig an. Bis zum Ende der Messung erreichen sie gemäss Glättung rund 16 mm bei CMR2 und CMR3 und 7 mm bei E67604. Dass alle Punkte zur selben Zeit und mit zunehmender Distanz stärker betroffen sind, deutet eher auf eine Verdrehung des Instruments hin, etwa durch Sonneneinstrahlung auf das Stativ, als auf eine tatsächliche Bewegung der Punkte.
+Der Anstieg in den ersten ein bis zwei Stunden ist eine Folge der gewählten Nullmessung und keine Bewegung. Diese Art der Visualisierung durch einen räumlichen Verschiebungsbetrag gegenüber der Nullmessung wurde gewählt, da es nicht um die Detektion einer Verschiebung geht, sondern um den Prozess der Messung und die Visualisierung einer Konsistenz der Daten. Der Verschiebungsbetrag fasst
+die drei Koordinatenänderungen pro Punkt in einer einzigen Grösse zusammen. Damit lässt sich auf einen Blick beurteilen, ob das System über den gesamten Zeitraum lückenlos und plausibel gemessen hat. Daher wurde diese Art der Darstellung als ausreichend erachtet.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth,
+                     height=\dimexpr\textheight-4\baselineskip\relax,
+                     keepaspectratio]{Räumliche_Versch_Visualisierung.png}
+    \caption[Optimiertes Netz Ägerdi Brunni und Tal]{Detailübersicht der Gebiete Ägerdi, Brunni und Tal des Optimierten Netzes Schwanderbärgli 2026}
+    \label{fig:Räumliche_Versch_Visualisierung.png}
+\end{figure}
+\clearpage

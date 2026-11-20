@@ -1,13 +1,12 @@
-\section{Literaturrecherche 3D-Netze}
+\section{Alternative zur 2D-Ausgleichung: 3D-Netze}
 \label{sec:literaturrecherche 3D-Netze}
 
-\subsection{Einleitung}
+\subsection{Was ist ein 3D-Netz?}
 Ein 3D-Netz bestimmt Lage und Höhe aller Netzpunkte in einer gemeinsamen Ausgleichung (Niemeier, 2008, S. 128, 247–248). 
 GNSS liefert dabei 3D-Koordinaten oder Basislinien im geozentrischen System WGS84 (Niemeier, 2008, S. 330). 
 Das Tachymeter (TPS) liefert Horizontalrichtungen, Zenitwinkel und Schrägdistanzen, die auf die lokale Lotrichtung bezogen sind (Banyai, 2011; França et al., 2021).
 Die klassische Trennung in Lagenetz (2D) und Höhennetz (1D), wie sie etwa das Programm LTOP noch verwendet (swisstopo, o. J.), entfällt damit.
-Der Bericht fasst zusammen, was die Literatur zu Aufbau, Modellierung, Ausgleichung und Qualitätsbeurteilung solcher Netze sagt. Hauptquellen sind das Lehrbuch von Niemeier (2008) zur Ausgleichungsrechnung und das Handbuch Ingenieurgeodäsie „Ingenieurbau“ (Möser et al., [2016]).
-Ergänzt wird mit Fachartikeln und Praxisbeispielen aus der Schweiz.
+Der Bericht fasst zusammen, was die Literatur zu Aufbau, Modellierung, Ausgleichung und Qualitätsbeurteilung solcher Netze sagt.
 Niemeier (2008, S. 128) nennt zwei Wege, die Messungen mit dem Koordinatensystem in Einklang zu bringen: Reduktion auf ein Abbildungssystem (z. B. LV95, UTM) oder Formulierung der Beobachtungsgleichungen direkt in einem räumlichen System. 
 Für hochgenaue lokale Ingenieurnetze ist ein 3D-System von Bedeutung, wenn die Höhe streng mitverarbeitet werden soll. Für die Kombination von GNSS mit terrestrischen Messungen ist das globale kartesische System gebräuchlich.
 
@@ -16,7 +15,7 @@ Für hochgenaue lokale Ingenieurnetze ist ein 3D-System von Bedeutung, wenn die 
 GNSS und TPS ergänzen sich folgendermassen: GNSS bestimmt Lagerung, Orientierung und Massstab des Netzes, Strecken- und Richtungsmessungen liefern die innere Geometrie mit hoher relativer Genauigkeit (Niemeier, 2008, S. 232, 247–248). 
 Im Tunnelbau wird zum Beispiel ein GNSS-gestütztes Portalnetz mit Tachymetermessungen in den Berg übertragen (Leica Geosystems, 2016; Weber, 2014). 
 Die Tabelle \ref{tab:messgrössen} zeigt die Messgrössen mit typischen Herstellerangaben aktueller Präzisionsinstrumente.
-
+\bigskip
 \begin{table}[h!]
     \centering
     \begin{tabularx}{\textwidth}{*{3}{>{\centering\arraybackslash}X}}
@@ -30,7 +29,7 @@ Die Tabelle \ref{tab:messgrössen} zeigt die Messgrössen mit typischen Herstell
         Höhenunterschied (Nivellement) & Schwerefeld (Gebrauchshöhen) & Feldkurs Trimble Niv. NOCH Nachschauen \\
         \bottomrule
     \end{tabularx}
-    \caption{Beispielgrössen in 3D-Netzen.}
+    \caption{Messgrössen in 3D-Netzen mit Bezugssystem und Herstellergenauigkeit.}
     \label{tab:messgrössen}
 \end{table}
 
@@ -38,7 +37,7 @@ Niemeier (2008, S. 330) betont, dass GNSS-Auswerteprogramme 3D-Koordinaten oder 
 Wichtig ist, die von der Software gelieferten voll besetzten Kofaktormatrizen in das stochastische Modell zu übernehmen, statt sie durch Diagonalmatrizen zu ersetzen (Niemeier, 2008, S. 249).
 Die geringere Genauigkeit der GNSS-Höhenkomponente lässt sich so streng berücksichtigen (Niemeier, 2008, S. 365).
 Die Herstellerangaben gelten für Idealbedingungen.
-Im Netz kommen Zentrierfehler, Refraktion und Lotabweichung hinzu, die im funktionalen und stochastischen Modell berücksichtigt werden müssen (vgl. Abschnitt 3).
+Im Netz kommen Zentrierfehler, Refraktion und Lotabweichung hinzu, die im funktionalen und stochastischen Modell berücksichtigt werden müssen (vgl. Abschnitt 1.3).
 
 \subsection{Bezugssysteme und Modellbildung}
 \label{sec:Bezugssysteme und Modellbildung}

@@ -100,14 +100,15 @@ Die Genauigkeit wird im 3D-Netz nicht mehr mit Fehlerellipsen, sondern mit Konfi
 Als skalare Masse dienen der Helmertsche Punktfehler, der auf der Spur der Kovarianzmatrix beruht, und der Werkmeistersche Punktfehler, der im 3D-Fall dem Volumen des Fehlerellipsoids entspricht. Alle diese Massen hängen allerdings von der Datumsfestlegung ab (Niemeier, 2008, S. 274--286). 
 Für die innere Zuverlässigkeit ist der Redundanzanteil $r_i$ zentral, der angibt, welchen Anteil eine Beobachtung an der Gesamtredundanz trägt (Förstner, 1979, zitiert nach Niemeier, 2008, S. 293). 
 Im Mittel beträgt er $1-u/n$, bei 30 Beobachtungen für 20 Unbekannte also nur 0,33, und Werte nahe 0 zeigen, dass ein Fehler in dieser Beobachtung kaum sichtbar wird (Niemeier, 2008, S. 293). 
-Nach Baarda (1968, zitiert nach Niemeier, 2008, S. 295) wird jede Beobachtung anhand ihrer normierten Verbesserung getestet. Dies wird auch Data Snooping genannt. \bigskip 
+Nach Baarda (1968, zitiert nach Niemeier, 2008, S. 295) wird jede Beobachtung anhand ihrer normierten Verbesserung getestet. Man nennt dies auch Data Snooping (Baarda, 1968, zitiert nach Rofatto et al., 2020).\bigskip 
 
-Dies ist ein Verfahren nach Baarda (1968, zitiert nach Niemeier, 2008, S. 294--295), mit dem nach der Ausgleichung jede einzelne Beobachtung auf grobe Fehler geprüft wird. 
+Es ist ein Verfahren nach Baarda (1968, zitiert nach Niemeier, 2008, S. 294--295), mit dem nach der Ausgleichung jede einzelne Beobachtung auf grobe Fehler geprüft wird. 
 Dazu wird für jede Beobachtung $l_i$ die standardisierte Verbesserung $w_i = v_i / \sigma_{v_i}$ berechnet. Ist das Ausgleichungsmodell korrekt, folgt sie der Standardnormalverteilung $N(0,1)$ (Niemeier, 2008, S. 293--294). 
 Ein Ausreisser liegt vor, wenn $\lvert w_i \rvert$ einen aus der Normalverteilung abgeleiteten Grenzwert übersteigt. Bei einer Irrtumswahrscheinlichkeit von $\alpha_0 = 0{,}1\,\%$ liegt dieser bei rund 3,29 (Niemeier, 2008, S. 294). 
 Grundlage ist die Annahme, dass im gesamten Ausgleichungsproblem nur ein einzelner Ausreisser vorliegt (Baarda, 1968, zitiert nach Niemeier, 2008, S. 294). 
-Weil sich ein grober Fehler über sogenannte Verschmierungseffekte auch auf die Verbesserungen benachbarter Beobachtungen auswirkt, geht man iterativ vor: 
-Es wird jeweils nur die Beobachtung mit dem grössten $w_i$ als grob falsch eingestuft, danach wird neu ausgeglichen und erneut getestet (Niemeier, 2008, S. 222). 
+Ein grober Fehler wirkt sich nicht nur auf die Verbesserung der fehlerhaften Beobachtung aus, sondern über sogenannte Verschmierungseffekte auch auf die Verbesserungen benachbarter Beobachtungen.(Niemeier, 2008, S. 222).
+Deshalb geht man iterativ vor.Es wird jeweils nur die Beobachtung mit dem grössten $w_i$ als grob falsch eingestuft.
+Danach wird neu ausgeglichen und erneut getestet, bis keine Beobachtung mehr als grob falsch auffällt (Niemeier, 2008, S. 222). 
 Besonders problematisch sind Beobachtungen mit kleinem Redundanzanteil $r_i$, denn ein Fehler in ihnen kann sich stärker auf andere Verbesserungen auswirken als auf die eigene. 
 Niemeier empfiehlt deshalb, bei der Netzplanung Redundanzanteile unter 0,2 zu vermeiden (Niemeier, 2008, S. 295).\bigskip 
 
@@ -118,7 +119,7 @@ Die äussere Zuverlässigkeit schliesslich beschreibt, wie stark ein gerade nich
 Für die Nutzerinnen und Nutzer eines Netzes ist diese maximale Koordinatenverfälschung oft aussagekräftiger als der Redundanzanteil selbst, sie ist jedoch ebenfalls datumsabhängig (Niemeier, 2008, S. 304 f.). 
 Da alle genannten Masse nur von der Netzkonfiguration und den angenommenen Genauigkeiten abhängen, lassen sie sich bereits in der Planung durch Simulation berechnen und zur Optimierung des Netzes nutzen (Niemeier, 2008, Kap. 9.5).
 
-\subsection{Fazit zur Literaturrecherche}
+\subsection{Fazit zur Machbarkeit von 3D-Netzen}
 \label{sec:Fazit zur Literaturrecherche}
 
 Die Literaturrecherche zeigt, dass die theoretischen Grundlagen von 3D-Netzen gut dokumentiert sind. 

@@ -1,8 +1,51 @@
 \section{Automatisches Monitoring}
 \label{sec:Automatisches Monitoring}
 
+Ziel dieses Teils war der Aufbau einer vollautomatischen Messkette, die ohne manuelle Eingriffe Daten erfasst,
+speichert und für Nutzende jederzeit abrufbar macht. Die Kette besteht aus der Totalstation Leica MS60, einem
+Raspberry Pi als Schnittstellenrechner, einer InfluxDB-Cloud-Datenbank als Server und einer Benachrichtigung
+per E-Mail. Der Raspberry Pi übernimmt dabei die Messdaten der Totalstation und gibt sie über das Netzwerk weiter.
+
 \subsection{Durchführung}
 \label{sec:Durchführung}
+Der Aufbau der Messkette erfolgte in mehreren Schritten. Zuerst wurden der Raspberry Pi konfiguriert und mit der
+MS60 verbunden. Danach wurden das Messprogramm auf der Totalstation eingerichtet und das Python-Skript für die
+Speicherung, den Upload und die Benachrichtigung erstellt. Anschliessend wurde das System auf dem Dach installiert
+und lief dort rund einen Tag lang selbständig.
+
+\subsubsection{Konfiguration des Raspberry Pi}
+Auf dem Raspberry Pi wurde Raspberry Pi OS (64-bit) installiert. Nach dem Verbinden mit dem Netzwerk und der
+Kontrolle der Systemzeit wurden die Python-Pakete \texttt{pyserial} und \texttt{requests} sowie der SQLite-Browser
+installiert. Die Systemzeit ist wichtig, da sie als Zeitstempel der Messungen auf dem Server dient.
+Die MS60 wurde über das GEV261-Y-Kabel und einen RS232-USB-Konverter mit dem Raspberry Pi verbunden. Die
+Schnittstellenparameter wurden auf beiden Geräten identisch eingestellt. Die MS60 gibt die Messdaten im GSI-Format
+(Punktnummer, Rechtswert, Hochwert, Höhe, Datum und Uhrzeit) aus, und zwar eine Textzeile pro gespeichertem Punkt.
+
+\subsubsection{Messprogramm auf der MS60.}
+Die Messungen wurden mit dem Programm \textit{Satzmessungen} durchgeführt. Pro Zyklus wurden die Zielpunkte in zwei
+Lagen als Satz gemessen mit der Methode ABBA. Der Messzyklus wurde auf 7,5 Minuten festgelegt. Bei der ersten Messung wurden die
+Punkte manuell angezielt und der passende Prismentyp pro Zielpunkt eingestellt. Gemessen wurden die drei Punkte
+CMR2, CMR3 und E67604.
+
+\subsubsection{Python-Skript.}
+Das Skript (\texttt{template\_HS26.py}) liest die Zeilen der seriellen Schnittstelle, zerlegt sie in die einzelnen
+Werte und speichert diese in einer lokalen SQLite-Datenbank, die als Backup dient. Die neuen Zeilen werden
+anschliessend an die InfluxDB-Cloud gesendet. Schlägt der Upload fehl, etwa bei fehlender Internetverbindung,
+bleiben die Zeilen in SQLite erhalten und werden später automatisch nachgesendet. Der Zugriff auf die Datenbank
+erfolgt über einen API-Token mit Lese- und Schreibrechten nur für den eigenen Bucket. Die Daten konnten so in der
+Weboberfläche der InfluxDB betrachtet werden.
+
+\subsubsection{Benachrichtigung}
+Zusätzlich sendet das Skript alle 15 Minuten eine E-Mail über ein Gmail-Konto. Sie enthält die
+Anzahl neuer Messungen, den Zeitpunkt der letzten Messung, die Anzahl noch nicht hochgeladener Zeilen und einen
+Link zum Server. So lässt sich der Betrieb überwachen, ohne vor Ort zu sein.
+
+\subsubsection{Installation auf dem Dach.}
+Für die Langzeitmessung wurde die MS60 auf einem Pfeiler aufgestellt. Die Stromversorgung erfolgte über eine
+externe Batterie, die Internetverbindung über ein Ethernetkabel. Raspberry Pi und Elektronik wurden gegen
+Witterung geschützt. Nach dem Start wurde kontrolliert, dass die ersten Messungen auf dem Server ankamen und die
+erste Statusmeldung per E-Mail eintraf. Am Folgetag wurde das Instrument abgebaut. Zur Sicherung wurde die
+SQLite-Datenbank auf den FHNW-Server kopiert.
 
 \subsection{Zeitreihenanalyse}
 \label{sec:Zeitreihenanalyse}

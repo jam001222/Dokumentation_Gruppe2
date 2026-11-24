@@ -28,7 +28,7 @@ erforderlich sind.
 
 \subsection{Provisorischer Abriss}
 \label{sec:provisorischer abriss}
-Als erster Schritt wurde ein provisorischer Abriss erstellt, um eine erste
+Als erster Schritt wurde ein provisorischer Abriss erstellt (siehe \anhangref{abriss}, Provisorischer Abriss), um eine erste
 Qualitätskontrolle des Netzes durchzuführen. Beim provisorischen Abriss werden
 alle Punkte als Festpunkte behandelt. Es handelt sich somit um eine reine
 Plausibilitätskontrolle der gemessenen Richtungen und Distanzen anhand der
@@ -71,7 +71,7 @@ Beobachtungen von und nach 7020 wird bei den folgenden Ausgleichungen behandelt.
 \subsection{Robuste Netzlagerung}
 \label{sec:robuste netzlagerung}
 Im Anschluss an den provisorischen Abriss wurde eine freie, robuste
-Netzlagerung durchgeführt. Damit soll die
+Netzlagerung durchgeführt (siehe \anhangref{robust}, Robuste Lagerung). Damit soll die
 innere Qualität des Netzes unabhängig von den Näherungskoordinaten der
 Festpunkte beurteilt, die Genauigkeit der Beobachtungen analysiert und
 fehlerhafte Beobachtungen besser erkannt werden. Beim robusten Verfahren 
@@ -169,7 +169,7 @@ Die genaue Berechnung ist im Anhang xxx ersichtlich.
 
 \subsection{Weiche Lagerung}
 \label{sec:weiche lagerung}
-Im Anschluss an die robuste Netzlagerung wurde eine weiche Netzlagerung durchgeführt.
+Im Anschluss an die robuste Netzlagerung wurde eine weiche Netzlagerung durchgeführt (siehe \anhangref{weich}, Weiche Lagerung).
 Dabei werden die Koordinaten der Festpunkte nicht als fehlerfrei betrachtet, sondern
 als zusätzliche Beobachtungen mit einer vorgegebenen Standardabweichung in die Ausgleichung
 eingeführt. Dadurch können die Festpunktkoordinaten innerhalb ihrer angenommenen Genauigkeit
@@ -324,7 +324,7 @@ einbringen. Die Höhenlagerung erfolgt stattdessen einheitlich über die langsta
 \subsubsection{gezwängte Ausgleichungen}
 \label{sec:gezwängte ausgleichungen}
 
-Nach dem Entscheid zur Höhenlagerung wurden zwei Varianten der gezwängten Ausgleichung berechnet.
+Nach dem Entscheid zur Höhenlagerung wurden zwei Varianten der gezwängten Ausgleichung berechnet (siehe \anhangref{gezw1}, Gezwängter Ausgleich v1 und \anhangref{gezw2}, Gezwängter Ausgleich v2).
 In der Lage wurden die Koordinaten der Punkte 7000, 7004, 7015, EX9500, EX6015 und EX7000 als Festpunkte
 eingeführt. Die Höhenlagerung erfolgte auf Grundlage der langstatischen GNSS-Messungen der Referenzstationen. \bigskip
 
@@ -466,8 +466,8 @@ angenommen. Die Höhendifferenzen stimmen mit dem Modell gut überein (1.08 bzw.
 
 Variante 2 liefert somit das konsistentere Ergebnis, da keine bestimmbare normierte Verbesserung
 mehr über dem Grenzwert liegt und die Quotienten sowie die Koordinatengenauigkeiten etwas besser
-ausfallen. Der Preis dafür ist der Verlust der drei Beobachtungen nach 7022, der sich lokal auf \todo{Satz so Gut mit der Preis dazu?}
-die Zuverlässigkeit des Punktes auswirkt (siehe Tabelle \ref{tab:vergleich-na-3a}). Da der
+ausfallen. Allerdings fallen dadurch die drei Beobachtungen nach 7022 weg, was sich lokal auf die
+Zuverlässigkeit des Punktes auswirkt (siehe \anhangref{na3a}, Tabelle~\ref{tab:vergleich-na-3a}). Da der
 Unterschied zwischen den Varianten insgesamt klein ist, wird für die weiteren Untersuchungen
 Variante 2 verwendet.
 
@@ -480,85 +480,9 @@ Netzpunkte auswirkt. Sie wird in LTOP für alle variablen Punkte als Zuverlässi
 ausgegeben, wobei der Wert NA die Auswirkung in der Lage angibt. Als Beurteilungskriterium wird NA
 mit dem Dreifachen der Standardabweichung $a$ des jeweiligen Punktes verglichen
 (Kriterium $NA \le 3\cdot a$). Der Vergleich wurde für Variante 2 durchgeführt, die für die
-weiteren Untersuchungen verwendet wird. Die Ergebnisse sind in Tabelle \ref{tab:vergleich-na-3a} aufgeführt. \bigskip
+weiteren Untersuchungen verwendet wird. Die Ergebnisse sind im \anhangref{na3a}, Tabelle~\ref{tab:vergleich-na-3a} aufgeführt. \bigskip
 
-\begin{table}[H]
-    \centering
-    \small
-    \begin{tabularx}{\textwidth}{p{1.2cm} r r r r | l X}
-        \toprule
-        Punkt & NA & $a$ & $3\cdot a$ & NA$-3a$ & Beurteilung & Bemerkung \\
-         & [mm] & [mm] & [mm] & [mm] & & \\
-        \midrule
-        210 & 7.8 & 1.4 & 4.2 & 3.6 & knapp nicht erfüllt &  \\
-        310 & 7.8 & 1.5 & 4.5 & 3.3 & knapp nicht erfüllt &  \\
-        320 & 7.8 & 1.6 & 4.8 & 3.0 & knapp nicht erfüllt &  \\
-        330 & 7.8 & 1.6 & 4.8 & 3.0 & knapp nicht erfüllt &  \\
-        340 & - & 1.9 & 5.7 & - & nicht bestimmbar &  \\
-        510 & 7.8 & 1.4 & 4.2 & 3.6 & knapp nicht erfüllt &  \\
-        520 & - & 1.8 & 5.4 & - & nicht bestimmbar &  \\
-        530 & - & 1.8 & 5.4 & - & nicht bestimmbar &  \\
-        540 & - & 1.8 & 5.4 & - & nicht bestimmbar &  \\
-        610 & 7.9 & 1.6 & 4.8 & 3.1 & knapp nicht erfüllt &  \\
-        710 & 7.9 & 1.5 & 4.5 & 3.4 & knapp nicht erfüllt &  \\
-        720 & - & 1.8 & 5.4 & - & nicht bestimmbar &  \\
-        730 & - & 1.8 & 5.4 & - & nicht bestimmbar &  \\
-        740 & - & 1.8 & 5.4 & - & nicht bestimmbar &  \\
-        1000 & 7.8 & 1.5 & 4.5 & 3.3 & knapp nicht erfüllt &  \\
-        2000 & 7.9 & 1.4 & 4.2 & 3.7 & knapp nicht erfüllt &  \\
-        3500 & 7.8 & 1.6 & 4.8 & 3.0 & knapp nicht erfüllt &  \\
-        4500 & 7.8 & 1.7 & 5.1 & 2.7 & knapp nicht erfüllt &  \\
-        5000 & 7.6 & 1.6 & 4.8 & 2.8 & knapp nicht erfüllt &  \\
-        6000 & 6.9 & 1.6 & 4.8 & 2.1 & knapp nicht erfüllt &  \\
-        6001 & 6.4 & 2.3 & 6.9 & $-$0.5 & erfüllt &  \\
-        6002 & 6.7 & 2.3 & 6.9 & $-$0.2 & erfüllt &  \\
-        6003 & 6.8 & 1.9 & 5.7 & 1.1 & knapp nicht erfüllt &  \\
-        6004 & 7.5 & 2.2 & 6.6 & 0.9 & knapp nicht erfüllt &  \\
-        6006 & 6.2 & 2.0 & 6.0 & 0.2 & knapp nicht erfüllt &  \\
-        6007 & 6.8 & 2.0 & 6.0 & 0.8 & knapp nicht erfüllt &  \\
-        6008 & 10.4 & 2.3 & 6.9 & 3.5 & knapp nicht erfüllt &  \\
-        6009 & 14.8 & 2.2 & 6.6 & 8.2 & nicht erfüllt & Punkt vor dem 7001 \\
-        6010 & 16.8 & 2.2 & 6.6 & 10.2 & nicht erfüllt & Ende von einem Polygonzug \\
-        6011 & 22.3 & 2.4 & 7.2 & 15.1 & nicht erfüllt & Brunni \\
-        6012 & 19.7 & 2.3 & 6.9 & 12.8 & nicht erfüllt & Brunni \\
-        6013 & 20.6 & 2.6 & 7.8 & 12.8 & nicht erfüllt & Brunni \\
-        6014 & 22.3 & 3.0 & 9.0 & 13.3 & nicht erfüllt & Brunni \\
-        6015 & 7.3 & 2.0 & 6.0 & 1.3 & knapp nicht erfüllt &  \\
-        6016 & 7.8 & 2.0 & 6.0 & 1.8 & knapp nicht erfüllt &  \\
-        6017 & 6.6 & 2.1 & 6.3 & 0.3 & knapp nicht erfüllt &  \\
-        6018 & 7.1 & 2.2 & 6.6 & 0.5 & knapp nicht erfüllt &  \\
-        6119 & 6.8 & 2.2 & 6.6 & 0.2 & knapp nicht erfüllt &  \\
-        6020 & 6.3 & 1.9 & 5.7 & 0.6 & knapp nicht erfüllt &  \\
-        6050 & 6.4 & 2.1 & 6.3 & 0.1 & knapp nicht erfüllt &  \\
-        6060 & 6.5 & 2.5 & 7.5 & $-$1.0 & erfüllt &  \\
-        7001 & 16.9 & 2.3 & 6.9 & 10.0 & nicht erfüllt & Ende von einem Polygonzug \\
-        7003 & 15.6 & 1.8 & 5.4 & 10.2 & nicht erfüllt & Brunni \\
-        7008 & 8.2 & 1.0 & 3.0 & 5.2 & knapp nicht erfüllt &  \\
-        7009 & - & 1.9 & 5.7 & - & nicht bestimmbar &  \\
-        7010 & 8.1 & 2.1 & 6.3 & 1.8 & knapp nicht erfüllt &  \\
-        7012 & 7.9 & 2.0 & 6.0 & 1.9 & knapp nicht erfüllt &  \\
-        7014 & 5.8 & 1.7 & 5.1 & 0.7 & knapp nicht erfüllt &  \\
-        7016 & 6.5 & 1.9 & 5.7 & 0.8 & knapp nicht erfüllt &  \\
-        7017 & 7.9 & 1.4 & 4.2 & 3.7 & knapp nicht erfüllt &  \\
-        7018 & 7.8 & 1.4 & 4.2 & 3.6 & knapp nicht erfüllt &  \\
-        7119 & 7.7 & 1.6 & 4.8 & 2.9 & knapp nicht erfüllt &  \\
-        7020 & 7.7 & 1.6 & 4.8 & 2.9 & knapp nicht erfüllt &  \\
-        7021 & 8.2 & 1.3 & 3.9 & 4.3 & knapp nicht erfüllt &  \\
-        7022 & 9.8 & 2.2 & 6.6 & 3.2 & knapp nicht erfüllt &  \\
-        7023 & 8.3 & 2.1 & 6.3 & 2.0 & knapp nicht erfüllt &  \\
-        9000 & - & 6.9 & 20.7 & - & nicht bestimmbar &  \\
-        9500 & 5.2 & 1.0 & 3.0 & 2.2 & knapp nicht erfüllt &  \\
-        TP506 & 6.3 & 2.4 & 7.2 & $-$0.9 & erfüllt &  \\
-        TP510 & 15.4 & 3.8 & 11.4 & 4.0 & knapp nicht erfüllt &  \\
-        HP6010.1 & 23.4 & 2.3 & 6.9 & 16.5 & nicht erfüllt & Punkt vor dem 6010 \\
-        EX7016.4 & 7.3 & 2.1 & 6.3 & 1.0 & knapp nicht erfüllt &  \\
-        \bottomrule
-    \end{tabularx}
-    \caption{Äussere Zuverlässigkeit (NA) im Vergleich zum Dreifachen der Standardabweichung $a$ (Variante 2). «Knapp nicht erfüllt»: Überschreitung bis rund 5~mm; «--»: NA nicht bestimmbar}
-    \label{tab:vergleich-na-3a}
-\end{table}
-
-Von den 62 in Tabelle \ref{tab:vergleich-na-3a} aufgeführten Punkten ist bei 53 Punkten die äussere
+Von den 62 im \anhangref{na3a}, Tabelle~\ref{tab:vergleich-na-3a} aufgeführten Punkten ist bei 53 Punkten die äussere
 Zuverlässigkeit in der Lage bestimmbar. Bei den übrigen neun Punkten besteht in der Lage keine
 Überbestimmung, sodass NA nicht berechnet werden kann. Diese Punkte sind nicht kontrolliert, ein
 grober Fehler in ihrer Bestimmung würde nicht aufgedeckt werden. \bigskip
@@ -615,11 +539,11 @@ wurde festgelegt, dass Beobachtungen jeweils als ganze Visuren entfernt werden. 
 Feld weggelassen werden. Eine Visur umfasst dabei die Richtung, die Schrägdistanz und die Zenitdistanz (RI, DS, ZD) einer 
 Beobachtung auf einer Station.\bigskip
 
-Als Referenz dient die Ausgleichung des vollständigen Netzes mit allen Beobachtungen (Version v0). Jede weitere Version wird 
+Als Referenz dient die Ausgleichung des vollständigen Netzes mit allen Beobachtungen (Version v0, \anhangref{opt0}). Jede weitere Version wird 
 mit diesem Ausgangszustand verglichen. Die Beurteilung aller Resultate ist in der Tabelle~\ref{tab:kenngroessen_optimierung} 
 dargestellt.\bigskip
 
-In einer ersten Version wurden neun Visuren entfernt und die Genauigkeit sowie die Zuverlässigkeit des resultierenden Netzes 
+In einer ersten Version (siehe \anhangref{opt1}, Gezwängter Ausgleich optimiert v1) wurden neun Visuren entfernt und die Genauigkeit sowie die Zuverlässigkeit des resultierenden Netzes 
 anhand der Anforderungen in Tabelle~\ref{tab:anforderungen_optimierung} geprüft. Visuren wurden vor allem dort entfernt, wo das Netz dichter 
 vermessen wurde, als es nötig ist. Das betrifft hauptsächlich die Visuren zwischen den Stationen 1000, 2000, 210 und 510. Diese 
 Punkte liegen nahe beieinander und wurden ursprünglich alle untereinander gemessen, jeweils mit Hin- und Rückmessung. Von der 
@@ -666,7 +590,7 @@ die Verbindung 210 nach 2000 vollständig. Die in zwei Sätzen gemessene Visur 7
 die Verbindung bleibt über die Gegenrichtung erhalten. Zusätzlich wurde versucht, die Exzentrumsstation EX7016.4 zu
 reduzieren. Die entfernten Visuren sind in Tabelle~\ref{tab:eliminierte_visuren_v2} aufgeführt.\bigskip 
 
-Auch nach der zweiten Version erfüllt das Netz die Anforderungen. Die Anzahl der stark überbestimmten Beobachtungen hat
+Auch nach der zweiten Version (siehe \anhangref{opt2}, Gezwängter Ausgleich optimiert v2) erfüllt das Netz die Anforderungen. Die Anzahl der stark überbestimmten Beobachtungen hat
 weiter abgenommen, und keine normierte Verbesserung überschreitet den Grenzwert. Die Anzahl der schwach kontrollierten
 Beobachtungen in der Lage hat jedoch erstmals leicht zugenommen. Die mittleren Quotienten empirisch/theoretisch liegen
 weiterhin nahe bei 1, und die Koordinatengenauigkeit verschlechtert sich nur geringfügig.
@@ -705,7 +629,7 @@ Die in der zweiten Version gestrichenen Visuren der Exzentrumsstation EX7016.4 a
 wieder aufgenommen. Diese Punkte liegen nahe beieinander und sind nur über wenige Stationen an das übrige Netz
 angeschlossen. Ohne diese Visuren wäre ihre Verknüpfung an das restliche Netz nicht mehr ausreichend gewesen.\bigskip
 
-Auch nach der dritten Version erfüllt das Netz die Anforderungen an die Zuverlässigkeit~\ref{tab:kenngroessen_optimierung}. 
+Auch nach der dritten Version (siehe \anhangref{opt3}, Gezwängter Ausgleich optimiert v3) erfüllt das Netz die Anforderungen an die Zuverlässigkeit~\ref{tab:kenngroessen_optimierung}. 
 Die Anzahl der stark überbestimmten Beobachtungen hat weiter abgenommen, und keine normierte Verbesserung überschreitet den Grenzwert.
 Die mittleren Quotienten empirisch/theoretisch liegen weiterhin nahe bei 1. Die gestrichenen Visuren wiesen jedoch
 bereits vor dem Entfernen eine lokale Zuverlässigkeit im Bereich der oberen Grenze auf. Im Netz ist somit kaum noch

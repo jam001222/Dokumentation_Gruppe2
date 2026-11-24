@@ -45,6 +45,7 @@
 
 
 % --- Tabellen ---
+\usepackage{longtable}
 \usepackage{booktabs}
 \usepackage{threeparttable}
 \usepackage{tabularx}
@@ -70,6 +71,7 @@
 \usepackage{multicol}
 \usepackage{multirow}
 \usepackage{xcolor}
+
 
 % --- Referenzen und Links ---
 \usepackage{xurl}                
@@ -102,8 +104,18 @@
 \usepackage{hyperref}
 
 
-% \anhangpdf{Label}{Dateiname ohne .pdf}{Titel im Inhaltsverzeichnis}
+\newif\iffirstpdfpage
+
+% \anhangpdf{Kürzel}{Dateiname ohne .pdf}{Titel im Inhaltsverzeichnis}
 \newcommand{\anhangpdf}[3]{%
-  \includepdf[pages=-, pagecommand={},
-    addtotoc={1, subsection, 2, {#3}, pdf:#1}]{anhang/#2.pdf}%
+  \clearpage
+  \phantomsection
+  \addcontentsline{toc}{subsection}{#3}%
+  \global\firstpdfpagetrue
+  \includepdf[pages=-,
+    pagecommand={\iffirstpdfpage\hypertarget{pdf:#1}{}\global\firstpdfpagefalse\fi}
+  ]{anhang/#2.pdf}%
 }
+
+% Verweis im Text: ergibt "Anhang 7" (anklickbar, Nummer automatisch)
+\newcommand{\anhangref}[1]{\hyperlink{pdf:#1}{Anhang~\ref*{nr:#1}}}

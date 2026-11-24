@@ -100,3 +100,10 @@
 \usepackage{amsmath}
 \usepackage{pdfpages}
 \usepackage{hyperref}
+
+
+% \anhangpdf{Label}{Dateiname ohne .pdf}{Titel im Inhaltsverzeichnis}
+\newcommand{\anhangpdf}[3]{%
+  \includepdf[pages=-, pagecommand={},
+    addtotoc={1, subsection, 2, {#3}, pdf:#1}]{anhang/#2.pdf}%
+}

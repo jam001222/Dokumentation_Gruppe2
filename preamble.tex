@@ -75,6 +75,9 @@
 
 % --- Referenzen und Links ---
 \usepackage{xurl}                
+\usepackage{csquotes} % für saubere Zitate
+\usepackage[backend=biber,style=apa]{biblatex}
+\addbibresource{bibliography.bib}
 \usepackage[colorlinks=true,linkcolor=black,citecolor=black,urlcolor=blue]{hyperref}
 \usepackage{cleveref}
 % Deutsche Bezeichnungen für \cref/\Cref
@@ -85,13 +88,9 @@
 \crefname{equation}{Gleichung}{Gleichungen}
 \Crefname{equation}{Gleichung}{Gleichungen}
 \usepackage[labelfont=bf,font={footnotesize, it},labelsep=colon]{caption}
-\usepackage[backend=biber,style=apa]{biblatex}
-\addbibresource{bibliography.bib}
-% Required for APA style
-\DeclareLanguageMapping{english}{english-apa}
+
 
 % --- Sonstiges ---
-\usepackage{csquotes} % für saubere Zitate
 \setlength{\marginparwidth}{2cm}
 \usepackage[textsize=tiny]{todonotes}
 \usepackage{ifthen}

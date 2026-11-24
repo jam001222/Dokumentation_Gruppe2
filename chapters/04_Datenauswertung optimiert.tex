@@ -539,9 +539,14 @@ wurde festgelegt, dass Beobachtungen jeweils als ganze Visuren entfernt werden. 
 Feld weggelassen werden. Eine Visur umfasst dabei die Richtung, die Schrägdistanz und die Zenitdistanz (RI, DS, ZD) einer 
 Beobachtung auf einer Station.\bigskip
 
-Als Referenz dient die Ausgleichung des vollständigen Netzes mit allen Beobachtungen (Version v0, \anhangref{opt0}). Jede weitere Version wird 
-mit diesem Ausgangszustand verglichen. Die Beurteilung aller Resultate ist in der Tabelle~\ref{tab:kenngroessen_optimierung} 
-dargestellt.\bigskip
+Als Ausgangsversion für die Optimierung (Version v0, \anhangref{opt0}) diente die zuletzt erstellte Version der
+gezwängten Ausgleichung (Gezwängter Ausgleich v2, \anhangref{gezw2}). Darin wurden die Punkte 9000 und EX7000
+eliminiert. Diese Punkte dienten lediglich dem Anschluss an das Höhenbezugssystem LN02. Da die Höhenlagerung
+ausschliesslich über die langstatischen GNSS-Messungen der Referenzstationen erfolgt (siehe
+\Cref{sec:entscheid hoehenlagerung}), werden sie für die Auswertung nicht mehr benötigt. Mit ihnen entfallen
+auch die zugehörigen Nivellementmessungen sowie die Aufstellungen auf diesen Punkten, was den Messaufwand im Feld
+zusätzlich reduziert. Jede weitere Version wird mit diesem Ausgangszustand v0 verglichen. Die Beurteilung aller 
+Resultate ist in der Tabelle~\ref{tab:kenngroessen_optimierung} dargestellt.\bigskip
 
 In einer ersten Version (siehe \anhangref{opt1}, Gezwängter Ausgleich optimiert v1) wurden neun Visuren entfernt und die Genauigkeit sowie die Zuverlässigkeit des resultierenden Netzes 
 anhand der Anforderungen in Tabelle~\ref{tab:anforderungen_optimierung} geprüft. Visuren wurden vor allem dort entfernt, wo das Netz dichter 
